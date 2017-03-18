@@ -1,6 +1,6 @@
 import SpriteKit
 
-public class AboutMe: SKScene {
+public class AboutMeScene: SKScene {
     override public init(size: CGSize) {
         super.init(size: size)
         let txtTitle = SKLabelNode()
