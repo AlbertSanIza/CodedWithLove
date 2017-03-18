@@ -28,4 +28,7 @@ public class SplashScene: SKScene {
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    override public func keyUp(with event: NSEvent) {
+        print(event)
+    }
 }
