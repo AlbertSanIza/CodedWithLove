@@ -48,26 +48,7 @@ public class MainMenuScene: SKScene {
         }
         shakeAction = SKAction.repeatForever(SKAction.sequence(sequence))
     }
-    override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let touch = touches.first
-        guard let positionInScene = touch?.location(in: self) else {return}
-        if let touchedNode = self.nodes(at: positionInScene).first {
-            selectedNode = touchedNode
-            selectedNode?.run(shakeAction!, withKey: "shake")
-        }
-        
-    }
-    override public func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let touch = touches.first else {return}
-        let translationInScene = touch.location(in: self) - touch.previousLocation(in: self)
-        if let selected = selectedNode {
-            selected.position += translationInScene
-        }
-    }
-    override public func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if selectedNode != nil {
-            selectedNode?.removeAction(forKey: "shake")
-            selectedNode = nil
-        }
+    override public func keyUp(with event: NSEvent) {
+        print(event)
     }
 }
