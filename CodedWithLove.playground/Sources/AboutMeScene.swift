@@ -13,6 +13,7 @@ public class AboutMeScene: SKScene {
         addChild(txtTitle)
     }
     override public func keyUp(with event: NSEvent) {
-        print(event)
+        let mainMenuScene = MainMenuScene(size: (scene?.size)!)
+        self.view?.presentScene(mainMenuScene)
     }
 }
