@@ -28,6 +28,7 @@ public class SplashScene: SKScene {
         fatalError("init(coder:) has not been implemented")
     }
     override public func keyUp(with event: NSEvent) {
-        print(event)
+        let mainMenuScene = MainMenuScene(size: (scene?.size)!)
+        self.view?.presentScene(mainMenuScene)
     }
 }
