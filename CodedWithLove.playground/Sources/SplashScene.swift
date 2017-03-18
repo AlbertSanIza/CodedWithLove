@@ -14,7 +14,11 @@ public class SplashScene: SKScene {
         txtSubTitle.position = CGPoint(x: frame.midX - 85 , y: frame.midY - 25)
         txtSubTitle.fontSize = 20
         addChild(txtSubTitle)
-        
+        let txtStart = SKLabelNode(fontNamed: "Apple Color Emoji")
+        txtStart.text = "Start"
+        txtStart.position = CGPoint(x: frame.midX, y: 40)
+        txtStart.fontSize = 18
+        addChild(txtStart)
     }
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
