@@ -1,6 +1,9 @@
 import SpriteKit
 
 public class SplashScene: SKScene {
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     override public init(size: CGSize) {
         super.init(size: size)
         let txtLove = SKLabelNode()
@@ -23,9 +26,6 @@ public class SplashScene: SKScene {
         txtStart.position = CGPoint(x: frame.midX, y: 20)
         txtStart.fontSize = 16
         addChild(txtStart)
-    }
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     override public func keyUp(with event: NSEvent) {
         let mainMenuScene = MainMenuScene(size: (scene?.size)!)

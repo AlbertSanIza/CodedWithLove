@@ -15,10 +15,11 @@ func += ( left: inout CGPoint, right: CGPoint) {
 let degree = CGFloat(M_PI_2) / 90
 
 public class MainMenuScene: SKScene {
-    
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     var selectedNode: SKNode?
     var shakeAction: SKAction?
-    
     override public init(size: CGSize) {
         super.init(size: size)
         let text = SKLabelNode(text: "Hello, World! \u{1F601}")
@@ -26,9 +27,6 @@ public class MainMenuScene: SKScene {
         text.position = CGPoint(x: size.width / 2, y: size.height/2)
         addChild(text)
         makeShakeAction()
-    }
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     func makeShakeAction() {
         var sequence = [SKAction]()
@@ -49,6 +47,5 @@ public class MainMenuScene: SKScene {
         shakeAction = SKAction.repeatForever(SKAction.sequence(sequence))
     }
     override public func keyUp(with event: NSEvent) {
-        print(event)
     }
 }
