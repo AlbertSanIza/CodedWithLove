@@ -1,9 +1,6 @@
 import SpriteKit
 import GameplayKit
 public class GameScene: SKScene {
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
     private var lastUpdateTime : TimeInterval = 0
@@ -11,6 +8,13 @@ public class GameScene: SKScene {
     private var spinnyNode : SKShapeNode?
     override public init(size: CGSize) {
         super.init(size: size)
+        let txtHello = SKLabelNode(fontNamed: "Helvetica Neue UltraLight")
+        addChild(txtHello)
+        txtHello.name = "helloLabel"
+        txtHello.text = "Hello, World! 🇲🇽"
+        txtHello.position = CGPoint(x: frame.midX, y: frame.midY - 25)
+        txtHello.fontSize = 50
+        txtHello.zPosition = 1
     }
     override public func sceneDidLoad() {
         self.lastUpdateTime = 0
@@ -77,5 +81,8 @@ public class GameScene: SKScene {
             entity.update(deltaTime: dt)
         }
         self.lastUpdateTime = currentTime
+    }
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
