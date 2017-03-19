@@ -29,7 +29,7 @@ public class SplashScene: SKScene {
         addChild(nodeTitle)
         addChild(txtStart)
         let fadeIn = SKAction.fadeIn(withDuration: 0.50)
-        let fadeWait = SKAction.wait(forDuration: 2.0)
+        let fadeWait = SKAction.wait(forDuration: 1.5)
         let fadeOut = SKAction.fadeOut(withDuration: 0.50)
         let sequence = SKAction.repeatForever(SKAction.sequence([fadeIn, fadeWait, fadeOut]))
         txtStart.run(sequence)
