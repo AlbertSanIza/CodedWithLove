@@ -3,6 +3,7 @@ public class SplashScene: SKScene {
     private var label : SKLabelNode?
     override public init(size: CGSize) {
         super.init(size: size)
+        backgroundColor = .black
         let txtLove = SKLabelNode()
         txtLove.text = "👨🏽‍💻❤️"
         txtLove.position = CGPoint(x: frame.midX, y: frame.midY  + 42)
