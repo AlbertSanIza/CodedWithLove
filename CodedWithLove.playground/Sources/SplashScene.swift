@@ -24,9 +24,6 @@ public class SplashScene: SKScene {
         txtStart.fontSize = 20
         addChild(txtStart)
     }
-    override public func sceneDidLoad() {
-        self.label = self.childNode(withName: "//pressLabel") as? SKLabelNode
-    }
     override public func keyUp(with event: NSEvent) {
         switch event.keyCode {
             case 0x31:
