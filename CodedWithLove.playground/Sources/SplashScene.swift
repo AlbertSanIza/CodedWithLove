@@ -34,7 +34,8 @@ public class SplashScene: SKScene {
         switch event.keyCode {
             case 0x31:
             let mainMenuScene = MainMenuScene(size: (scene?.size)!)
-            self.view?.presentScene(mainMenuScene)
+            let fadeTransition = SKTransition.fade(withDuration: 2.0)
+            self.view?.presentScene(mainMenuScene, transition: fadeTransition)
             default: break
         }
     }
