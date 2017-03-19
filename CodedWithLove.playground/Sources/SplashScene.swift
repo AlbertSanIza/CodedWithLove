@@ -1,6 +1,5 @@
 import SpriteKit
 public class SplashScene: SKScene {
-    private var label : SKLabelNode?
     override public init(size: CGSize) {
         super.init(size: size)
         backgroundColor = .black
@@ -20,7 +19,6 @@ public class SplashScene: SKScene {
         txtSubTitle.fontSize = 20
         addChild(txtSubTitle)
         let txtStart = SKLabelNode()
-        txtStart.name = "pressLabel"
         txtStart.text = "Press spacebar to start..."
         txtStart.position = CGPoint(x: frame.midX, y: 20)
         txtStart.fontSize = 20
