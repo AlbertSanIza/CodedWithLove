@@ -3,6 +3,9 @@ public class SplashScene: SKScene {
     override public init(size: CGSize) {
         super.init(size: size)
         backgroundColor = .black
+        let nodeTitle = SKNode()
+        nodeTitle.position = CGPoint(x: frame.midX, y: frame.midY)
+        nodeTitle.alpha = 0.0
         let txtLove = SKLabelNode()
         txtLove.text = "👨🏽‍💻❤️"
         txtLove.position = CGPoint(x: frame.midX, y: frame.midY  + 42)
@@ -23,6 +26,7 @@ public class SplashScene: SKScene {
         txtStart.position = CGPoint(x: frame.midX, y: 20)
         txtStart.fontSize = 20
         txtStart.alpha = 0.0
+        addChild(nodeTitle)
         let fadeIn = SKAction.fadeIn(withDuration: 0.50)
         let fadeWait = SKAction.wait(forDuration: 2.0)
         let fadeOut = SKAction.fadeOut(withDuration: 0.50)
