@@ -10,17 +10,17 @@ public class SplashScene: SKScene {
         txtLove.text = "👨🏽‍💻❤️"
         txtLove.position = CGPoint(x: frame.midX, y: frame.midY  + 42)
         txtLove.fontSize = 50
-        addChild(txtLove)
         let txtTitle = SKLabelNode(fontNamed: "Chalkduster")
         txtTitle.text = "CODED WITH LOVE"
         txtTitle.position = CGPoint(x: frame.midX, y: frame.midY)
         txtTitle.fontSize = 46
-        addChild(txtTitle)
         let txtSubTitle = SKLabelNode(fontNamed: "Chalkduster")
         txtSubTitle.text = "By: Albert Sanchez"
         txtSubTitle.position = CGPoint(x: frame.midX, y: frame.midY - 25)
         txtSubTitle.fontSize = 26
-        addChild(txtSubTitle)
+        nodeTitle.addChild(txtLove)
+        nodeTitle.addChild(txtTitle)
+        nodeTitle.addChild(txtSubTitle)
         let txtStart = SKLabelNode()
         txtStart.text = "Press spacebar to start..."
         txtStart.position = CGPoint(x: frame.midX, y: 20)
