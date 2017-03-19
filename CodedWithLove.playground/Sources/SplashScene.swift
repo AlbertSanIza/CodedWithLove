@@ -29,8 +29,12 @@ public class SplashScene: SKScene {
         self.label = self.childNode(withName: "//pressLabel") as? SKLabelNode
     }
     override public func keyUp(with event: NSEvent) {
-        let mainMenuScene = MainMenuScene(size: (scene?.size)!)
-        self.view?.presentScene(mainMenuScene)
+        switch event.keyCode {
+            case 0x31:
+            let mainMenuScene = MainMenuScene(size: (scene?.size)!)
+            self.view?.presentScene(mainMenuScene)
+            default: break
+        }
     }
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
