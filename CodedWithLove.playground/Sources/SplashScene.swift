@@ -21,7 +21,7 @@ public class SplashScene: SKScene {
         txtSubTitle.position = CGPoint(x: frame.midX, y: frame.midY - 25)
         txtSubTitle.fontSize = 20
         addChild(txtSubTitle)
-        let txtStart = SKLabelNode(fontNamed: "Arial")
+        let txtStart = SKLabelNode()
         txtStart.text = "Press any key to Start"
         txtStart.position = CGPoint(x: frame.midX, y: 20)
         txtStart.fontSize = 16
