@@ -24,7 +24,7 @@ public class SplashScene: SKScene {
         let txtStart = SKLabelNode()
         txtStart.text = "Press any key to Start"
         txtStart.position = CGPoint(x: frame.midX, y: 20)
-        txtStart.fontSize = 16
+        txtStart.fontSize = 20
         addChild(txtStart)
     }
     override public func keyUp(with event: NSEvent) {
