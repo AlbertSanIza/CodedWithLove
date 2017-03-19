@@ -11,7 +11,6 @@ public class GameScene: SKScene {
     private var spinnyNode : SKShapeNode?
     override public init(size: CGSize) {
         super.init(size: size)
-        
     }
     override public func sceneDidLoad() {
         self.lastUpdateTime = 0
