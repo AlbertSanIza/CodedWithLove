@@ -14,7 +14,7 @@ func += ( left: inout CGPoint, right: CGPoint) {
 
 let degree = CGFloat(M_PI_2) / 90
 
-public class MainMenuScene: SKScene {
+public class SampleScene: SKScene {
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
