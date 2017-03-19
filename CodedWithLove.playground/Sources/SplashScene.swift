@@ -23,6 +23,8 @@ public class SplashScene: SKScene {
         txtStart.fontSize = 20
         addChild(txtStart)
     }
+    override public func sceneDidLoad() {
+    }
     override public func keyUp(with event: NSEvent) {
         let mainMenuScene = MainMenuScene(size: (scene?.size)!)
         self.view?.presentScene(mainMenuScene)
