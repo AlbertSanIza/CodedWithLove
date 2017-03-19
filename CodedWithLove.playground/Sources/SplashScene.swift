@@ -1,5 +1,6 @@
 import SpriteKit
 public class SplashScene: SKScene {
+    private var label : SKLabelNode?
     override public init(size: CGSize) {
         super.init(size: size)
         let txtLove = SKLabelNode()
@@ -25,6 +26,7 @@ public class SplashScene: SKScene {
         addChild(txtStart)
     }
     override public func sceneDidLoad() {
+        self.label = self.childNode(withName: "//pressLabel") as? SKLabelNode
     }
     override public func keyUp(with event: NSEvent) {
         let mainMenuScene = MainMenuScene(size: (scene?.size)!)
