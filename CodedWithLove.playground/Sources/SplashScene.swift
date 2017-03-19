@@ -27,12 +27,12 @@ public class SplashScene: SKScene {
         txtStart.fontSize = 20
         txtStart.alpha = 0.0
         addChild(nodeTitle)
+        addChild(txtStart)
         let fadeIn = SKAction.fadeIn(withDuration: 0.50)
         let fadeWait = SKAction.wait(forDuration: 2.0)
         let fadeOut = SKAction.fadeOut(withDuration: 0.50)
         let sequence = SKAction.repeatForever(SKAction.sequence([fadeIn, fadeWait, fadeOut]))
         txtStart.run(sequence)
-        addChild(txtStart)
     }
     override public func keyUp(with event: NSEvent) {
         switch event.keyCode {
