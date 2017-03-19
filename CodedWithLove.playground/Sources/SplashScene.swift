@@ -32,7 +32,9 @@ public class SplashScene: SKScene {
         let fadeWait = SKAction.wait(forDuration: 1.5)
         let fadeOut = SKAction.fadeOut(withDuration: 0.50)
         let sequence = SKAction.repeatForever(SKAction.sequence([fadeIn, fadeWait, fadeOut]))
-        txtStart.run(sequence)
+        nodeTitle.run(SKAction.sequence([SKAction.wait(forDuration: 1.0), SKAction.fadeIn(withDuration: 3.0)])) {
+            txtStart.run(sequence)
+        }
     }
     override public func keyUp(with event: NSEvent) {
         switch event.keyCode {
