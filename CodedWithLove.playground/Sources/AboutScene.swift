@@ -36,6 +36,24 @@ public class AboutScene: SKScene {
         txtMessage03.position = CGPoint(x: 0, y: -20)
         txtMessage03.fontSize = 18
         nodeText.addChild(txtMessage03)
+        let txtMessage04 = SKLabelNode()
+        txtMessage04.name = "txtMessage04"
+        txtMessage04.text = "I am 23 years old, and I recently finished a Mechatronics Engineering Major,"
+        txtMessage04.position = CGPoint(x: 0, y: -50)
+        txtMessage04.fontSize = 18
+        nodeText.addChild(txtMessage04)
+        let txtMessage05 = SKLabelNode()
+        txtMessage05.name = "txtMessage05"
+        txtMessage05.text = "at CETYS Universidad in Tijuana, Mexico where I currently live"
+        txtMessage05.position = CGPoint(x: 0, y: -70)
+        txtMessage05.fontSize = 18
+        nodeText.addChild(txtMessage05)
+        let txtMessage06 = SKLabelNode()
+        txtMessage06.name = "txtMessage06"
+        txtMessage06.text = "🇺🇸 ❤️ 🇲🇽"
+        txtMessage06.position = CGPoint(x: 0, y: -100)
+        txtMessage06.fontSize = 18
+        nodeText.addChild(txtMessage06)
     }
     override public func keyUp(with event: NSEvent) {
         switch event.keyCode {
