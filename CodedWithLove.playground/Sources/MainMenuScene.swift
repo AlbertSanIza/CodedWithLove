@@ -37,14 +37,8 @@ public class MainMenuScene: SKScene {
         nodeMenu.addChild(txtBack)
         addChild(txtTitle)
         addChild(nodeMenu)
-        let sequence = SKAction.repeatForever(SKAction.sequence(
-            [SKAction.fadeOut(withDuration: 0.5),
-             SKAction.fadeIn(withDuration: 2)]
-        ))
-        nodeMenu.run(SKAction.group(
-            [SKAction.moveTo(y: frame.midY, duration: 1.0),
-             SKAction.sequence([SKAction.fadeIn(withDuration: 1.5)])]
-        )) {
+        let sequence = SKAction.repeatForever(SKAction.sequence([SKAction.fadeOut(withDuration: 0.5), SKAction.fadeIn(withDuration: 2)]))
+        nodeMenu.run(SKAction.group([SKAction.moveTo(y: frame.midY, duration: 1.0), SKAction.sequence([SKAction.fadeIn(withDuration: 1.5)])])) {
             txtStart.run(sequence)
         }
     }
