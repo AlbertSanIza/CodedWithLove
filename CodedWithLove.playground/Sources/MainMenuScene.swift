@@ -43,6 +43,15 @@ public class MainMenuScene: SKScene {
             txtStart.run(sequence)
         }
     }
+    override public func keyUp(with event: NSEvent) {
+        switch event.keyCode {
+            case 53:
+            let mainMenuScene = SplashScene(size: (scene?.size)!)
+            let fadeTransition = SKTransition.fade(withDuration: 2.0)
+            self.view?.presentScene(mainMenuScene, transition: fadeTransition)
+            default:break
+        }
+    }
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
