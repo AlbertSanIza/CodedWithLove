@@ -38,7 +38,7 @@ public class MainMenuScene: SKScene {
         ))
         nodeMenu.run(SKAction.group(
             [SKAction.moveTo(y: frame.midY, duration: 1.0),
-             SKAction.sequence([SKAction.fadeIn(withDuration: 2.0)])]
+             SKAction.sequence([SKAction.fadeIn(withDuration: 1.5)])]
         )) {
             txtStart.run(sequence)
         }
