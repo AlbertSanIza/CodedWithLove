@@ -17,7 +17,7 @@ public class InstructionsScene: SKScene {
     override public func keyUp(with event: NSEvent) {
         switch event.keyCode {
         case 53:
-            run(SKAction.playSoundFileNamed("sounds/back.wav" , waitForCompletion: false))
+            run(SKAction.playSoundFileNamed("sounds/pick.wav" , waitForCompletion: false))
             goToScene()
         default:break
         }
@@ -27,7 +27,7 @@ public class InstructionsScene: SKScene {
         if let touchedNode = nodes(at: positionInScene).first {
             switch touchedNode.name {
             case "txtBack"?:
-                run(SKAction.playSoundFileNamed("sounds/back.wav" , waitForCompletion: false))
+                run(SKAction.playSoundFileNamed("sounds/pick.wav" , waitForCompletion: false))
                 touchedNode.run(SKAction.fadeOut(withDuration: 0.5)) {
                     self.goToScene()
                 }
