@@ -40,11 +40,12 @@ public class SplashScene: SKScene {
     override public func keyUp(with event: NSEvent) {
         switch event.keyCode {
             case 49:
-            let mainMenuScene = MainMenuScene(size: (scene?.size)!)
-            let fadeTransition = SKTransition.fade(withDuration: 2.0)
-            self.view?.presentScene(mainMenuScene, transition: fadeTransition)
+            goToScene()
             default: break
         }
+    }
+    func goToScene() {
+        self.view?.presentScene(MainMenuScene(size: (scene?.size)!), transition: SKTransition.fade(withDuration: 1.5))
     }
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
