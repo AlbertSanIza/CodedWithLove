@@ -55,7 +55,7 @@ public class MainMenuScene: SKScene {
         case 53, 11:
             run(SKAction.playSoundFileNamed("sounds/pick.wav" , waitForCompletion: false))
             goToScene(withName: "SplashScene")
-        default:break
+        default: break
         }
     }
     override public func mouseDown(with event: NSEvent) {
