@@ -8,7 +8,8 @@ public class MainMenuScene: SKScene {
         txtTitle.position = CGPoint(x: frame.midX, y: frame.height - 60)
         txtTitle.fontSize = 40
         let nodeMenu = SKNode()
-        nodeMenu.position = CGPoint(x: frame.midX, y: frame.midY)
+        nodeMenu.position = CGPoint(x: frame.midX, y: frame.midY - 30)
+        nodeMenu.alpha = 0.0
         let txtStart = SKLabelNode()
         txtStart.text = "START"
         txtStart.position = CGPoint(x: 0, y: 0)
@@ -31,6 +32,16 @@ public class MainMenuScene: SKScene {
         nodeMenu.addChild(txtBack)
         addChild(txtTitle)
         addChild(nodeMenu)
+        let sequence = SKAction.repeatForever(SKAction.sequence(
+            [SKAction.fadeOut(withDuration: 0.5),
+             SKAction.fadeIn(withDuration: 2)]
+        ))
+        nodeMenu.run(SKAction.group(
+            [SKAction.moveTo(y: frame.midY, duration: 1.0),
+             SKAction.sequence([SKAction.fadeIn(withDuration: 2.0)])]
+        )) {
+            txtStart.run(sequence)
+        }
     }
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
