@@ -21,6 +21,18 @@ public class AboutMeScene: SKScene {
         default:break
         }
     }
+    override public func mouseDown(with event: NSEvent) {
+        let positionInScene = CGPoint(x: event.locationInWindow.x, y: event.locationInWindow.y)
+        if let touchedNode = self.nodes(at: positionInScene).first {
+            switch touchedNode.name {
+            case "txtBack"?:
+                touchedNode.run(SKAction.fadeOut(withDuration: 0.5)) {
+                    self.goToScene()
+                }
+            default: break
+            }
+        }
+    }
     func goToScene() {
         self.view?.presentScene(MainMenuScene(size: (scene?.size)!), transition: SKTransition.fade(withDuration: 1.5))
     }
