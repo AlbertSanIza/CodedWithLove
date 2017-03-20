@@ -17,15 +17,17 @@ public class InstructionsScene: SKScene {
     override public func keyUp(with event: NSEvent) {
         switch event.keyCode {
         case 53:
+            run(SKAction.playSoundFileNamed("sounds/back.wav" , waitForCompletion: false))
             goToScene()
         default:break
         }
     }
     override public func mouseDown(with event: NSEvent) {
         let positionInScene = CGPoint(x: event.locationInWindow.x, y: event.locationInWindow.y)
-        if let touchedNode = self.nodes(at: positionInScene).first {
+        if let touchedNode = nodes(at: positionInScene).first {
             switch touchedNode.name {
             case "txtBack"?:
+                run(SKAction.playSoundFileNamed("sounds/back.wav" , waitForCompletion: false))
                 touchedNode.run(SKAction.fadeOut(withDuration: 0.5)) {
                     self.goToScene()
                 }
