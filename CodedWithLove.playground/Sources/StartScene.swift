@@ -9,7 +9,11 @@ public class StartScene: SKScene {
         addChild(txtTitle)
     }
     override public func keyUp(with event: NSEvent) {
-        goToScene()
+        switch event.keyCode {
+        case 53:
+            goToScene()
+        default:break
+        }
     }
     func goToScene() {
         self.view?.presentScene(MainMenuScene(size: (scene?.size)!), transition: SKTransition.fade(withDuration: 1.5))
