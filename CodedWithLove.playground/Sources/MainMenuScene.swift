@@ -75,6 +75,8 @@ public class MainMenuScene: SKScene {
     func goToScene(withName: String) {
         let toGoScene: SKScene
         switch withName {
+        case "StartScene":
+            toGoScene = StartScene(size: (scene?.size)!)
         case "InstructionsScene":
             toGoScene = InstructionsScene(size: (scene?.size)!)
         case "AboutMeScene":
