@@ -25,7 +25,7 @@ public class MainMenuScene: SKScene {
         let txtBack = SKLabelNode()
         txtBack.text = "Back"
         txtBack.position = CGPoint(x: 0, y: -120)
-        txtBack.fontSize = 30
+        txtBack.fontSize = 20
         nodeMenu.addChild(txtStart)
         nodeMenu.addChild(txtInstructions)
         nodeMenu.addChild(txtAboutMe)
