@@ -44,7 +44,8 @@ public class MainMenuScene: SKScene {
     override public func keyUp(with event: NSEvent) {
         switch event.keyCode {
             case 53:
-            goToScene(withName: "SplashScene")
+                run(SKAction.playSoundFileNamed("sounds/pick.wav" , waitForCompletion: false))
+                goToScene(withName: "SplashScene")
             default:break
         }
     }
@@ -53,18 +54,22 @@ public class MainMenuScene: SKScene {
         if let touchedNode = self.nodes(at: positionInScene).first {
             switch touchedNode.name {
             case "txtStart"?:
+                run(SKAction.playSoundFileNamed("sounds/pick.wav" , waitForCompletion: false))
                 touchedNode.run(SKAction.fadeOut(withDuration: 0.5)) {
                     self.goToScene(withName: "StartScene")
                 }
             case "txtInstructions"?:
+                run(SKAction.playSoundFileNamed("sounds/pick.wav" , waitForCompletion: false))
                 touchedNode.run(SKAction.fadeOut(withDuration: 0.5)) {
                     self.goToScene(withName: "InstructionsScene")
                 }
             case "txtAboutMe"?:
+                run(SKAction.playSoundFileNamed("sounds/pick.wav" , waitForCompletion: false))
                 touchedNode.run(SKAction.fadeOut(withDuration: 0.5)) {
                     self.goToScene(withName: "AboutMeScene")
                 }
             case "txtBack"?:
+                run(SKAction.playSoundFileNamed("sounds/pick.wav" , waitForCompletion: false))
                 touchedNode.run(SKAction.fadeOut(withDuration: 0.5)) {
                     self.goToScene(withName: "SplashScene")
                 }
