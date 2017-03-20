@@ -52,6 +52,11 @@ public class MainMenuScene: SKScene {
             default:break
         }
     }
+    override public func mouseDown(with event: NSEvent) {
+        let positionInScene = CGPoint(x: event.locationInWindow.x, y: event.locationInWindow.y)
+        if let touchedNode = self.nodes(at: positionInScene).first {
+        }
+    }
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
