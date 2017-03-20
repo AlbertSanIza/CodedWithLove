@@ -16,7 +16,8 @@ public class AboutScene: SKScene {
         addChild(txtBack)
         let nodeText = SKNode()
         nodeText.name = "nodeText"
-        nodeText.position = CGPoint(x: frame.midX, y: frame.midY)
+        nodeText.position = CGPoint(x: frame.midX, y: frame.midY - 30)
+        nodeText.alpha = 0.0
         addChild(nodeText)
         let txtMessage01 = SKLabelNode()
         txtMessage01.name = "txtMessage01"
@@ -54,6 +55,7 @@ public class AboutScene: SKScene {
         txtMessage06.position = CGPoint(x: 0, y: -100)
         txtMessage06.fontSize = 18
         nodeText.addChild(txtMessage06)
+        nodeText.run(SKAction.group([SKAction.moveTo(y: frame.midY, duration: 1.0), SKAction.sequence([SKAction.fadeIn(withDuration: 1.5)])]))
     }
     override public func keyUp(with event: NSEvent) {
         switch event.keyCode {
