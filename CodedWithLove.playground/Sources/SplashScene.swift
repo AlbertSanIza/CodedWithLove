@@ -10,11 +10,11 @@ public class SplashScene: SKScene {
         txtLove.text = "👨🏽‍💻❤️"
         txtLove.position = CGPoint(x: 0, y: 42)
         txtLove.fontSize = 50
-        let txtTitle = SKLabelNode(fontNamed: "Chalkduster")
+        let txtTitle = SKLabelNode()
         txtTitle.text = "CODED WITH LOVE"
         txtTitle.position = CGPoint(x: 0, y: 0)
         txtTitle.fontSize = 46
-        let txtSubTitle = SKLabelNode(fontNamed: "Chalkduster")
+        let txtSubTitle = SKLabelNode()
         txtSubTitle.text = "by: Albert Sanchez"
         txtSubTitle.position = CGPoint(x: 0, y: -25)
         txtSubTitle.fontSize = 26
