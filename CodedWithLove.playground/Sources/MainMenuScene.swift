@@ -1,5 +1,4 @@
 import SpriteKit
-import GameplayKit
 public class MainMenuScene: SKScene {
     override public init(size: CGSize) {
         super.init(size: size)
