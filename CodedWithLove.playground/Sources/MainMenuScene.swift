@@ -59,13 +59,15 @@ public class MainMenuScene: SKScene {
         let positionInScene = CGPoint(x: event.locationInWindow.x, y: event.locationInWindow.y)
         if let touchedNode = self.nodes(at: positionInScene).first {
             switch touchedNode.name {
-                case "txtInstructions"?:
-                goToScene(withName: "InstructionsScene")
-                case "txtAboutMe"?:
+            case "txtInstructions"?:
+                touchedNode.run(SKAction.fadeIn(withDuration: 0.5)) {
+                    self.goToScene(withName: "InstructionsScene")
+                }
+            case "txtAboutMe"?:
                 goToScene(withName: "AboutMeScene")
-                case "txtBack"?:
+            case "txtBack"?:
                 goToScene(withName: "SplashScene")
-                default: break
+            default: break
             }
         }
     }
