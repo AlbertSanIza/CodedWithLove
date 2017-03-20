@@ -24,12 +24,12 @@ public class MainMenuScene: SKScene {
         txtInstructions.position = CGPoint(x: 0, y: -40)
         txtInstructions.fontSize = 30
         nodeMenu.addChild(txtInstructions)
-        let txtAboutMe = SKLabelNode()
-        txtAboutMe.name = "txtAboutMe"
-        txtAboutMe.text = "About Me"
-        txtAboutMe.position = CGPoint(x: 0, y: -80)
-        txtAboutMe.fontSize = 30
-        nodeMenu.addChild(txtAboutMe)
+        let txtAbout = SKLabelNode()
+        txtAbout.name = "txtAbout"
+        txtAbout.text = "About"
+        txtAbout.position = CGPoint(x: 0, y: -80)
+        txtAbout.fontSize = 30
+        nodeMenu.addChild(txtAbout)
         let txtBack = SKLabelNode()
         txtBack.name = "txtBack"
         txtBack.text = "Back"
@@ -63,10 +63,10 @@ public class MainMenuScene: SKScene {
                 touchedNode.run(SKAction.fadeOut(withDuration: 0.5)) {
                     self.goToScene(withName: "InstructionsScene")
                 }
-            case "txtAboutMe"?:
+            case "txtAbout"?:
                 run(SKAction.playSoundFileNamed("sounds/pick.wav" , waitForCompletion: false))
                 touchedNode.run(SKAction.fadeOut(withDuration: 0.5)) {
-                    self.goToScene(withName: "AboutMeScene")
+                    self.goToScene(withName: "AboutScene")
                 }
             case "txtBack"?:
                 run(SKAction.playSoundFileNamed("sounds/pick.wav" , waitForCompletion: false))
@@ -84,8 +84,8 @@ public class MainMenuScene: SKScene {
             toGoScene = StartScene(size: (scene?.size)!)
         case "InstructionsScene":
             toGoScene = InstructionsScene(size: (scene?.size)!)
-        case "AboutMeScene":
-            toGoScene = AboutMeScene(size: (scene?.size)!)
+        case "AboutScene":
+            toGoScene = AboutScene(size: (scene?.size)!)
         case "SplashScene":
             toGoScene = SplashScene(size: (scene?.size)!)
         default:
