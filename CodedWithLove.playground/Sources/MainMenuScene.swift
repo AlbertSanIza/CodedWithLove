@@ -51,9 +51,7 @@ public class MainMenuScene: SKScene {
     override public func keyUp(with event: NSEvent) {
         switch event.keyCode {
             case 53:
-            let mainMenuScene = SplashScene(size: (scene?.size)!)
-            let fadeTransition = SKTransition.fade(withDuration: 2.0)
-            self.view?.presentScene(mainMenuScene, transition: fadeTransition)
+            goToScene(withName: "SplashScene")
             default:break
         }
     }
