@@ -90,7 +90,8 @@ public class MainMenuScene: SKScene {
         let toGoScene: SKScene
         switch withName {
         case "StartScene":
-            toGoScene = StartScene(size: (scene?.size)!)
+            //toGoScene = StartScene(size: (scene?.size)!)
+            toGoScene = AboutScene2(fileNamed: "scenes/AboutScene2")!
         case "InstructionsScene":
             toGoScene = InstructionsScene(size: (scene?.size)!)
         case "AboutScene":
