@@ -13,7 +13,6 @@ public class AboutScene2: SKScene {
     }
     override public func mouseDown(with event: NSEvent) {
         let positionInScene = CGPoint(x: event.locationInWindow.x, y: event.locationInWindow.y)
-        print(positionInScene)
         if let touchedNode = self.nodes(at: positionInScene).first {
             print(touchedNode)
             switch touchedNode.name {
