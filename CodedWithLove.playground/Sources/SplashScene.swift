@@ -22,7 +22,7 @@ public class SplashScene: SKScene {
         nodeTitle.addChild(txtTitle)
         nodeTitle.addChild(txtSubTitle)
         let txtStart = SKLabelNode()
-        txtStart.text = "Press spacebar to start..."
+        txtStart.text = "Press any key to start..."
         txtStart.position = CGPoint(x: frame.midX, y: 20)
         txtStart.fontSize = 20
         txtStart.alpha = 0.0
@@ -38,12 +38,8 @@ public class SplashScene: SKScene {
         }
     }
     override public func keyUp(with event: NSEvent) {
-        switch event.keyCode {
-            case 49:
-                run(SKAction.playSoundFileNamed("sounds/pick.wav" , waitForCompletion: false))
-                goToScene()
-            default: break
-        }
+        run(SKAction.playSoundFileNamed("sounds/pick.wav" , waitForCompletion: false))
+        goToScene()
     }
     func goToScene() {
         self.view?.presentScene(MainMenuScene(size: (scene?.size)!), transition: SKTransition.fade(withDuration: 1.0))
