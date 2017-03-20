@@ -1,9 +1,10 @@
 import SpriteKit
-public class AboutMeScene: SKScene {
+public class AboutScene: SKScene {
     override public init(size: CGSize) {
         super.init(size: size)
         let txtTitle = SKLabelNode()
-        txtTitle.text = "About Me"
+        txtTitle.name = "txtTitle"
+        txtTitle.text = "About"
         txtTitle.position = CGPoint(x: frame.midX, y: frame.height - 60)
         txtTitle.fontSize = 40
         addChild(txtTitle)
