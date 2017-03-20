@@ -43,10 +43,19 @@ public class MainMenuScene: SKScene {
     }
     override public func keyUp(with event: NSEvent) {
         switch event.keyCode {
-            case 53:
-                run(SKAction.playSoundFileNamed("sounds/pick.wav" , waitForCompletion: false))
-                goToScene(withName: "SplashScene")
-            default:break
+        case 1:
+            run(SKAction.playSoundFileNamed("sounds/pick.wav" , waitForCompletion: false))
+            goToScene(withName: "StartScene")
+        case 34:
+            run(SKAction.playSoundFileNamed("sounds/pick.wav" , waitForCompletion: false))
+            goToScene(withName: "InstructionsScene")
+        case 0:
+            run(SKAction.playSoundFileNamed("sounds/pick.wav" , waitForCompletion: false))
+            goToScene(withName: "AboutScene")
+        case 53, 11:
+            run(SKAction.playSoundFileNamed("sounds/pick.wav" , waitForCompletion: false))
+            goToScene(withName: "SplashScene")
+        default:break
         }
     }
     override public func mouseDown(with event: NSEvent) {
