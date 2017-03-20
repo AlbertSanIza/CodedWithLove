@@ -76,7 +76,7 @@ public class MainMenuScene: SKScene {
         let toGoScene: SKScene
         switch withName {
             case "InstructionsScene":
-            toGoScene = SplashScene(size: (scene?.size)!)
+            toGoScene = InstructionsScene(size: (scene?.size)!)
             case "AboutMeScene":
             toGoScene = AboutMeScene(size: (scene?.size)!)
             case "SplashScene":
