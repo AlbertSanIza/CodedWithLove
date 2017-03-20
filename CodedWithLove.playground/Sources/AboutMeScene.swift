@@ -7,6 +7,12 @@ public class AboutMeScene: SKScene {
         txtTitle.position = CGPoint(x: frame.midX, y: frame.height - 60)
         txtTitle.fontSize = 40
         addChild(txtTitle)
+        let txtBack = SKLabelNode()
+        txtBack.name = "txtBack"
+        txtBack.text = "Back"
+        txtBack.position = CGPoint(x: 50, y: frame.height - 55)
+        txtBack.fontSize = 20
+        addChild(txtBack)
     }
     override public func keyUp(with event: NSEvent) {
         switch event.keyCode {
