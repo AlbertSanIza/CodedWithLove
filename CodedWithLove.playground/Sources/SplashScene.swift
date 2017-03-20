@@ -33,14 +33,14 @@ public class SplashScene: SKScene {
              SKAction.wait(forDuration: 1.5),
              SKAction.fadeOut(withDuration: 0.50)]
         ))
-        nodeTitle.run(SKAction.sequence([SKAction.wait(forDuration: 1.0), SKAction.fadeIn(withDuration: 3.0)])) {
+        nodeTitle.run(SKAction.sequence([SKAction.wait(forDuration: 1.0), SKAction.playSoundFileNamed("sounds/splash.wav" , waitForCompletion: false), SKAction.fadeIn(withDuration: 2.0)])) {
             txtStart.run(sequence)
         }
     }
     override public func keyUp(with event: NSEvent) {
         switch event.keyCode {
             case 49:
-                run(SKAction.playSoundFileNamed("sounds/splash.wav" , waitForCompletion: false))
+                run(SKAction.playSoundFileNamed("sounds/pick.wav" , waitForCompletion: false))
                 goToScene()
             default: break
         }
