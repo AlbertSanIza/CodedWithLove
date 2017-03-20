@@ -4,7 +4,7 @@ public class AboutMeScene: SKScene {
         super.init(size: size)
         let txtTitle = SKLabelNode()
         txtTitle.text = "About Me"
-        txtTitle.position = CGPoint(x: frame.midX, y: frame.height - 40)
+        txtTitle.position = CGPoint(x: frame.midX, y: frame.height - 60)
         txtTitle.fontSize = 40
         addChild(txtTitle)
     }
