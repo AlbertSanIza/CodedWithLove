@@ -58,6 +58,15 @@ public class MainMenuScene: SKScene {
     override public func mouseDown(with event: NSEvent) {
         let positionInScene = CGPoint(x: event.locationInWindow.x, y: event.locationInWindow.y)
         if let touchedNode = self.nodes(at: positionInScene).first {
+            switch touchedNode.name {
+                case "txtInstructions"?:
+                goToScene(withName: "InstructionsScene")
+                case "txtAboutMe"?:
+                goToScene(withName: "AboutMeScene")
+                case "txtBack"?:
+                goToScene(withName: "SplashScene")
+                default: break
+            }
         }
     }
     func goToScene(withName: String) {
