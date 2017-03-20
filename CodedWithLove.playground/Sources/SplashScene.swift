@@ -28,11 +28,7 @@ public class SplashScene: SKScene {
         txtStart.alpha = 0.0
         addChild(nodeTitle)
         addChild(txtStart)
-        let sequence = SKAction.repeatForever(SKAction.sequence(
-            [SKAction.fadeIn(withDuration: 0.50),
-             SKAction.wait(forDuration: 1.5),
-             SKAction.fadeOut(withDuration: 0.50)]
-        ))
+        let sequence = SKAction.repeatForever(SKAction.sequence([SKAction.fadeIn(withDuration: 0.50), SKAction.wait(forDuration: 1.5), SKAction.fadeOut(withDuration: 0.50)]))
         nodeTitle.run(SKAction.sequence([SKAction.wait(forDuration: 1.0), SKAction.playSoundFileNamed("sounds/splash.wav" , waitForCompletion: false), SKAction.fadeIn(withDuration: 2.0)])) {
             txtStart.run(sequence)
         }
