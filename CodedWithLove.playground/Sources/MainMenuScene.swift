@@ -60,7 +60,7 @@ public class MainMenuScene: SKScene {
         if let touchedNode = self.nodes(at: positionInScene).first {
             switch touchedNode.name {
             case "txtInstructions"?:
-                touchedNode.run(SKAction.fadeIn(withDuration: 0.5)) {
+                touchedNode.run(SKAction.fadeOut(withDuration: 0.5)) {
                     self.goToScene(withName: "InstructionsScene")
                 }
             case "txtAboutMe"?:
