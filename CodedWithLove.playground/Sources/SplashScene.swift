@@ -40,6 +40,7 @@ public class SplashScene: SKScene {
     override public func keyUp(with event: NSEvent) {
         switch event.keyCode {
             case 49:
+                run(SKAction.playSoundFileNamed("sounds/splash.wav" , waitForCompletion: false))
                 goToScene()
             default: break
         }
