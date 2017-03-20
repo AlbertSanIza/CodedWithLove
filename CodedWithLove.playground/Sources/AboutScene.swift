@@ -59,7 +59,7 @@ public class AboutScene: SKScene {
     }
     override public func keyUp(with event: NSEvent) {
         switch event.keyCode {
-        case 53:
+        case 53, 11:
             run(SKAction.playSoundFileNamed("sounds/pick.wav" , waitForCompletion: false))
             goToScene()
         default:break
