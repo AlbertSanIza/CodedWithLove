@@ -62,6 +62,20 @@ public class MainMenuScene: SKScene {
         if let touchedNode = self.nodes(at: positionInScene).first {
         }
     }
+    func goToScene(withName: String) {
+        let toGoScene: SKScene
+        switch withName {
+        case "InstructionsScene":
+            toGoScene = SplashScene(size: (scene?.size)!)
+        case "AboutMeScene":
+            toGoScene = AboutMeScene(size: (scene?.size)!)
+        case "SplashScene":
+            toGoScene = SplashScene(size: (scene?.size)!)
+        default:
+            toGoScene = SplashScene(size: (scene?.size)!)
+        }
+        self.view?.presentScene(toGoScene, transition: SKTransition.fade(withDuration: 2.0))
+    }
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
