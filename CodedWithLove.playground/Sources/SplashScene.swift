@@ -22,7 +22,7 @@ public class SplashScene: SKScene {
         nodeTitle.addChild(txtTitle)
         nodeTitle.addChild(txtSubTitle)
         let txtStart = SKLabelNode()
-        txtStart.text = "Press any key to start..."
+        txtStart.text = "Press any key to continue..."
         txtStart.position = CGPoint(x: frame.midX, y: 20)
         txtStart.fontSize = 20
         txtStart.alpha = 0.0
