@@ -91,7 +91,7 @@ public class MainMenuScene: SKScene {
         default:
             toGoScene = SplashScene(size: (scene?.size)!)
         }
-        self.view?.presentScene(toGoScene, transition: SKTransition.fade(withDuration: 1.5))
+        self.view?.presentScene(toGoScene, transition: SKTransition.fade(withDuration: 1.0))
     }
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
