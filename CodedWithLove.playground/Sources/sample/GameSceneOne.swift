@@ -1,6 +1,6 @@
 import SpriteKit
 import GameplayKit
-public class GameScene: SKScene {
+public class GameSceneOne: SKScene {
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
     private var lastUpdateTime : TimeInterval = 0
