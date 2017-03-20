@@ -42,8 +42,9 @@ public class MainMenuScene: SKScene {
         }
     }
     override public func keyUp(with event: NSEvent) {
+        print(event.keyCode)
         switch event.keyCode {
-        case 1:
+        case 1, 36:
             run(SKAction.playSoundFileNamed("sounds/pick.wav" , waitForCompletion: false))
             goToScene(withName: "StartScene")
         case 34:
