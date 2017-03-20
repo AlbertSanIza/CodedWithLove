@@ -7,6 +7,7 @@ mainView.showsFPS = true
 mainView.showsNodeCount = true
 
 let splashScene = SplashScene(size: mainFrame.size)
+splashScene.scaleMode = .aspectFill
 mainView.presentScene(splashScene)
 
 PlaygroundPage.current.liveView = mainView
