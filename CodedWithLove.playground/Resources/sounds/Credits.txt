@@ -10,5 +10,5 @@ Page: www.soundcloud.com/virix
 Files renamed:
 MENU A - Back.wav    --> back.wav
 MENU_Pick.wav        --> pick.wav
-MENU A_Select.wav        --> select.wav
+MENU A_Select.wav    --> select.wav
 MESSAGE-B_Accept.wav --> splash.wav
