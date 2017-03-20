@@ -40,7 +40,7 @@ public class SplashScene: SKScene {
     override public func keyUp(with event: NSEvent) {
         switch event.keyCode {
             case 49:
-            goToScene()
+                goToScene()
             default: break
         }
     }
