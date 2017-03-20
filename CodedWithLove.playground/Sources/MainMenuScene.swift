@@ -58,9 +58,13 @@ public class MainMenuScene: SKScene {
                     self.goToScene(withName: "InstructionsScene")
                 }
             case "txtAboutMe"?:
-                goToScene(withName: "AboutMeScene")
+                touchedNode.run(SKAction.fadeOut(withDuration: 0.5)) {
+                    self.goToScene(withName: "AboutMeScene")
+                }
             case "txtBack"?:
-                goToScene(withName: "SplashScene")
+                touchedNode.run(SKAction.fadeOut(withDuration: 0.5)) {
+                    self.goToScene(withName: "SplashScene")
+                }
             default: break
             }
         }
