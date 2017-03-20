@@ -75,13 +75,13 @@ public class MainMenuScene: SKScene {
     func goToScene(withName: String) {
         let toGoScene: SKScene
         switch withName {
-            case "InstructionsScene":
+        case "InstructionsScene":
             toGoScene = InstructionsScene(size: (scene?.size)!)
-            case "AboutMeScene":
+        case "AboutMeScene":
             toGoScene = AboutMeScene(size: (scene?.size)!)
-            case "SplashScene":
+        case "SplashScene":
             toGoScene = SplashScene(size: (scene?.size)!)
-            default:
+        default:
             toGoScene = SplashScene(size: (scene?.size)!)
         }
         self.view?.presentScene(toGoScene, transition: SKTransition.fade(withDuration: 1.5))
