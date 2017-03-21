@@ -1,5 +1,5 @@
 import SpriteKit
-public class AboutScene2: SKScene {
+public class AboutSceneFile: SKScene {
     override public func sceneDidLoad() {
         super.sceneDidLoad()
     }

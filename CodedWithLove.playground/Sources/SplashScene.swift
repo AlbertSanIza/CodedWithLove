@@ -1,5 +1,5 @@
 import SpriteKit
-public class SplashScene: SKScene {
+public class SplashSceneFile: SKScene {
     override public func sceneDidLoad() {
         super.sceneDidLoad()
         run(SKAction.sequence([SKAction.wait(forDuration: 1.0), SKAction.playSoundFileNamed("sounds/splash.wav" , waitForCompletion: false)]))

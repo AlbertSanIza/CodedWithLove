@@ -1,5 +1,16 @@
 import SpriteKit
 public class MainMenuScene: SKScene {
+  override public func sceneDidLoad() {
+    super.sceneDidLoad()
+  }
+  override public func keyUp(with event: NSEven) {
+    run(SKAction.playSoundFileNamed("sounds/pick.wav" , waitForCompletion: false))
+    goToScene()
+  }
+  func goToScene() {
+  }
+}
+public class MainMenuScene2: SKScene {
     override public init(size: CGSize) {
         super.init(size: size)
         let txtTitle = SKLabelNode()

@@ -1,4 +1,15 @@
 import SpriteKit
+public class StartSceneFile: SKScene {
+  override public func sceneDidLoad() {
+    super.sceneDidLoad()
+  }
+  override public func keyUp(with event: NSEven) {
+    run(SKAction.playSoundFileNamed("sounds/pick.wav" , waitForCompletion: false))
+    goToScene()
+  }
+  func goToScene() {
+  }
+}
 public class StartScene: SKScene {
     override public init(size: CGSize) {
         super.init(size: size)
