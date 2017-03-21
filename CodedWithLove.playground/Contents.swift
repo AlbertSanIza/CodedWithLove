@@ -6,8 +6,8 @@ let mainView = SKView(frame: mainFrame)
 mainView.showsFPS = true
 mainView.showsNodeCount = true
 
-let splashScene = SplashScene(size: mainFrame.size)
-splashScene.scaleMode = .aspectFill
+let splashScene = SplashScene(fileNamed: "scenes/SplashScene.sks")
+splashScene?.scaleMode = .aspectFit
 mainView.presentScene(splashScene)
 
 PlaygroundPage.current.liveView = mainView
