@@ -4,6 +4,14 @@ public class SplashScene: SKScene {
         super.sceneDidLoad()
         run(SKAction.sequence([SKAction.wait(forDuration: 1.0), SKAction.playSoundFileNamed("sounds/splash.wav" , waitForCompletion: false)]))
     }
+    override public func keyUp(with event: NSEvent) {
+        run(SKAction.playSoundFileNamed("sounds/pick.wav" , waitForCompletion: false))
+        goToScene()
+    }
+    func goToScene() {
+        print("que!?")
+        view?.presentScene(MainMenuScene(size: (scene?.size)!), transition: SKTransition.fade(withDuration: 1.0))
+    }
 }
 public class SplashScene2: SKScene {
     override public init(size: CGSize) {
