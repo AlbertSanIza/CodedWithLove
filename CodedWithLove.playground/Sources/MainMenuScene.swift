@@ -92,6 +92,7 @@ public class MainMenuScene: SKScene {
         case "StartScene":
             //toGoScene = StartScene(size: (scene?.size)!)
             toGoScene = AboutScene2(fileNamed: "scenes/AboutScene2")!
+            toGoScene.scaleMode = .aspectFit
         case "InstructionsScene":
             toGoScene = InstructionsScene(size: (scene?.size)!)
         case "AboutScene":
