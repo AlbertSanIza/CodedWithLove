@@ -1,5 +1,10 @@
 import SpriteKit
 public class SplashScene: SKScene {
+    override public func sceneDidLoad() {
+        super.sceneDidLoad()
+    }
+}
+public class SplashScene2: SKScene {
     override public init(size: CGSize) {
         super.init(size: size)
         backgroundColor = .black
