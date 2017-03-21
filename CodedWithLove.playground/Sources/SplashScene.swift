@@ -9,7 +9,6 @@ public class SplashScene: SKScene {
         goToScene()
     }
     func goToScene() {
-        print("que!?")
         view?.presentScene(MainMenuScene(size: (scene?.size)!), transition: SKTransition.fade(withDuration: 1.0))
     }
 }
