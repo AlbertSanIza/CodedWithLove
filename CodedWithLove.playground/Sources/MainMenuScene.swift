@@ -13,7 +13,9 @@ public class MainMenuSceneFile: SKScene {
             switch touchedNode.name {
             case "txtStart"?, "txtInstructions"?, "txtAbout"?, "txtBack"?:
                 run(SKAction.playSoundFileNamed("sounds/pick.wav" , waitForCompletion: false))
-                goToScene(withName: touchedNode.name!)
+                touchedNode.run(SKAction.fadeOut(withDuration: 0.5)) {
+                    self.goToScene(withName: touchedNode.name!)
+                }
             default: break
             }
         }
