@@ -48,6 +48,6 @@ public class MainMenuSceneFile: SKScene {
             toGoScene = SplashSceneFile(fileNamed: "scenes/SplashScene.sks")!
         }
         toGoScene.scaleMode = .aspectFit
-        view?.presentScene(toGoScene, transition: SKTransition.fade(withDuration: 2.0))
+        view?.presentScene(toGoScene, transition: SKTransition.crossFade(withDuration: 2.0))
     }
 }
