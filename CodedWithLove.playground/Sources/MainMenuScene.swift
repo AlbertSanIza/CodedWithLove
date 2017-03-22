@@ -8,9 +8,8 @@ public class MainMenuSceneFile: SKScene {
         goToScene(withName: "")
     }
     override public func mouseDown(with event: NSEvent) {
-        print(event)
-        let positionInScene = CGPoint(x: event.locationInWindow.x, y: event.locationInWindow.y)
-        if let touchedNode = self.nodes(at: positionInScene).first {
+        let mousePoint = convertPoint(fromView: CGPoint(x: event.locationInWindow.x, y: event.locationInWindow.y))
+        if let touchedNode = self.nodes(at: mousePoint).first {
             print(touchedNode)
         }
     }
