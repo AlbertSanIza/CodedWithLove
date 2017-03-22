@@ -8,27 +8,26 @@ public class AboutSceneFile: SKScene {
         case 53, 11:
             run(SKAction.playSoundFileNamed("sounds/pick.wav" , waitForCompletion: false))
             goToScene()
-        default:break
+        default: break
         }
     }
     override public func mouseDown(with event: NSEvent) {
-        let positionInScene = CGPoint(x: event.locationInWindow.x, y: event.locationInWindow.y)
-        if let touchedNode = self.nodes(at: positionInScene).first {
-            print(touchedNode)
+        let mousePoint = convertPoint(fromView: CGPoint(x: event.locationInWindow.x, y: event.locationInWindow.y))
+        if let touchedNode = nodes(at: mousePoint).first {
             switch touchedNode.name {
             case "txtBack"?:
                 run(SKAction.playSoundFileNamed("sounds/pick.wav" , waitForCompletion: false))
-                touchedNode.run(SKAction.fadeOut(withDuration: 0.25)) {
+                touchedNode.run(SKAction.fadeOut(withDuration: 0.5)) {
                     self.goToScene()
                 }
             default: break
             }
-        } else {
-            print("nada")
         }
     }
     func goToScene() {
-        view?.presentScene(MainMenuSceneFile(size: (scene?.size)!), transition: SKTransition.crossFade(withDuration: 1.0))
+        let mainMenuScene: SKScene = MainMenuSceneFile(fileNamed: "scenes/MainMenuScene.sks")!
+        mainMenuScene.scaleMode = .aspectFit
+        view?.presentScene(mainMenuScene, transition: SKTransition.fade(withDuration: 2.0))
     }
 }
 public class AboutScene: SKScene {
