@@ -12,7 +12,7 @@ public class SplashSceneFile: SKScene {
         view?.presentScene(MainMenuSceneFile(fileNamed: "scenes/MainMenuScene.sks")!, transition: SKTransition.fade(withDuration: 1.0))
     }
 }
-public class SplashScene2: SKScene {
+public class SplashScene: SKScene {
     override public init(size: CGSize) {
         super.init(size: size)
         backgroundColor = .black
