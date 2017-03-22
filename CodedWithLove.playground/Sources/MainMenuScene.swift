@@ -3,16 +3,16 @@ public class MainMenuSceneFile: SKScene {
     override public func sceneDidLoad() {
         super.sceneDidLoad()
     }
+    override public func keyUp(with event: NSEvent) {
+        run(SKAction.playSoundFileNamed("sounds/pick.wav" , waitForCompletion: false))
+        goToScene(withName: "")
+    }
     override public func mouseDown(with event: NSEvent) {
         print(event)
         let positionInScene = CGPoint(x: event.locationInWindow.x, y: event.locationInWindow.y)
         if let touchedNode = self.nodes(at: positionInScene).first {
             print(touchedNode)
-        } else {
-            print("valio Verga!")
         }
-        //run(SKAction.playSoundFileNamed("sounds/pick.wav" , waitForCompletion: false))
-        //goToScene(withName: "")
     }
     func goToScene(withName: String) {
         let toGoScene: SKScene
