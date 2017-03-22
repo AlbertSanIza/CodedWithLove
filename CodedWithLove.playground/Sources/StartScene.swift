@@ -1,16 +1,16 @@
 import SpriteKit
 public class StartSceneFile: SKScene {
-  override public func sceneDidLoad() {
-    super.sceneDidLoad()
-  }
-  override public func keyUp(with event: NSEvent) {
-    switch event.keyCode {
-    case 53, 11:
-        run(SKAction.playSoundFileNamed("sounds/pick.wav" , waitForCompletion: false))
-        goToScene()
-    default: break
+    override public func sceneDidLoad() {
+        super.sceneDidLoad()
     }
-  }
+    override public func keyUp(with event: NSEvent) {
+        switch event.keyCode {
+        case 53, 11:
+            run(SKAction.playSoundFileNamed("sounds/pick.wav" , waitForCompletion: false))
+            goToScene()
+        default: break
+        }
+    }
     override public func mouseDown(with event: NSEvent) {
         let mousePoint = convertPoint(fromView: CGPoint(x: event.locationInWindow.x, y: event.locationInWindow.y))
         if let touchedNode = nodes(at: mousePoint).first {
@@ -25,10 +25,10 @@ public class StartSceneFile: SKScene {
         }
     }
     func goToScene() {
-    let mainMenuScene: SKScene = MainMenuSceneFile(fileNamed: "scenes/MainMenuScene.sks")!
-    mainMenuScene.scaleMode = .aspectFit
-    view?.presentScene(mainMenuScene, transition: SKTransition.fade(withDuration: 2.0))
-  }
+        let mainMenuScene: SKScene = MainMenuSceneFile(fileNamed: "scenes/MainMenuScene.sks")!
+        mainMenuScene.scaleMode = .aspectFit
+        view?.presentScene(mainMenuScene, transition: SKTransition.fade(withDuration: 2.0))
+    }
 }
 public class StartScene: SKScene {
     override public init(size: CGSize) {
