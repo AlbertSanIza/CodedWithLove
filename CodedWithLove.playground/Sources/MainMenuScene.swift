@@ -4,8 +4,21 @@ public class MainMenuSceneFile: SKScene {
         super.sceneDidLoad()
     }
     override public func keyUp(with event: NSEvent) {
-        run(SKAction.playSoundFileNamed("sounds/pick.wav" , waitForCompletion: false))
-        goToScene(withName: "")
+        switch event.keyCode {
+        case 1, 36:
+            run(SKAction.playSoundFileNamed("sounds/pick.wav" , waitForCompletion: false))
+            goToScene(withName: "txtStart")
+        case 34:
+            run(SKAction.playSoundFileNamed("sounds/pick.wav" , waitForCompletion: false))
+            goToScene(withName: "txtInstructions")
+        case 0:
+            run(SKAction.playSoundFileNamed("sounds/pick.wav" , waitForCompletion: false))
+            goToScene(withName: "txtAbout")
+        case 53, 11:
+            run(SKAction.playSoundFileNamed("sounds/pick.wav" , waitForCompletion: false))
+            goToScene(withName: "txtBack")
+        default: break
+        }
     }
     override public func mouseDown(with event: NSEvent) {
         let mousePoint = convertPoint(fromView: CGPoint(x: event.locationInWindow.x, y: event.locationInWindow.y))
