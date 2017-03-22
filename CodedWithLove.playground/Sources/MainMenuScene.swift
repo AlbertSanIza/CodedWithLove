@@ -21,13 +21,13 @@ public class MainMenuSceneFile: SKScene {
     func goToScene(withName: String) {
         let toGoScene: SKScene
         switch withName {
-        case "StartScene":
+        case "txtStart":
             toGoScene = StartSceneFile(fileNamed: "scenes/StartScene.sks")!
-        case "InstructionsScene":
+        case "txtInstructions":
             toGoScene = InstructionsSceneFile(fileNamed: "scenes/InstructionsScene.sks")!
-        case "AboutScene":
+        case "txtAbout":
             toGoScene = AboutSceneFile(fileNamed: "scenes/AboutScene.sks")!
-        case "SplashScene":
+        case "txtBack":
             toGoScene = SplashSceneFile(fileNamed: "scenes/SplashScene.sks")!
         default:
             toGoScene = SplashSceneFile(fileNamed: "scenes/SplashScene.sks")!
