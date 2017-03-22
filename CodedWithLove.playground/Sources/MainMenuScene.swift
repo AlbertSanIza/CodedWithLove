@@ -1,5 +1,5 @@
 import SpriteKit
-public class MainMenuScene: SKScene {
+public class MainMenuSceneFile: SKScene {
   override public func sceneDidLoad() {
     super.sceneDidLoad()
   }
@@ -10,7 +10,7 @@ public class MainMenuScene: SKScene {
   func goToScene() {
   }
 }
-public class MainMenuScene2: SKScene {
+public class MainMenuScene: SKScene {
     override public init(size: CGSize) {
         super.init(size: size)
         let txtTitle = SKLabelNode()
