@@ -5,9 +5,18 @@ public class MainMenuSceneFile: SKScene {
   }
   override public func keyUp(with event: NSEvent) {
     run(SKAction.playSoundFileNamed("sounds/pick.wav" , waitForCompletion: false))
-    goToScene()
+    goToScene(withName: "")
   }
-  func goToScene() {
+  func goToScene(withName: String) {
+    let toGoScene: SKScene
+    switch withName {
+    case "StartScene":
+        toGoScene = StartSceneFile(fileNamed: "scenes/StartScene.sks")!
+    default:
+        toGoScene = SplashSceneFile(fileNamed: "scenes/SplashScene.sks")!
+    }
+    toGoScene.scaleMode = .aspectFit
+    view?.presentScene(toGoScene, transition: SKTransition.fade(withDuration: 2.0))
   }
 }
 public class MainMenuScene: SKScene {
