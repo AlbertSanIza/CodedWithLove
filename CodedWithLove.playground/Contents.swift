@@ -6,7 +6,7 @@ let mainView = SKView(frame: mainFrame)
 mainView.showsFPS = true
 mainView.showsNodeCount = true
 
-let splashScene:SKScene = SplashScene(fileNamed: "scenes/SplashScene.sks")
+let splashScene:SKScene = SplashSceneFile(fileNamed: "scenes/SplashScene.sks")!
 splashScene.scaleMode = .aspectFit
 mainView.presentScene(splashScene)
 
