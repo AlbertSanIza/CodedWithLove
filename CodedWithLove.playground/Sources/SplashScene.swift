@@ -11,6 +11,6 @@ public class SplashSceneFile: SKScene {
     func goToScene() {
         let mainMenuScene: SKScene = MainMenuSceneFile(fileNamed: "scenes/MainMenuScene.sks")!
         mainMenuScene.scaleMode = .aspectFit
-        view?.presentScene(mainMenuScene, transition: SKTransition.fade(withDuration: 1.0))
+        view?.presentScene(mainMenuScene, transition: SKTransition.fade(withDuration: 2.0))
     }
 }
