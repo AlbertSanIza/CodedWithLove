@@ -28,7 +28,7 @@ public class AboutSceneFile: SKScene {
         }
     }
     func goToScene() {
-        view?.presentScene(MainMenuScene(size: (scene?.size)!), transition: SKTransition.crossFade(withDuration: 1.0))
+        view?.presentScene(MainMenuSceneFile(size: (scene?.size)!), transition: SKTransition.crossFade(withDuration: 1.0))
     }
 }
 public class AboutScene: SKScene {
@@ -111,7 +111,7 @@ public class AboutScene: SKScene {
         }
     }
     func goToScene() {
-        self.view?.presentScene(MainMenuScene(size: (scene?.size)!), transition: SKTransition.crossFade(withDuration: 1.0))
+        self.view?.presentScene(MainMenuSceneFile(size: (scene?.size)!), transition: SKTransition.crossFade(withDuration: 1.0))
     }
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
