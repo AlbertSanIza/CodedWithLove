@@ -1,29 +1,36 @@
 import SpriteKit
 public class MainMenuSceneFile: SKScene {
-  override public func sceneDidLoad() {
-    super.sceneDidLoad()
-  }
-  override public func keyUp(with event: NSEvent) {
-    run(SKAction.playSoundFileNamed("sounds/pick.wav" , waitForCompletion: false))
-    goToScene(withName: "")
-  }
-  func goToScene(withName: String) {
-    let toGoScene: SKScene
-    switch withName {
-    case "StartScene":
-        toGoScene = StartSceneFile(fileNamed: "scenes/StartScene.sks")!
-    case "InstructionsScene":
-        toGoScene = InstructionsSceneFile(fileNamed: "scenes/InstructionsScene.sks")!
-    case "AboutScene":
-        toGoScene = AboutSceneFile(fileNamed: "scenes/AboutScene.sks")!
-    case "SplashScene":
-        toGoScene = SplashSceneFile(fileNamed: "scenes/SplashScene.sks")!
-    default:
-        toGoScene = SplashSceneFile(fileNamed: "scenes/SplashScene.sks")!
+    override public func sceneDidLoad() {
+        super.sceneDidLoad()
     }
-    toGoScene.scaleMode = .aspectFit
-    view?.presentScene(toGoScene, transition: SKTransition.fade(withDuration: 2.0))
-  }
+    override public func mouseDown(with event: NSEvent) {
+        print(event)
+        let positionInScene = CGPoint(x: event.locationInWindow.x, y: event.locationInWindow.y)
+        if let touchedNode = self.nodes(at: positionInScene).first {
+            print(touchedNode)
+        } else {
+            print("valio Verga!")
+        }
+        //run(SKAction.playSoundFileNamed("sounds/pick.wav" , waitForCompletion: false))
+        //goToScene(withName: "")
+    }
+    func goToScene(withName: String) {
+        let toGoScene: SKScene
+        switch withName {
+        case "StartScene":
+            toGoScene = StartSceneFile(fileNamed: "scenes/StartScene.sks")!
+        case "InstructionsScene":
+            toGoScene = InstructionsSceneFile(fileNamed: "scenes/InstructionsScene.sks")!
+        case "AboutScene":
+            toGoScene = AboutSceneFile(fileNamed: "scenes/AboutScene.sks")!
+        case "SplashScene":
+            toGoScene = SplashSceneFile(fileNamed: "scenes/SplashScene.sks")!
+        default:
+            toGoScene = SplashSceneFile(fileNamed: "scenes/SplashScene.sks")!
+        }
+        toGoScene.scaleMode = .aspectFit
+        view?.presentScene(toGoScene, transition: SKTransition.fade(withDuration: 2.0))
+    }
 }
 public class MainMenuScene: SKScene {
     override public init(size: CGSize) {
