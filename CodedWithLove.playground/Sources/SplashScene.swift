@@ -9,7 +9,7 @@ public class SplashSceneFile: SKScene {
         goToScene()
     }
     func goToScene() {
-        view?.presentScene(MainMenuScene(size: (scene?.size)!), transition: SKTransition.fade(withDuration: 1.0))
+        view?.presentScene(MainMenuSceneFile(fileNamed: "scenes/MainMenuScene.sks")!, transition: SKTransition.fade(withDuration: 1.0))
     }
 }
 public class SplashScene2: SKScene {
