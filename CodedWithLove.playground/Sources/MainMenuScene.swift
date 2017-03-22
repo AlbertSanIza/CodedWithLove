@@ -101,17 +101,16 @@ public class MainMenuScene2: SKScene {
         let toGoScene: SKScene
         switch withName {
         case "StartScene":
-            //toGoScene = StartScene(size: (scene?.size)!)
-            toGoScene = AboutScene2(fileNamed: "scenes/AboutScene2")!
+            toGoScene = AboutSceneFile(fileNamed: "scenes/AboutScene2")!
             toGoScene.scaleMode = .aspectFit
         case "InstructionsScene":
             toGoScene = InstructionsScene(size: (scene?.size)!)
         case "AboutScene":
             toGoScene = AboutScene(size: (scene?.size)!)
         case "SplashScene":
-            toGoScene = SplashScene(size: (scene?.size)!)
+            toGoScene = SplashSceneFile(size: (scene?.size)!)
         default:
-            toGoScene = SplashScene(size: (scene?.size)!)
+            toGoScene = SplashSceneFile(size: (scene?.size)!)
         }
         self.view?.presentScene(toGoScene, transition: SKTransition.crossFade(withDuration: 1.0))
     }
