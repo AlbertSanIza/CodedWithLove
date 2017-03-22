@@ -47,7 +47,7 @@ public class InstructionsScene: SKScene {
         }
     }
     func goToScene() {
-        self.view?.presentScene(MainMenuScene(size: (scene?.size)!), transition: SKTransition.crossFade(withDuration: 1.0))
+        self.view?.presentScene(MainMenuSceneFile(size: (scene?.size)!), transition: SKTransition.crossFade(withDuration: 1.0))
     }
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
