@@ -9,8 +9,13 @@ public class MainMenuSceneFile: SKScene {
     }
     override public func mouseDown(with event: NSEvent) {
         let mousePoint = convertPoint(fromView: CGPoint(x: event.locationInWindow.x, y: event.locationInWindow.y))
-        if let touchedNode = self.nodes(at: mousePoint).first {
-            print(touchedNode)
+        if let touchedNode = nodes(at: mousePoint).first {
+            switch touchedNode.name {
+            case "txtStart"?, "txtInstructions"?, "txtAbout"?, "txtBack"?:
+                run(SKAction.playSoundFileNamed("sounds/pick.wav" , waitForCompletion: false))
+                goToScene(withName: touchedNode.name!)
+            default: break
+            }
         }
     }
     func goToScene(withName: String) {
