@@ -4,8 +4,12 @@ public class StartSceneFile: SKScene {
     super.sceneDidLoad()
   }
   override public func keyUp(with event: NSEvent) {
-    run(SKAction.playSoundFileNamed("sounds/pick.wav" , waitForCompletion: false))
-    goToScene()
+    switch event.keyCode {
+    case 53, 11:
+        run(SKAction.playSoundFileNamed("sounds/pick.wav" , waitForCompletion: false))
+        goToScene()
+    default: break
+    }
   }
   func goToScene() {
   }
