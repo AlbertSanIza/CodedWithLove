@@ -12,6 +12,12 @@ public class MainMenuSceneFile: SKScene {
     switch withName {
     case "StartScene":
         toGoScene = StartSceneFile(fileNamed: "scenes/StartScene.sks")!
+    case "InstructionsScene":
+        toGoScene = InstructionsSceneFile(fileNamed: "scenes/InstructionsScene.sks")!
+    case "AboutScene":
+        toGoScene = AboutSceneFile(fileNamed: "scenes/AboutScene.sks")!
+    case "SplashScene":
+        toGoScene = SplashSceneFile(fileNamed: "scenes/SplashScene.sks")!
     default:
         toGoScene = SplashSceneFile(fileNamed: "scenes/SplashScene.sks")!
     }
