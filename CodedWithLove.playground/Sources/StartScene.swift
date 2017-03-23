@@ -7,7 +7,7 @@ public class StartSceneFile: SKScene {
         switch event.keyCode {
         case 53, 11:
             run(SKAction.playSoundFileNamed("sounds/pick.wav" , waitForCompletion: false))
-            goToScene()
+            goToScene(withName: "txtBack")
         default: break
         }
     }
@@ -15,18 +15,28 @@ public class StartSceneFile: SKScene {
         let mousePoint = convertPoint(fromView: CGPoint(x: event.locationInWindow.x, y: event.locationInWindow.y))
         if let touchedNode = nodes(at: mousePoint).first {
             switch touchedNode.name {
-            case "txtBack"?:
+            case "txtEasy"?, "txtHard"?, "txtBack"?:
                 run(SKAction.playSoundFileNamed("sounds/pick.wav" , waitForCompletion: false))
                 touchedNode.run(SKAction.fadeOut(withDuration: 0.5)) {
-                    self.goToScene()
+                    self.goToScene(withName: touchedNode.name!)
                 }
             default: break
             }
         }
     }
-    func goToScene() {
-        let mainMenuScene: SKScene = MainMenuSceneFile(fileNamed: "scenes/MainMenuScene.sks")!
-        mainMenuScene.scaleMode = .aspectFit
-        view?.presentScene(mainMenuScene, transition: SKTransition.fade(withDuration: 2.0))
+    func goToScene(withName: String) {
+        let toGoScene: SKScene
+        switch withName {
+        case "txtEasy":
+            toGoScene = SplashSceneFile(fileNamed: "scenes/MainMenuScene")!
+        case "txtEasy":
+            toGoScene = SplashSceneFile(fileNamed: "scenes/MainMenuScene")!
+        case "txtBack":
+            toGoScene = MainMenuSceneFile(fileNamed: "scenes/MainMenuScene")!
+        default:
+            toGoScene = MainMenuSceneFile(fileNamed: "scenes/MainMenuScene")!
+        }
+        toGoScene.scaleMode = .aspectFit
+        view?.presentScene(toGoScene, transition: SKTransition.crossFade(withDuration: 2.0))
     }
 }
