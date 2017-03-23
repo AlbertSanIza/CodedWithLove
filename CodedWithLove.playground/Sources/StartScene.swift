@@ -28,9 +28,9 @@ public class StartSceneFile: SKScene {
         let toGoScene: SKScene
         switch withName {
         case "txtEasy":
-            toGoScene = SplashSceneFile(fileNamed: "scenes/MainMenuScene")!
+            toGoScene = MainMenuSceneFile(fileNamed: "scenes/MainMenuScene")!
         case "txtEasy":
-            toGoScene = SplashSceneFile(fileNamed: "scenes/MainMenuScene")!
+            toGoScene = MainMenuSceneFile(fileNamed: "scenes/MainMenuScene")!
         case "txtBack":
             toGoScene = MainMenuSceneFile(fileNamed: "scenes/MainMenuScene")!
         default:
