@@ -37,7 +37,7 @@ public class MainMenuSceneFile: SKScene {
         let toGoScene: SKScene
         switch withName {
         case "txtStart":
-            toGoScene = StartSceneFile(fileNamed: "scenes/StartScene.sks")!
+            toGoScene = GameSceneFile(fileNamed: "scenes/GameScene.sks")!
         case "txtInstructions":
             toGoScene = InstructionsSceneFile(fileNamed: "scenes/InstructionsScene.sks")!
         case "txtAbout":
