@@ -3,10 +3,10 @@ public class GameSceneFile: SKScene {
     override public func sceneDidLoad() {
         super.sceneDidLoad()
         if let sceneBackground: SKSpriteNode = childNode(withName: "sksBackground") as! SKSpriteNode? {
-            var randomNumber = arc4random_uniform(4 - 1) + 1
+            var randomNumber = arc4random_uniform(3) + 1
             sceneBackground.texture = SKTexture(imageNamed: "sprites/spaceBackground/backgrounds" + String(randomNumber) + ".png")
             if let sceneClouds: SKSpriteNode = childNode(withName: "sksClouds") as! SKSpriteNode? {
-                randomNumber = arc4random_uniform(4 - 1) + 1
+                randomNumber = arc4random_uniform(4) + 1
                 let cloudsColor: String
                 switch randomNumber {
                 case 1:
@@ -20,10 +20,10 @@ public class GameSceneFile: SKScene {
                 default:
                     cloudsColor = "red"
                 }
-                randomNumber = arc4random_uniform(3 - 1) + 1
+                randomNumber = arc4random_uniform(3) + 1
                 sceneClouds.texture = SKTexture(imageNamed: "sprites/spaceBackground/" + cloudsColor + "Clouds" + String(randomNumber) + ".png")
                 if let sceneStars: SKSpriteNode = childNode(withName: "sksStars") as! SKSpriteNode? {
-                    randomNumber = arc4random_uniform(3 - 1) + 1
+                    randomNumber = arc4random_uniform(3) + 1
                     sceneStars.texture = SKTexture(imageNamed: "sprites/spaceBackground/starsLayer" + String(randomNumber) + ".png")
                 }
             }
