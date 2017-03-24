@@ -10,8 +10,3 @@ public class GameSceneFile: SKScene {
     func goToScene() {
     }
 }
-public class GameScene: SKScene {
-    override public func sceneDidLoad() {
-        print("sceneDidLoad!")
-    }
-}
