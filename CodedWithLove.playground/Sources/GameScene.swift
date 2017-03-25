@@ -4,7 +4,7 @@ public class GameSceneFile: SKScene {
         super.sceneDidLoad()
         if let sceneBackground: SKSpriteNode = childNode(withName: "sksBackground") as! SKSpriteNode? {
             var randomNumber = arc4random_uniform(3) + 1
-            sceneBackground.texture = SKTexture(imageNamed: "sprites/spaceBackground/backgrounds" + String(randomNumber) + ".png")
+            sceneBackground.texture = SKTexture(imageNamed: "sprites/background/backgrounds" + String(randomNumber) + ".png")
             if let sceneClouds: SKSpriteNode = childNode(withName: "sksClouds") as! SKSpriteNode? {
                 randomNumber = arc4random_uniform(4) + 1
                 let cloudsColor: String
@@ -21,10 +21,10 @@ public class GameSceneFile: SKScene {
                     cloudsColor = "red"
                 }
                 randomNumber = arc4random_uniform(3) + 1
-                sceneClouds.texture = SKTexture(imageNamed: "sprites/spaceBackground/" + cloudsColor + "Clouds" + String(randomNumber) + ".png")
+                sceneClouds.texture = SKTexture(imageNamed: "sprites/background/" + cloudsColor + "Clouds" + String(randomNumber) + ".png")
                 if let sceneStars: SKSpriteNode = childNode(withName: "sksStars") as! SKSpriteNode? {
                     randomNumber = arc4random_uniform(3) + 1
-                    sceneStars.texture = SKTexture(imageNamed: "sprites/spaceBackground/starsLayer" + String(randomNumber) + ".png")
+                    sceneStars.texture = SKTexture(imageNamed: "sprites/background/starsLayer" + String(randomNumber) + ".png")
                 }
             }
         }
