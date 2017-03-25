@@ -40,10 +40,12 @@ public class GameSceneFile: SKScene {
     }
     override public func update(_ currentTime: TimeInterval) {
         if wKey {
-            thePlayer.position.y += 4
+            thePlayer.position.x += 5 * cos(thePlayer.zRotation + degreesToRadians(degrees: 90))
+            thePlayer.position.y += 5 * sin(thePlayer.zRotation + degreesToRadians(degrees: 90))
         }
         if sKey {
-            thePlayer.position.y -= 2
+            thePlayer.position.x -= 2 * cos(thePlayer.zRotation + degreesToRadians(degrees: 90))
+            thePlayer.position.y -= 2 * sin(thePlayer.zRotation + degreesToRadians(degrees: 90))
         }
         if aKey {
             thePlayer.zRotation += degreesToRadians(degrees: 4)
