@@ -81,7 +81,7 @@ public class GameSceneFile: SKScene {
         case 13:
             if !wKey {
                 wKey = true
-                thePlayer.childNode(withName: "sksJet")?.run(SKAction.fadeIn(withDuration: 0.5), withKey: "sksJet")
+                thePlayer.childNode(withName: "sksJet")?.run(SKAction.fadeIn(withDuration: 0.4), withKey: "sksJet")
             }
         case 1:
             if !sKey {
@@ -90,10 +90,12 @@ public class GameSceneFile: SKScene {
         case 0:
             if !aKey {
                 aKey = true
+                thePlayer.childNode(withName: "sksJetRight")?.run(SKAction.fadeIn(withDuration: 0.4), withKey: "sksJetRight")
             }
         case 2:
             if !dKey {
                 dKey = true
+                thePlayer.childNode(withName: "sksJetLeft")?.run(SKAction.fadeIn(withDuration: 0.4), withKey: "sksJetLeft")
             }
         default: break
         }
@@ -102,13 +104,15 @@ public class GameSceneFile: SKScene {
         switch event.keyCode {
         case 13:
             wKey = false
-            thePlayer.childNode(withName: "sksJet")?.run(SKAction.fadeOut(withDuration: 0.25), withKey: "sksJet")
+            thePlayer.childNode(withName: "sksJet")?.run(SKAction.fadeOut(withDuration: 0.2), withKey: "sksJet")
         case 1:
             sKey = false
         case 0:
             aKey = false
+            thePlayer.childNode(withName: "sksJetRight")?.run(SKAction.fadeOut(withDuration: 0.2), withKey: "sksJetRight")
         case 2:
             dKey = false
+            thePlayer.childNode(withName: "sksJetLeft")?.run(SKAction.fadeOut(withDuration: 0.2), withKey: "sksJetLeft")
         default: break
         }
     }
