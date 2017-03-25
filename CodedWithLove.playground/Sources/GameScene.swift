@@ -40,10 +40,10 @@ public class GameSceneFile: SKScene {
     }
     override public func update(_ currentTime: TimeInterval) {
         if wKey {
-            thePlayer.position.y += 3
+            thePlayer.position.y += 4
         }
         if sKey {
-            thePlayer.position.y -= 1
+            thePlayer.position.y -= 4
         }
         if aKey {
             thePlayer.zRotation += degreesToRadians(degrees: 3)
