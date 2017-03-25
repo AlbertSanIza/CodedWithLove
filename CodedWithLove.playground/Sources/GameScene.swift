@@ -43,7 +43,7 @@ public class GameSceneFile: SKScene {
             thePlayer.position.y += 4
         }
         if sKey {
-            thePlayer.position.y -= 4
+            thePlayer.position.y -= 2
         }
         if aKey {
             thePlayer.zRotation += degreesToRadians(degrees: 3)
