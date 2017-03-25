@@ -73,13 +73,21 @@ public class GameSceneFile: SKScene {
     override public func keyDown(with event: NSEvent) {
         switch event.keyCode {
         case 13:
-            wKey = true
+            if !wKey {
+                wKey = true
+            }
         case 1:
-            sKey = true
+            if !sKey {
+                sKey = true
+            }
         case 0:
-            aKey = true
+            if !aKey {
+                aKey = true
+            }
         case 2:
-            dKey = true
+            if !dKey {
+                dKey = true
+            }
         default: break
         }
     }
