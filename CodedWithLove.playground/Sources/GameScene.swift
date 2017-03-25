@@ -30,6 +30,12 @@ public class GameSceneFile: SKScene {
             if let sksJet: SKSpriteNode = thePlayer.childNode(withName: "sksJet") as! SKSpriteNode? {
                 sksJet.texture = SKTexture(imageNamed: "sprites/art/jet.png")
             }
+            if let sksJetLeft: SKSpriteNode = thePlayer.childNode(withName: "sksJetLeft") as! SKSpriteNode? {
+                sksJetLeft.texture = SKTexture(imageNamed: "sprites/art/jet.png")
+            }
+            if let sksJetRight: SKSpriteNode = thePlayer.childNode(withName: "sksJetRight") as! SKSpriteNode? {
+                sksJetRight.texture = SKTexture(imageNamed: "sprites/art/jet.png")
+            }
         }
     }
     override public func didMove(to view: SKView) {
