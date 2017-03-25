@@ -35,8 +35,38 @@ public class GameSceneFile: SKScene {
         }
     }
     override public func keyDown(with event: NSEvent) {
+        let moveUp = SKAction.moveBy(x: 0.0, y: 10.0, duration: 0.5)
+        let moveDown = SKAction.moveBy(x: 0.0, y: -10.0, duration: 0.5)
+        let moveLeft = SKAction.moveBy(x: -10.0, y: 0, duration: 0.5)
+        let moveRight = SKAction.moveBy(x: 10.0, y: 0, duration: 0.5)
+        switch event.keyCode {
+        case 13:
+            print("Front Down")
+            thePlayer.run(moveUp)
+        case 1:
+            print("Back Down")
+            thePlayer.run(moveDown)
+        case 0:
+            print("Left Down")
+            thePlayer.run(moveLeft)
+        case 2:
+            print("Right Down")
+            thePlayer.run(moveRight)
+        default: break
+        }
     }
     override public func keyUp(with event: NSEvent) {
+        switch event.keyCode {
+        case 13:
+            print("Front Up")
+        case 1:
+            print("Back Up")
+        case 2:
+            print("Right Up")
+        case 0:
+            print("Left Up")
+        default: break
+        }
     }
     func goToScene(withName: String) {
         let toGoScene: SKScene
