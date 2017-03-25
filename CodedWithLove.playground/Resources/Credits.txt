@@ -24,10 +24,19 @@ MESSAGE-B_Accept.wav --> splash.wav
 Sprites taken from:
 
 http://opengameart.org/content/2d-shooter-effects-alpha-version
-Title: 2D Shooter Effects (Alpha version)
+Title: Space Game Art Pack (Extended)
 Artist: Tatermand
 Creation: 2014
 email: tatermand@gmail.com
 Page: http://opengameart.org/forumtopic/tatermands-art
 Files renamed:
 Effects_v05_Publish.psd --> all files in effects/ folder
+
+http://opengameart.org/content/space-game-art-pack-extended
+Title: 2D Shooter Effects (Alpha version)
+Artist: Tatermand
+Creation: 2014
+email: tatermand@gmail.com
+Page: http://opengameart.org/forumtopic/tatermands-art
+Files renamed:
+SpaceArtPublish.psd --> all files in sprites/art/ folder
