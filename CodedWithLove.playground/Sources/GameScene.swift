@@ -5,47 +5,14 @@ public class GameSceneFile: SKScene {
         if let sceneBackground: SKSpriteNode = childNode(withName: "sksBackground") as! SKSpriteNode? {
             sceneBackground.texture = SKTexture(imageNamed: "sprites/background/backgrounds" + String(arc4random_uniform(2)) + ".png")
             if let sceneClouds: SKSpriteNode = childNode(withName: "sksClouds") as! SKSpriteNode? {
-                randomNumber = arc4random_uniform(4) + 1
-                let cloudsColor: String
-                switch randomNumber {
-                case 1:
-                    cloudsColor = "green"
-                case 2:
-                    cloudsColor = "orange"
-                case 3:
-                    cloudsColor = "purple"
-                case 4:
-                    cloudsColor = "red"
-                default:
-                    cloudsColor = "red"
-                }
-                randomNumber = arc4random_uniform(3) + 1
-                sceneClouds.texture = SKTexture(imageNamed: "sprites/background/" + cloudsColor + "Clouds" + String(randomNumber) + ".png")
+                sceneClouds.texture = SKTexture(imageNamed: "sprites/background/clouds" + String(arc4random_uniform(3)) + String(arc4random_uniform(2)) + ".png")
                 if let sceneStars: SKSpriteNode = childNode(withName: "sksStars") as! SKSpriteNode? {
-                    randomNumber = arc4random_uniform(3) + 1
-                    sceneStars.texture = SKTexture(imageNamed: "sprites/background/starsLayer" + String(randomNumber) + ".png")
-                    if let scenePlanets: SKSpriteNode = childNode(withName: "sksPlanets") as! SKSpriteNode? {
-                        randomNumber = arc4random_uniform(7) + 1
-                        let planetStyle: String
-                        switch randomNumber {
-                        case 1:
-                            planetStyle = "Exo1"
-                        case 2:
-                            planetStyle = "Exo2"
-                        case 3:
-                            planetStyle = "Exo3"
-                        case 4:
-                            planetStyle = "GasGiant"
-                        case 5:
-                            planetStyle = "IceGiant"
-                        case 6:
-                            planetStyle = "RedGiant"
-                        case 7:
-                            planetStyle = "Sun"
-                        default:
-                            planetStyle = ""
+                    sceneStars.texture = SKTexture(imageNamed: "sprites/background/starsLayer" + String(arc4random_uniform(2)) + ".png")
+                    if let scenePlanets1: SKSpriteNode = childNode(withName: "sksPlanets1") as! SKSpriteNode? {
+                        scenePlanets1.texture = SKTexture(imageNamed: "sprites/art/planet" + String(arc4random_uniform(6)) + ".png")
+                        if let scenePlanets2: SKSpriteNode = childNode(withName: "sksPlanets2") as! SKSpriteNode? {
+                            scenePlanets2.texture = SKTexture(imageNamed: "sprites/art/planet" + String(arc4random_uniform(6)) + ".png")
                         }
-                        scenePlanets.texture = SKTexture(imageNamed: "sprites/art/planet" + planetStyle + ".png")
                     }
                 }
             }
