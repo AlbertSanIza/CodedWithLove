@@ -17,6 +17,14 @@ public class GameSceneFile: SKScene {
                 }
             }
         }
+        if let sknPlayer: SKNode = childNode(withName: "sknPlayer") {
+            if let sksPlayer: SKSpriteNode = sknPlayer.childNode(withName: "sksPlayer") as! SKSpriteNode? {
+                sksPlayer.texture = SKTexture(imageNamed: "sprites/art/player.png")
+            }
+            if let sksJet: SKSpriteNode = sknPlayer.childNode(withName: "sksJet") as! SKSpriteNode? {
+                sksJet.texture = SKTexture(imageNamed: "sprites/art/jet.png")
+            }
+        }
     }
     override public func didMove(to view: SKView) {
         enumerateChildNodes(withName: "sksPlanets*") {
