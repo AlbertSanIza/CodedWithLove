@@ -97,7 +97,7 @@ public class GameSceneFile: SKScene {
         toGoScene.scaleMode = .aspectFit
         view?.presentScene(toGoScene, transition: SKTransition.crossFade(withDuration: 2.0))
     }
-    func radiansToDegress(radians: CGFloat) -> CGFloat {
+    func radiansToDegrees(radians: CGFloat) -> CGFloat {
         return radians * 180 / CGFloat(M_PI)
     }
     func degreesToRadians(degrees: CGFloat) -> CGFloat {
