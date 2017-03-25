@@ -47,9 +47,15 @@ public class GameSceneFile: SKScene {
         }
         if aKey {
             thePlayer.zRotation += degreesToRadians(degrees: 3)
+            if radiansToDegrees(radians: thePlayer.zRotation) > 359 {
+                thePlayer.zRotation = degreesToRadians(degrees: 0)
+            }
         }
         if dKey {
             thePlayer.zRotation -= degreesToRadians(degrees: 3)
+            if radiansToDegrees(radians: thePlayer.zRotation) < 0 {
+                thePlayer.zRotation = degreesToRadians(degrees: 359)
+            }
         }
         if thePlayer.position.y > 390 {
             thePlayer.position.y = -385
