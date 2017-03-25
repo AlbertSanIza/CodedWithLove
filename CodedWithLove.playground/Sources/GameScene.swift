@@ -52,6 +52,11 @@ public class GameSceneFile: SKScene {
             }
         }
     }
+    override public func didMove(to view: SKView) {
+        if let scenePlanets: SKSpriteNode = childNode(withName: "sksPlanets") as! SKSpriteNode? {
+            scenePlanets.position = convertPoint(fromView: CGPoint(x: CGFloat(arc4random_uniform(UInt32(frame.size.height - 24)) + 24), y: CGFloat(arc4random_uniform(UInt32(frame.size.width - 24)) + 24)))
+        }
+    }
     override public func keyUp(with event: NSEvent) {
         run(SKAction.playSoundFileNamed("sounds/pick.wav" , waitForCompletion: false))
         goToScene(withName: "")
