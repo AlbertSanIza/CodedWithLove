@@ -26,8 +26,27 @@ public class GameSceneFile: SKScene {
                     randomNumber = arc4random_uniform(3) + 1
                     sceneStars.texture = SKTexture(imageNamed: "sprites/background/starsLayer" + String(randomNumber) + ".png")
                     if let scenePlanets: SKSpriteNode = childNode(withName: "sksPlanets") as! SKSpriteNode? {
-                        randomNumber = arc4random_uniform(3) + 1
-                        scenePlanets.texture = SKTexture(imageNamed: "sprites/art/planetExo1.png")
+                        randomNumber = arc4random_uniform(7) + 1
+                        let planetStyle: String
+                        switch randomNumber {
+                        case 1:
+                            planetStyle = "Exo1"
+                        case 2:
+                            planetStyle = "Exo2"
+                        case 3:
+                            planetStyle = "Exo3"
+                        case 4:
+                            planetStyle = "GasGiant"
+                        case 5:
+                            planetStyle = "IceGiant"
+                        case 6:
+                            planetStyle = "RedGiant"
+                        case 7:
+                            planetStyle = "Sun"
+                        default:
+                            planetStyle = ""
+                        }
+                        scenePlanets.texture = SKTexture(imageNamed: "sprites/art/planet" + planetStyle + ".png")
                     }
                 }
             }
