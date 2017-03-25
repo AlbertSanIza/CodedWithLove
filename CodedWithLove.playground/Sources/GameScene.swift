@@ -56,6 +56,11 @@ public class GameSceneFile: SKScene {
         } else if thePlayer.position.y < -390 {
             thePlayer.position.y = 385
         }
+        if thePlayer.position.x > 518 {
+            thePlayer.position.x = -513
+        } else if thePlayer.position.x < -518 {
+            thePlayer.position.x = 513
+        }
     }
     override public func keyDown(with event: NSEvent) {
         switch event.keyCode {
