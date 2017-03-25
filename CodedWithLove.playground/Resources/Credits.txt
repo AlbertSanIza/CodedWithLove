@@ -8,10 +8,6 @@ http://www.matthewpablo.com/contact
 Files renamed:
 n-Dimensions (Main Theme).mp3 --> spaceDimensions.mp3
 
-
-
-Sprites taken from:
-
 http://opengameart.org/content/ui-sound-effects-pack
 Title: UI Sound Pack 1
 Artist: ViRiX (David Mckee)
@@ -22,3 +18,16 @@ Page: www.soundcloud.com/virix
 Files renamed:
 MENU_Pick.wav        --> pick.wav
 MESSAGE-B_Accept.wav --> splash.wav
+
+
+
+Sprites taken from:
+
+http://opengameart.org/content/2d-shooter-effects-alpha-version
+Title: 2D Shooter Effects (Alpha version)
+Artist: Tatermand
+Creation: 2014
+email: tatermand@gmail.com
+Page: http://opengameart.org/forumtopic/tatermands-art
+Files renamed:
+Effects_v05_Publish.psd --> all files in effects/ folder
