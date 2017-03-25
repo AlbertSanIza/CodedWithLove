@@ -32,9 +32,9 @@ public class GameSceneFile: SKScene {
             node.position = self.convertPoint(fromView: CGPoint(x: CGFloat(arc4random_uniform(600)), y: CGFloat(arc4random_uniform(450))))
         }
     }
+    override public func keyDown(with event: NSEvent) {
+    }
     override public func keyUp(with event: NSEvent) {
-        run(SKAction.playSoundFileNamed("sounds/pick.wav" , waitForCompletion: false))
-        goToScene(withName: "")
     }
     func goToScene(withName: String) {
         let toGoScene: SKScene
