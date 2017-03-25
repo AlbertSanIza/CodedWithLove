@@ -25,7 +25,7 @@ public class GameSceneFile: SKScene {
                 if let sceneStars: SKSpriteNode = childNode(withName: "sksStars") as! SKSpriteNode? {
                     randomNumber = arc4random_uniform(3) + 1
                     sceneStars.texture = SKTexture(imageNamed: "sprites/background/starsLayer" + String(randomNumber) + ".png")
-                    if let scenePlanets: SKSpriteNode = childNode(withName: "sksPlanets1") as! SKSpriteNode? {
+                    if let scenePlanets: SKSpriteNode = childNode(withName: "sksPlanets") as! SKSpriteNode? {
                         randomNumber = arc4random_uniform(7) + 1
                         let planetStyle: String
                         switch randomNumber {
