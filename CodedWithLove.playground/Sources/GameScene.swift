@@ -1,6 +1,10 @@
 import SpriteKit
 public class GameSceneFile: SKScene {
     var thePlayer: SKNode = SKNode()
+    var wKey: Bool = false
+    var sKey: Bool = false
+    var aKey: Bool = false
+    var dKey: Bool = false
     override public func sceneDidLoad() {
         super.sceneDidLoad()
         if let sceneBackground: SKSpriteNode = childNode(withName: "sksBackground") as! SKSpriteNode? {
@@ -34,37 +38,43 @@ public class GameSceneFile: SKScene {
             node.position = self.convertPoint(fromView: CGPoint(x: CGFloat(arc4random_uniform(600)), y: CGFloat(arc4random_uniform(450))))
         }
     }
+    override public func update(_ currentTime: TimeInterval) {
+        if wKey {
+            thePlayer.position.y += 3
+        }
+        if sKey {
+            thePlayer.position.y -= 1
+        }
+        if aKey {
+            thePlayer.zRotation += degreesToRadians(degrees: 3)
+        }
+        if dKey {
+            thePlayer.zRotation -= degreesToRadians(degrees: 3)
+        }
+    }
     override public func keyDown(with event: NSEvent) {
-        let moveUp = SKAction.moveBy(x: 0.0, y: 10.0, duration: 0.5)
-        let moveDown = SKAction.moveBy(x: 0.0, y: -10.0, duration: 0.5)
-        let moveLeft = SKAction.moveBy(x: -10.0, y: 0, duration: 0.5)
-        let moveRight = SKAction.moveBy(x: 10.0, y: 0, duration: 0.5)
         switch event.keyCode {
         case 13:
-            print("Front Down")
-            thePlayer.run(moveUp)
+            wKey = true
         case 1:
-            print("Back Down")
-            thePlayer.run(moveDown)
+            sKey = true
         case 0:
-            print("Left Down")
-            thePlayer.run(moveLeft)
+            aKey = true
         case 2:
-            print("Right Down")
-            thePlayer.run(moveRight)
+            dKey = true
         default: break
         }
     }
     override public func keyUp(with event: NSEvent) {
         switch event.keyCode {
         case 13:
-            print("Front Up")
+            wKey = false
         case 1:
-            print("Back Up")
-        case 2:
-            print("Right Up")
+            sKey = false
         case 0:
-            print("Left Up")
+            aKey = false
+        case 2:
+            dKey = false
         default: break
         }
     }
@@ -76,5 +86,8 @@ public class GameSceneFile: SKScene {
         }
         toGoScene.scaleMode = .aspectFit
         view?.presentScene(toGoScene, transition: SKTransition.crossFade(withDuration: 2.0))
+    }
+    func degreesToRadians(degrees: CGFloat) -> CGFloat {
+        return degrees * CGFloat(M_PI) / 180
     }
 }
