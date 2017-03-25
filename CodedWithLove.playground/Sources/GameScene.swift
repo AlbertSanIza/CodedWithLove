@@ -51,6 +51,11 @@ public class GameSceneFile: SKScene {
         if dKey {
             thePlayer.zRotation -= degreesToRadians(degrees: 3)
         }
+        if thePlayer.position.y > 390 {
+            thePlayer.position.y = -385
+        } else if thePlayer.position.y < -390 {
+            thePlayer.position.y = 385
+        }
     }
     override public func keyDown(with event: NSEvent) {
         switch event.keyCode {
