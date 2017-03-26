@@ -4,6 +4,9 @@ public class AboutSceneFile: SKScene {
         super.sceneDidLoad()
         if let sceneStars: SKSpriteNode = childNode(withName: "sksStars") as! SKSpriteNode? {
             sceneStars.texture = SKTexture(imageNamed: "sprites/background/starsLayer2.png")
+            if let scenePlanets1: SKSpriteNode = childNode(withName: "sksPlanets1") as! SKSpriteNode? {
+                scenePlanets1.texture = SKTexture(imageNamed: "sprites/art/planet6.png")
+            }
         }
     }
     override public func keyUp(with event: NSEvent) {
