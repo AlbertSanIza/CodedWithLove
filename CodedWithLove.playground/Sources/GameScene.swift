@@ -72,8 +72,7 @@ public class GameSceneFile: SKScene {
         }
     }
     override public func keyDown(with event: NSEvent) {
-        if isPaused {
-        } else {
+        if !isPaused {
             switch event.keyCode {
             case 13:
                 if !wKey {
