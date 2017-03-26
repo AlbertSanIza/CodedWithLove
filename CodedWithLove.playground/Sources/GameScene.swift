@@ -110,8 +110,6 @@ public class GameSceneFile: SKScene {
         }
     }
     override public func keyUp(with event: NSEvent) {
-        if isPaused {
-        }
         switch event.keyCode {
         case 13:
             wKey = false
@@ -126,6 +124,15 @@ public class GameSceneFile: SKScene {
             thePlayer.childNode(withName: "sksJetLeft")?.run(SKAction.fadeOut(withDuration: 0.2), withKey: "sksJetLeft")
         case 49:
             spaceKey = false
+        case 53:
+            if isPaused {
+                isPaused = false
+                thePause.run(SKAction.fadeOut(withDuration: 0.1))
+            } else {
+                thePause.run(SKAction.fadeIn(withDuration: 0.1)) {
+                    self.isPaused = true
+                }
+            }
         default: break
         }
     }
