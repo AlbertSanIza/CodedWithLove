@@ -72,37 +72,35 @@ public class GameSceneFile: SKScene {
         }
     }
     override public func keyDown(with event: NSEvent) {
-        if !isPaused {
-            switch event.keyCode {
-            case 13:
-                if !wKey {
-                    wKey = true
-                    thePlayer.childNode(withName: "sksJet")?.run(SKAction.fadeAlpha(to: 0.7, duration: 0.4), withKey: "sksJet")
-                }
-            case 1:
-                if !sKey {
-                    sKey = true
-                }
-            case 0:
-                if !aKey {
-                    aKey = true
-                    if !sKey {
-                        thePlayer.childNode(withName: "sksJetRight")?.run(SKAction.fadeAlpha(to: 0.7, duration: 0.4), withKey: "sksJetRight")
-                    }
-                }
-            case 2:
-                if !dKey {
-                    dKey = true
-                    if !sKey {
-                        thePlayer.childNode(withName: "sksJetLeft")?.run(SKAction.fadeAlpha(to: 0.7, duration: 0.4), withKey: "sksJetLeft")
-                    }
-                }
-            case 49:
-                if !spaceKey {
-                    spaceKey = true
-                }
-            default: break
+        switch event.keyCode {
+        case 13:
+            if !wKey {
+                wKey = true
+                thePlayer.childNode(withName: "sksJet")?.run(SKAction.fadeAlpha(to: 0.7, duration: 0.4), withKey: "sksJet")
             }
+        case 1:
+            if !sKey {
+                sKey = true
+            }
+        case 0:
+            if !aKey {
+                aKey = true
+                if !sKey {
+                    thePlayer.childNode(withName: "sksJetRight")?.run(SKAction.fadeAlpha(to: 0.7, duration: 0.4), withKey: "sksJetRight")
+                }
+            }
+        case 2:
+            if !dKey {
+                dKey = true
+                if !sKey {
+                    thePlayer.childNode(withName: "sksJetLeft")?.run(SKAction.fadeAlpha(to: 0.7, duration: 0.4), withKey: "sksJetLeft")
+                }
+            }
+        case 49:
+            if !spaceKey {
+                spaceKey = true
+            }
+        default: break
         }
     }
     override public func keyUp(with event: NSEvent) {
