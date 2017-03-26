@@ -132,6 +132,8 @@ public class GameSceneFile: SKScene {
     func goToScene(withName: String) {
         let toGoScene: SKScene
         switch withName {
+        case "txtMainMenu":
+            toGoScene = MainMenuSceneFile(fileNamed: "scenes/MainMenuScene.sks")!
         default:
             toGoScene = MainMenuSceneFile(fileNamed: "scenes/MainMenuScene.sks")!
         }
