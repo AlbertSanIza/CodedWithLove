@@ -2,8 +2,8 @@ import SpriteKit
 public class InstructionsSceneFile: SKScene {
     override public func sceneDidLoad() {
         super.sceneDidLoad()
-        if let sceneStars: SKSpriteNode = childNode(withName: "sksStars") as! SKSpriteNode? {
-            sceneStars.texture = SKTexture(imageNamed: "sprites/background/starsLayer2.png")
+        if let sksStars: SKSpriteNode = childNode(withName: "sksStars") as! SKSpriteNode? {
+            sksStars.texture = SKTexture(imageNamed: "sprites/background/starsLayer2.png")
         }
     }
     override public func keyUp(with event: NSEvent) {

@@ -2,10 +2,10 @@ import SpriteKit
 public class AboutSceneFile: SKScene {
     override public func sceneDidLoad() {
         super.sceneDidLoad()
-        if let sceneStars: SKSpriteNode = childNode(withName: "sksStars") as! SKSpriteNode? {
-            sceneStars.texture = SKTexture(imageNamed: "sprites/background/starsLayer2.png")
-            if let scenePlanets1: SKSpriteNode = childNode(withName: "sksPlanets1") as! SKSpriteNode? {
-                scenePlanets1.texture = SKTexture(imageNamed: "sprites/art/planet6.png")
+        if let sksStars: SKSpriteNode = childNode(withName: "sksStars") as! SKSpriteNode? {
+            sksStars.texture = SKTexture(imageNamed: "sprites/background/starsLayer2.png")
+            if let sksPlanets1: SKSpriteNode = childNode(withName: "sksPlanets1") as! SKSpriteNode? {
+                sksPlanets1.texture = SKTexture(imageNamed: "sprites/art/planet6.png")
             }
         }
     }

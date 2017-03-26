@@ -2,12 +2,12 @@ import SpriteKit
 public class MainMenuSceneFile: SKScene {
     override public func sceneDidLoad() {
         super.sceneDidLoad()
-        if let sceneStars: SKSpriteNode = childNode(withName: "sksStars") as! SKSpriteNode? {
-            sceneStars.texture = SKTexture(imageNamed: "sprites/background/starsLayer2.png")
-            if let scenePlanets1: SKSpriteNode = childNode(withName: "sksPlanets1") as! SKSpriteNode? {
-                scenePlanets1.texture = SKTexture(imageNamed: "sprites/art/planet5.png")
-                if let scenePlanets2: SKSpriteNode = childNode(withName: "sksPlanets2") as! SKSpriteNode? {
-                    scenePlanets2.texture = SKTexture(imageNamed: "sprites/art/planet3.png")
+        if let sksStars: SKSpriteNode = childNode(withName: "sksStars") as! SKSpriteNode? {
+            sksStars.texture = SKTexture(imageNamed: "sprites/background/starsLayer2.png")
+            if let sksPlanets1: SKSpriteNode = childNode(withName: "sksPlanets1") as! SKSpriteNode? {
+                sksPlanets1.texture = SKTexture(imageNamed: "sprites/art/planet5.png")
+                if let sksPlanets2: SKSpriteNode = childNode(withName: "sksPlanets2") as! SKSpriteNode? {
+                    sksPlanets2.texture = SKTexture(imageNamed: "sprites/art/planet3.png")
                 }
             }
         }

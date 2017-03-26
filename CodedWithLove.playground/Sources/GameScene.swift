@@ -8,16 +8,16 @@ public class GameSceneFile: SKScene {
     var spaceKey: Bool = false
     override public func sceneDidLoad() {
         super.sceneDidLoad()
-        if let sceneBackground: SKSpriteNode = childNode(withName: "sksBackground") as! SKSpriteNode? {
-            sceneBackground.texture = SKTexture(imageNamed: "sprites/background/backgrounds" + String(arc4random_uniform(2)) + ".png")
-            if let sceneClouds: SKSpriteNode = childNode(withName: "sksClouds") as! SKSpriteNode? {
-                sceneClouds.texture = SKTexture(imageNamed: "sprites/background/clouds" + String(arc4random_uniform(3)) + String(arc4random_uniform(2)) + ".png")
-                if let sceneStars: SKSpriteNode = childNode(withName: "sksStars") as! SKSpriteNode? {
-                    sceneStars.texture = SKTexture(imageNamed: "sprites/background/starsLayer" + String(arc4random_uniform(2)) + ".png")
-                    if let scenePlanets1: SKSpriteNode = childNode(withName: "sksPlanets1") as! SKSpriteNode? {
-                        scenePlanets1.texture = SKTexture(imageNamed: "sprites/art/planet" + String(arc4random_uniform(6)) + ".png")
-                        if let scenePlanets2: SKSpriteNode = childNode(withName: "sksPlanets2") as! SKSpriteNode? {
-                            scenePlanets2.texture = SKTexture(imageNamed: "sprites/art/planet" + String(arc4random_uniform(6)) + ".png")
+        if let sksBackground: SKSpriteNode = childNode(withName: "sksBackground") as! SKSpriteNode? {
+            sksBackground.texture = SKTexture(imageNamed: "sprites/background/backgrounds" + String(arc4random_uniform(2)) + ".png")
+            if let sksClouds: SKSpriteNode = childNode(withName: "sksClouds") as! SKSpriteNode? {
+                sksClouds.texture = SKTexture(imageNamed: "sprites/background/clouds" + String(arc4random_uniform(3)) + String(arc4random_uniform(2)) + ".png")
+                if let sksStars: SKSpriteNode = childNode(withName: "sksStars") as! SKSpriteNode? {
+                    sksStars.texture = SKTexture(imageNamed: "sprites/background/starsLayer" + String(arc4random_uniform(2)) + ".png")
+                    if let sksPlanets1: SKSpriteNode = childNode(withName: "sksPlanets1") as! SKSpriteNode? {
+                        sksPlanets1.texture = SKTexture(imageNamed: "sprites/art/planet" + String(arc4random_uniform(6)) + ".png")
+                        if let sksPlanets2: SKSpriteNode = childNode(withName: "sksPlanets2") as! SKSpriteNode? {
+                            sksPlanets2.texture = SKTexture(imageNamed: "sprites/art/planet" + String(arc4random_uniform(6)) + ".png")
                         }
                     }
                 }
