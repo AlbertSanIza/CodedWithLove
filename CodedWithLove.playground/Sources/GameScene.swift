@@ -120,7 +120,7 @@ public class GameSceneFile: SKScene {
             thePlayer.childNode(withName: "sksJetLeft")?.run(SKAction.fadeOut(withDuration: 0.2), withKey: "sksJetLeft")
         case 49:
             spaceKey = false
-        case 53:
+        case 53, 36:
             if isPaused {
                 isPaused = false
                 thePause.run(SKAction.fadeOut(withDuration: 0.1))
