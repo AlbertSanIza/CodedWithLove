@@ -133,6 +133,21 @@ public class GameSceneFile: SKScene {
         default: break
         }
     }
+    override public func mouseDown(with event: NSEvent) {
+        if isPaused {
+            let mousePoint = convertPoint(fromView: CGPoint(x: event.locationInWindow.x, y: event.locationInWindow.y))
+            if let touchedNode = nodes(at: mousePoint).first {
+                switch touchedNode.name {
+                case "txtResume"?:
+                    isPaused = false
+                    thePause.run(SKAction.fadeOut(withDuration: 0.1))
+                case "txtMainMenu"?:
+                    goToScene(withName: "txtMainMenu")
+                default: break
+                }
+            }
+        }
+    }
     func goToScene(withName: String) {
         let toGoScene: SKScene
         switch withName {
