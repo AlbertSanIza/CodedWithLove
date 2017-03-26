@@ -51,10 +51,10 @@ public class GameSceneFile: SKScene {
             thePlayer.run(SKAction.moveBy(x: -2 * cos(thePlayer.zRotation + degreesToRadians(degrees: 90)), y: -2 * sin(thePlayer.zRotation + degreesToRadians(degrees: 90)), duration: 0.3))
         }
         if aKey {
-            thePlayer.zRotation += degreesToRadians(degrees: 4)
+            thePlayer.run(SKAction.rotate(byAngle: degreesToRadians(degrees: 4), duration: 0.3))
         }
         if dKey {
-            thePlayer.zRotation -= degreesToRadians(degrees: 4)
+            thePlayer.run(SKAction.rotate(byAngle: degreesToRadians(degrees: -4), duration: 0.3))
         }
         if thePlayer.position.y > 400 {
             thePlayer.position.y = -398
