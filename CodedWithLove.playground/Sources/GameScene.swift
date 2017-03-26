@@ -1,6 +1,7 @@
 import SpriteKit
 public class GameSceneFile: SKScene {
     var thePlayer: SKSpriteNode = SKSpriteNode()
+    var thePause: SKNode = SKNode()
     var wKey: Bool = false
     var sKey: Bool = false
     var aKey: Bool = false
@@ -35,6 +36,9 @@ public class GameSceneFile: SKScene {
             if let sksJetRight: SKSpriteNode = thePlayer.childNode(withName: "sksJetRight") as! SKSpriteNode? {
                 sksJetRight.texture = SKTexture(imageNamed: "sprites/art/jet.png")
             }
+        }
+        if let sknPause: SKNode = childNode(withName: "sknPause") {
+            thePause = sknPause
         }
     }
     override public func didMove(to view: SKView) {
