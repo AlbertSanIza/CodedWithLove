@@ -99,6 +99,9 @@ public class GameSceneFile: SKScene {
         case 49:
             if !spaceKey {
                 spaceKey = true
+                if wKey {
+                    thePlayer.childNode(withName: "sksJet")?.run(SKAction.fadeIn(withDuration: 0.1), withKey: "sksJet")
+                }
             }
         default: break
         }
@@ -118,6 +121,9 @@ public class GameSceneFile: SKScene {
             thePlayer.childNode(withName: "sksJetLeft")?.run(SKAction.fadeOut(withDuration: 0.2), withKey: "sksJetLeft")
         case 49:
             spaceKey = false
+            if wKey {
+                thePlayer.childNode(withName: "sksJet")?.run(SKAction.fadeAlpha(to: 0.7, duration: 0.2), withKey: "sksJet")
+            }
         case 53, 36:
             if isPaused {
                 isPaused = false
