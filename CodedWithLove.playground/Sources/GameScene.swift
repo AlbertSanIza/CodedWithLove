@@ -45,12 +45,10 @@ public class GameSceneFile: SKScene {
     }
     override public func update(_ currentTime: TimeInterval) {
         if wKey {
-            thePlayer.position.x += (spaceKey ? 8 : 4) * cos(thePlayer.zRotation + degreesToRadians(degrees: 90))
-            thePlayer.position.y += (spaceKey ? 8 : 4) * sin(thePlayer.zRotation + degreesToRadians(degrees: 90))
+            thePlayer.run(SKAction.moveBy(x: (spaceKey ? 8 : 4) * cos(thePlayer.zRotation + degreesToRadians(degrees: 90)), y: (spaceKey ? 8 : 4) * sin(thePlayer.zRotation + degreesToRadians(degrees: 90)), duration: 0.5))
         }
         if sKey {
-            thePlayer.position.x -= 2 * cos(thePlayer.zRotation + degreesToRadians(degrees: 90))
-            thePlayer.position.y -= 2 * sin(thePlayer.zRotation + degreesToRadians(degrees: 90))
+            thePlayer.run(SKAction.moveBy(x: -2 * cos(thePlayer.zRotation + degreesToRadians(degrees: 90)), y: -2 * sin(thePlayer.zRotation + degreesToRadians(degrees: 90)), duration: 0.3))
         }
         if aKey {
             thePlayer.zRotation += degreesToRadians(degrees: 4)
