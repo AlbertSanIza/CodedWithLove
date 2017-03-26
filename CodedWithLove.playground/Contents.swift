@@ -5,8 +5,7 @@ import PlaygroundSupport
 let mainFrame = CGRect(x: 0, y: 0, width: 1024, height: 768)
 let mainView = SKView(frame: mainFrame)
 mainView.showsFPS = true
-mainView.showsNodeCount = true
-mainView.showsPhysics = true
+mainView.showsNodeCount = tru
 
 let splashScene: SKScene = GameSceneFile(fileNamed: "scenes/GameScene.sks")!
 splashScene.scaleMode = .aspectFit
