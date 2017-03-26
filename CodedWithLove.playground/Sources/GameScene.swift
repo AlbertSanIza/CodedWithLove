@@ -1,6 +1,6 @@
 import SpriteKit
 public class GameSceneFile: SKScene {
-    var thePlayer: SKNode = SKNode()
+    var thePlayer: SKSpriteNode = SKSpriteNode()
     var wKey: Bool = false
     var sKey: Bool = false
     var aKey: Bool = false
@@ -23,11 +23,9 @@ public class GameSceneFile: SKScene {
                 }
             }
         }
-        if let sknPlayer: SKNode = childNode(withName: "sknPlayer") {
+        if let sknPlayer: SKSpriteNode = childNode(withName: "sksPlayer") as! SKSpriteNode? {
             thePlayer = sknPlayer
-            if let sksPlayer: SKSpriteNode = thePlayer.childNode(withName: "sksPlayer") as! SKSpriteNode? {
-                sksPlayer.texture = SKTexture(imageNamed: "sprites/art/player.png")
-            }
+            thePlayer.texture = SKTexture(imageNamed: "sprites/art/player.png")
             if let sksJet: SKSpriteNode = thePlayer.childNode(withName: "sksJet") as! SKSpriteNode? {
                 sksJet.texture = SKTexture(imageNamed: "sprites/art/jet.png")
             }
