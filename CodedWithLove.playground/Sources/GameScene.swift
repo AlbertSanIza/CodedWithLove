@@ -24,8 +24,8 @@ public class GameSceneFile: SKScene {
                 }
             }
         }
-        if let sknPlayer: SKSpriteNode = childNode(withName: "sksPlayer") as! SKSpriteNode? {
-            thePlayer = sknPlayer
+        if let sksPlayer: SKSpriteNode = childNode(withName: "sksPlayer") as! SKSpriteNode? {
+            thePlayer = sksPlayer
             thePlayer.texture = SKTexture(imageNamed: "sprites/art/player.png")
             if let sksJet: SKSpriteNode = thePlayer.childNode(withName: "sksJet") as! SKSpriteNode? {
                 sksJet.texture = SKTexture(imageNamed: "sprites/art/jet.png")
