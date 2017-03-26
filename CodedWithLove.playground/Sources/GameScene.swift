@@ -44,62 +44,70 @@ public class GameSceneFile: SKScene {
         }
     }
     override public func update(_ currentTime: TimeInterval) {
-        if wKey {
-            thePlayer.run(SKAction.moveBy(x: (spaceKey ? 8 : 4) * cos(thePlayer.zRotation + degreesToRadians(degrees: 90)), y: (spaceKey ? 8 : 4) * sin(thePlayer.zRotation + degreesToRadians(degrees: 90)), duration: 0.5))
-        }
-        if sKey {
-            thePlayer.run(SKAction.moveBy(x: -2 * cos(thePlayer.zRotation + degreesToRadians(degrees: 90)), y: -2 * sin(thePlayer.zRotation + degreesToRadians(degrees: 90)), duration: 0.3))
-        }
-        if aKey {
-            thePlayer.run(SKAction.rotate(byAngle: degreesToRadians(degrees: 4), duration: 0.3))
-        }
-        if dKey {
-            thePlayer.run(SKAction.rotate(byAngle: degreesToRadians(degrees: -4), duration: 0.3))
-        }
-        if thePlayer.position.y > 400 {
-            thePlayer.position.y = -398
-        } else if thePlayer.position.y < -400 {
-            thePlayer.position.y = 398
-        }
-        if thePlayer.position.x > 528 {
-            thePlayer.position.x = -526
-        } else if thePlayer.position.x < -528 {
-            thePlayer.position.x = 526
+        if isPaused {
+        } else {
+            if wKey {
+                thePlayer.run(SKAction.moveBy(x: (spaceKey ? 8 : 4) * cos(thePlayer.zRotation + degreesToRadians(degrees: 90)), y: (spaceKey ? 8 : 4) * sin(thePlayer.zRotation + degreesToRadians(degrees: 90)), duration: 0.5))
+            }
+            if sKey {
+                thePlayer.run(SKAction.moveBy(x: -2 * cos(thePlayer.zRotation + degreesToRadians(degrees: 90)), y: -2 * sin(thePlayer.zRotation + degreesToRadians(degrees: 90)), duration: 0.3))
+            }
+            if aKey {
+                thePlayer.run(SKAction.rotate(byAngle: degreesToRadians(degrees: 4), duration: 0.3))
+            }
+            if dKey {
+                thePlayer.run(SKAction.rotate(byAngle: degreesToRadians(degrees: -4), duration: 0.3))
+            }
+            if thePlayer.position.y > 400 {
+                thePlayer.position.y = -398
+            } else if thePlayer.position.y < -400 {
+                thePlayer.position.y = 398
+            }
+            if thePlayer.position.x > 528 {
+                thePlayer.position.x = -526
+            } else if thePlayer.position.x < -528 {
+                thePlayer.position.x = 526
+            }
         }
     }
     override public func keyDown(with event: NSEvent) {
-        switch event.keyCode {
-        case 13:
-            if !wKey {
-                wKey = true
-                thePlayer.childNode(withName: "sksJet")?.run(SKAction.fadeAlpha(to: 0.7, duration: 0.4), withKey: "sksJet")
-            }
-        case 1:
-            if !sKey {
-                sKey = true
-            }
-        case 0:
-            if !aKey {
-                aKey = true
-                if !sKey {
-                    thePlayer.childNode(withName: "sksJetRight")?.run(SKAction.fadeAlpha(to: 0.7, duration: 0.4), withKey: "sksJetRight")
+        if isPaused {
+        } else {
+            switch event.keyCode {
+            case 13:
+                if !wKey {
+                    wKey = true
+                    thePlayer.childNode(withName: "sksJet")?.run(SKAction.fadeAlpha(to: 0.7, duration: 0.4), withKey: "sksJet")
                 }
-            }
-        case 2:
-            if !dKey {
-                dKey = true
+            case 1:
                 if !sKey {
-                    thePlayer.childNode(withName: "sksJetLeft")?.run(SKAction.fadeAlpha(to: 0.7, duration: 0.4), withKey: "sksJetLeft")
+                    sKey = true
                 }
+            case 0:
+                if !aKey {
+                    aKey = true
+                    if !sKey {
+                        thePlayer.childNode(withName: "sksJetRight")?.run(SKAction.fadeAlpha(to: 0.7, duration: 0.4), withKey: "sksJetRight")
+                    }
+                }
+            case 2:
+                if !dKey {
+                    dKey = true
+                    if !sKey {
+                        thePlayer.childNode(withName: "sksJetLeft")?.run(SKAction.fadeAlpha(to: 0.7, duration: 0.4), withKey: "sksJetLeft")
+                    }
+                }
+            case 49:
+                if !spaceKey {
+                    spaceKey = true
+                }
+            default: break
             }
-        case 49:
-            if !spaceKey {
-                spaceKey = true
-            }
-        default: break
         }
     }
     override public func keyUp(with event: NSEvent) {
+        if isPaused {
+        }
         switch event.keyCode {
         case 13:
             wKey = false
