@@ -49,8 +49,8 @@ public class GameSceneFile: SKScene {
             thePlayer.position.y += (spaceKey ? 8 : 4) * sin(thePlayer.zRotation + degreesToRadians(degrees: 90))
         }
         if sKey {
-            thePlayer.position.x -= 2 * cos(thePlayer.zRotation)
-            thePlayer.position.y -= 2 * sin(thePlayer.zRotation)
+            thePlayer.position.x -= 2 * cos(thePlayer.zRotation + degreesToRadians(degrees: 90))
+            thePlayer.position.y -= 2 * sin(thePlayer.zRotation + degreesToRadians(degrees: 90))
         }
         if aKey {
             thePlayer.zRotation += degreesToRadians(degrees: 4)
