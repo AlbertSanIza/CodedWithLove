@@ -134,7 +134,7 @@ public class GameSceneFile: SKScene {
             toGoScene = MainMenuSceneFile(fileNamed: "scenes/MainMenuScene.sks")!
         }
         toGoScene.scaleMode = .aspectFit
-        view?.presentScene(toGoScene, transition: SKTransition.crossFade(withDuration: 2.0))
+        view?.presentScene(toGoScene, transition: SKTransition.fade(withDuration: 2.0))
     }
     func radiansToDegrees(radians: CGFloat) -> CGFloat {
         return radians * 180 / CGFloat(M_PI)
