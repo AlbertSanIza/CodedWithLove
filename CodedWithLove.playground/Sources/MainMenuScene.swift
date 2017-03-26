@@ -2,6 +2,9 @@ import SpriteKit
 public class MainMenuSceneFile: SKScene {
     override public func sceneDidLoad() {
         super.sceneDidLoad()
+        if let sceneStars: SKSpriteNode = childNode(withName: "sksStars") as! SKSpriteNode? {
+            sceneStars.texture = SKTexture(imageNamed: "sprites/background/starsLayer2.png")
+        }
     }
     override public func keyUp(with event: NSEvent) {
         switch event.keyCode {
