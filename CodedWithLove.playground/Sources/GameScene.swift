@@ -127,6 +127,15 @@ public class GameSceneFile: SKScene {
                     self.isPaused = true
                 }
             }
+        case 15:
+            if isPaused {
+                isPaused = false
+                thePause.run(SKAction.fadeOut(withDuration: 0.1))
+            }
+        case 46:
+            if isPaused {
+                goToScene(withName: "txtMainMenu")
+            }
         default: break
         }
     }
