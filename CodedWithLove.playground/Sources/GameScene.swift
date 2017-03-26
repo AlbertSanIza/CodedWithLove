@@ -65,15 +65,15 @@ public class GameSceneFile: SKScene {
                 thePlayer.zRotation = degreesToRadians(degrees: 359)
             }
         }
-        if thePlayer.position.y > 390 {
-            thePlayer.position.y = -385
-        } else if thePlayer.position.y < -390 {
-            thePlayer.position.y = 385
+        if thePlayer.position.y > 400 {
+            thePlayer.position.y = -398
+        } else if thePlayer.position.y < -400 {
+            thePlayer.position.y = 398
         }
-        if thePlayer.position.x > 518 {
-            thePlayer.position.x = -513
-        } else if thePlayer.position.x < -518 {
-            thePlayer.position.x = 513
+        if thePlayer.position.x > 528 {
+            thePlayer.position.x = -526
+        } else if thePlayer.position.x < -528 {
+            thePlayer.position.x = 526
         }
     }
     override public func keyDown(with event: NSEvent) {
