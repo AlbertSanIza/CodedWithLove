@@ -5,6 +5,7 @@ public class GameSceneFile: SKScene {
     var sKey: Bool = false
     var aKey: Bool = false
     var dKey: Bool = false
+    var spaceKey: Bool = false
     override public func sceneDidLoad() {
         super.sceneDidLoad()
         if let sceneBackground: SKSpriteNode = childNode(withName: "sksBackground") as! SKSpriteNode? {
@@ -101,6 +102,10 @@ public class GameSceneFile: SKScene {
                     thePlayer.childNode(withName: sKey ? "sksJetRight" : "sksJetLeft")?.run(SKAction.fadeIn(withDuration: 0.4), withKey: "sksJetLeft")
                 }
             }
+        case 49:
+            if !spaceKey {
+                spaceKey = true
+            }
         default: break
         }
     }
@@ -117,6 +122,8 @@ public class GameSceneFile: SKScene {
         case 2:
             dKey = false
             thePlayer.childNode(withName: "sksJetLeft")?.run(SKAction.fadeOut(withDuration: 0.2), withKey: "sksJetLeft")
+        case 49:
+            spaceKey = false
         default: break
         }
     }
