@@ -82,7 +82,7 @@ public class GameSceneFile: SKScene {
         case 13:
             if !wKey {
                 wKey = true
-                thePlayer.childNode(withName: "sksJet")?.run(SKAction.fadeIn(withDuration: 0.4), withKey: "sksJet")
+                thePlayer.childNode(withName: "sksJet")?.run(SKAction.fadeAlpha(to: 0.7, duration: 0.4), withKey: "sksJet")
             }
         case 1:
             if !sKey {
@@ -92,14 +92,14 @@ public class GameSceneFile: SKScene {
             if !aKey {
                 aKey = true
                 if !sKey {
-                    thePlayer.childNode(withName: sKey ? "sksJetLeft" : "sksJetRight")?.run(SKAction.fadeIn(withDuration: 0.4), withKey: "sksJetRight")
+                    thePlayer.childNode(withName: "sksJetRight")?.run(SKAction.fadeAlpha(to: 0.7, duration: 0.4), withKey: "sksJetRight")
                 }
             }
         case 2:
             if !dKey {
                 dKey = true
                 if !sKey {
-                    thePlayer.childNode(withName: sKey ? "sksJetRight" : "sksJetLeft")?.run(SKAction.fadeIn(withDuration: 0.4), withKey: "sksJetLeft")
+                    thePlayer.childNode(withName: "sksJetLeft")?.run(SKAction.fadeAlpha(to: 0.7, duration: 0.4), withKey: "sksJetLeft")
                 }
             }
         case 49:
