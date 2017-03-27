@@ -22,14 +22,11 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         super.sceneDidLoad()
         loadBackground()
         loadPlayer()
-        if let txtLifePoints: SKLabelNode = childNode(withName: "txtLifePoints") as! SKLabelNode?, let txtScorePoints: SKLabelNode = childNode(withName: "txtScorePoints") as! SKLabelNode? {
-            theLifePoints = txtLifePoints
-            theScorePoints = txtScorePoints
-        }
         if let sknPause: SKNode = childNode(withName: "sknPause"), let sknGameOver: SKNode = childNode(withName: "sknGameOver") {
             thePause = sknPause
             theGameOver = sknGameOver
         }
+        loadStatsBoard()
         if let sksAsteroid: SKSpriteNode = childNode(withName: "sksAsteroid") as! SKSpriteNode? {
             sksAsteroid.texture = SKTexture(imageNamed: "sprites/SpaceShooterRedux/PNG/playerShip1_blue.png")
             sksAsteroid.physicsBody?.categoryBitMask = PhysicsCategory.Asteroid
@@ -257,6 +254,12 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
                 sksJetLeft.texture = SKTexture(imageNamed: "sprites/art/jet.png")
                 sksJetRight.texture = SKTexture(imageNamed: "sprites/art/jet.png")
             }
+        }
+    }
+    func loadStatsBoard() {
+        if let txtLifePoints: SKLabelNode = childNode(withName: "txtLifePoints") as! SKLabelNode?, let txtScorePoints: SKLabelNode = childNode(withName: "txtScorePoints") as! SKLabelNode? {
+            theLifePoints = txtLifePoints
+            theScorePoints = txtScorePoints
         }
     }
     func changeScorePoints(with: Int) {
