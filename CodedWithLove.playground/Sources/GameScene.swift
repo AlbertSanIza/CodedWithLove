@@ -36,7 +36,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         physicsWorld.contactDelegate = self
         enumerateChildNodes(withName: "sksPlanets*") {
             (node, stop) in
-            node.position = self.convertPoint(fromView: CGPoint(x: CGFloat(arc4random_uniform(600)), y: CGFloat(arc4random_uniform(450))))
+            node.position = self.convertPoint(fromView: CGPoint(x: CGFloat(arc4random_uniform(UInt32((self.view?.frame.width)!))), y: CGFloat(arc4random_uniform(UInt32((self.view?.frame.height)!)))))
         }
         //let backgroundMusic = SKAudioNode(fileNamed: "sounds/spaceDimensions.mp3")
         //backgroundMusic.autoplayLooped = true
