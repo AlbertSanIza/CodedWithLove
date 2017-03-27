@@ -184,16 +184,16 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         view?.presentScene(toGoScene, transition: SKTransition.fade(withDuration: 2.0))
     }
     func addProjectile() {
-        let shot = SKSpriteNode(imageNamed: "sprites/SpaceShooterRedux/PNG/Lasers/laserBlue01.png")
-        shot.physicsBody?.isDynamic = true
-        shot.physicsBody?.categoryBitMask = PhysicsCategory.Projectile
-        shot.physicsBody?.contactTestBitMask = PhysicsCategory.Asteroid
-        shot.physicsBody?.collisionBitMask = PhysicsCategory.Asteroid
-        shot.physicsBody?.usesPreciseCollisionDetection = true
-        shot.position = thePlayer.position
-        shot.zRotation = thePlayer.zRotation
-        addChild(shot)
-        shot.run(SKAction.sequence([SKAction.moveBy(x: 1200 * cos(shot.zRotation + degreesToRadians(degrees: 90)), y: 1200 * sin(shot.zRotation + degreesToRadians(degrees: 90)), duration: 1.2), SKAction.removeFromParent()]))
+        let projectile = SKSpriteNode(imageNamed: "sprites/SpaceShooterRedux/PNG/Lasers/laserBlue01.png")
+        projectile.physicsBody?.isDynamic = true
+        projectile.physicsBody?.categoryBitMask = PhysicsCategory.Projectile
+        projectile.physicsBody?.contactTestBitMask = PhysicsCategory.Asteroid
+        projectile.physicsBody?.collisionBitMask = PhysicsCategory.Asteroid
+        projectile.physicsBody?.usesPreciseCollisionDetection = true
+        projectile.position = thePlayer.position
+        projectile.zRotation = thePlayer.zRotation
+        addChild(projectile)
+        projectile.run(SKAction.sequence([SKAction.moveBy(x: 1200 * cos(projectile.zRotation + degreesToRadians(degrees: 90)), y: 1200 * sin(projectile.zRotation + degreesToRadians(degrees: 90)), duration: 5.2), SKAction.removeFromParent()]))
     }
     func radiansToDegrees(radians: CGFloat) -> CGFloat {
         return radians * 180 / CGFloat(M_PI)
