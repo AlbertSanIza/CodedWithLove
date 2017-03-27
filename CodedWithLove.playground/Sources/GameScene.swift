@@ -85,7 +85,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
                 fBody = contact.bodyA.categoryBitMask == PhysicsCategory.Player ? contact.bodyA : contact.bodyB
                 sBody = contact.bodyA.categoryBitMask == PhysicsCategory.Asteroid ? contact.bodyA : contact.bodyB
                 if let sksPlayer = fBody.node as? SKSpriteNode, let sksAsteroid = sBody.node as? SKSpriteNode {
-                    print("playerHitAsteroid")
+                    playerHitAsteroid(player: sksPlayer, asteroid: sksAsteroid)
                 }
             }
         }
