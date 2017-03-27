@@ -22,11 +22,8 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         super.sceneDidLoad()
         loadBackground()
         loadPlayer()
-        if let sknPause: SKNode = childNode(withName: "sknPause"), let sknGameOver: SKNode = childNode(withName: "sknGameOver") {
-            thePause = sknPause
-            theGameOver = sknGameOver
-        }
         loadStatsBoard()
+        loadSubViews()
         if let sksAsteroid: SKSpriteNode = childNode(withName: "sksAsteroid") as! SKSpriteNode? {
             sksAsteroid.texture = SKTexture(imageNamed: "sprites/SpaceShooterRedux/PNG/playerShip1_blue.png")
             sksAsteroid.physicsBody?.categoryBitMask = PhysicsCategory.Asteroid
@@ -260,6 +257,12 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         if let txtLifePoints: SKLabelNode = childNode(withName: "txtLifePoints") as! SKLabelNode?, let txtScorePoints: SKLabelNode = childNode(withName: "txtScorePoints") as! SKLabelNode? {
             theLifePoints = txtLifePoints
             theScorePoints = txtScorePoints
+        }
+    }
+    func loadSubViews() {
+        if let sknPause: SKNode = childNode(withName: "sknPause"), let sknGameOver: SKNode = childNode(withName: "sknGameOver") {
+            thePause = sknPause
+            theGameOver = sknGameOver
         }
     }
     func changeScorePoints(with: Int) {
