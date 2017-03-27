@@ -232,8 +232,10 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         player.run(SKAction.move(to: CGPoint(x: 0, y: 0), duration: 0))
     }
     func changeLifePoints(with: Int) {
+        theLifePoints.text = String(Int(theLifePoints.text!)! + with)
     }
     func changeScorePoints(with: Int) {
+        theScorePoints.text = String(Int(theScorePoints.text!)! + with)
     }
     func radiansToDegrees(radians: CGFloat) -> CGFloat {
         return radians * 180 / CGFloat(M_PI)
