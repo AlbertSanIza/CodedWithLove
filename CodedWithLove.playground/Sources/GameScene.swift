@@ -11,6 +11,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
     var dKey: Bool = false
     var spaceKey: Bool = false
     var isGameOver: Bool = false
+    var isPlayerAsteroid: Bool = false
     struct PhysicsCategory {
         static let None: UInt32 = 0
         static let All: UInt32 = UInt32.max
