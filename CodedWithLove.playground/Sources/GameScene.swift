@@ -169,21 +169,23 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
                 thePlayer.childNode(withName: "sksJet")?.run(SKAction.fadeAlpha(to: 0.7, duration: 0.2), withKey: "sksJet")
             }
         case 53, 36:
-            if isPaused {
-                isPaused = false
-                thePause.run(SKAction.fadeOut(withDuration: 0.1))
-            } else {
-                thePause.run(SKAction.fadeIn(withDuration: 0.1)) {
-                    self.isPaused = true
+            if !isGameOver {
+                if isPaused {
+                    isPaused = false
+                    thePause.run(SKAction.fadeOut(withDuration: 0.1))
+                } else {
+                    thePause.run(SKAction.fadeIn(withDuration: 0.1)) {
+                        self.isPaused = true
+                    }
                 }
             }
         case 15:
-            if isPaused {
+            if isPaused && !isGameOver {
                 isPaused = false
                 thePause.run(SKAction.fadeOut(withDuration: 0.1))
             }
         case 46:
-            if isPaused {
+            if isPaused && !isGameOver {
                 goToScene(withName: "txtMainMenu")
             }
         default: break
@@ -245,6 +247,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
             thePlayer.run(SKAction.removeFromParent()) {
                 self.thePause.run(SKAction.removeFromParent()) {
                     self.theGameOver.run(SKAction.fadeIn(withDuration: 0.1)) {
+                        self.isGameOver = true
                         self.isPaused = true
                     }
                 }
