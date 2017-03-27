@@ -61,7 +61,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
     }
     override public func update(_ currentTime: TimeInterval) {
         if wKey {
-            thePlayer.run(SKAction.moveBy(x: (spaceKey ? 7 : 4) * cos(thePlayer.zRotation), y: (spaceKey ? 7 : 4) * sin(thePlayer.zRotation), duration: 0.5))
+            thePlayer.run(SKAction.moveBy(x: (spaceKey ? 7 : 3) * cos(thePlayer.zRotation), y: (spaceKey ? 7 : 3) * sin(thePlayer.zRotation), duration: 0.5))
         }
         if sKey {
             thePlayer.run(SKAction.moveBy(x: -1 * cos(thePlayer.zRotation), y: -1 * sin(thePlayer.zRotation), duration: 0.3))
