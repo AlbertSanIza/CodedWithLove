@@ -189,7 +189,6 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         projectile.zRotation = thePlayer.zRotation
         projectile.physicsBody = SKPhysicsBody(circleOfRadius: 10, center: CGPoint(x: 20, y: 0))
         projectile.physicsBody?.isDynamic = true
-        projectile.physicsBody?.isDynamic = true
         projectile.physicsBody?.categoryBitMask = PhysicsCategory.Projectile
         projectile.physicsBody?.contactTestBitMask = PhysicsCategory.Asteroid
         projectile.physicsBody?.collisionBitMask = PhysicsCategory.None
