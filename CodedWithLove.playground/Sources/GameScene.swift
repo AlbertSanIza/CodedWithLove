@@ -250,7 +250,6 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
                 self.thePause.run(SKAction.removeFromParent()) {
                     self.theGameOver.run(SKAction.fadeIn(withDuration: 0.1)) {
                         self.isGameOver = true
-                        self.isPaused = true
                     }
                 }
             }
