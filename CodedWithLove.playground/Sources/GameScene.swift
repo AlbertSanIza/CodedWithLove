@@ -142,7 +142,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
                 }
             }
         case 31:
-            if !event.isARepeat {
+            if !event.isARepeat && !isPaused {
                 addProjectile()
             }
         default: break
