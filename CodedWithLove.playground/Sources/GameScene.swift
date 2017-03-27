@@ -231,9 +231,9 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
     func playerHitAsteroid(player: SKSpriteNode, asteroid: SKSpriteNode) {
         player.run(SKAction.move(to: CGPoint(x: 0, y: 0), duration: 0))
     }
-    func changeLives() {
+    func changeLifePoints(with: Int) {
     }
-    func changePoints() {
+    func changeScorePoints(with: Int) {
     }
     func radiansToDegrees(radians: CGFloat) -> CGFloat {
         return radians * 180 / CGFloat(M_PI)
