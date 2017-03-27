@@ -209,6 +209,9 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         projectile.run(SKAction.sequence([SKAction.moveBy(x: 1200 * cos(projectile.zRotation), y: 1200 * sin(projectile.zRotation), duration: 1.2), SKAction.removeFromParent()]))
         addChild(projectile)
     }
+    func projectileHitAsteroid(projectile: SKSpriteNode, asteroid: SKSpriteNode) {
+        projectile.removeFromParent()
+    }
     func radiansToDegrees(radians: CGFloat) -> CGFloat {
         return radians * 180 / CGFloat(M_PI)
     }
