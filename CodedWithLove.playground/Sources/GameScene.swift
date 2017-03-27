@@ -185,6 +185,11 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
     }
     func addProjectile() {
         let shot = SKSpriteNode(imageNamed: "sprites/SpaceShooterRedux/PNG/Lasers/laserBlue01.png")
+        shot.physicsBody?.isDynamic = true
+        shot.physicsBody?.categoryBitMask = PhysicsCategory.Projectile
+        shot.physicsBody?.contactTestBitMask = PhysicsCategory.Asteroid
+        shot.physicsBody?.collisionBitMask = PhysicsCategory.Asteroid
+        shot.physicsBody?.usesPreciseCollisionDetection = true
         shot.position = thePlayer.position
         shot.zRotation = thePlayer.zRotation
         addChild(shot)
