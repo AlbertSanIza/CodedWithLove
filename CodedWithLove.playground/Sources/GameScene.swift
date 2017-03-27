@@ -72,8 +72,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
                 fBody = contact.bodyA.categoryBitMask == PhysicsCategory.Projectile ? contact.bodyA : contact.bodyB
                 sBody = contact.bodyA.categoryBitMask == PhysicsCategory.Asteroid ? contact.bodyA : contact.bodyB
                 if let sksProjectile = fBody.node as? SKSpriteNode, let sksAsteroid = sBody.node as? SKSpriteNode {
-                    projectileHitAsteroid(projectile: sksProjectile, asteroid: sksAsteroid)
-                    changeScorePoints(with: 1)
+                    projectileHitAsteroid(projectile: sksProjectile, asteroid: sksAsteroid, points: 1)
                 }
             }
         }
@@ -82,8 +81,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
                 fBody = contact.bodyA.categoryBitMask == PhysicsCategory.Player ? contact.bodyA : contact.bodyB
                 sBody = contact.bodyA.categoryBitMask == PhysicsCategory.Asteroid ? contact.bodyA : contact.bodyB
                 if let sksPlayer = fBody.node as? SKSpriteNode, let sksAsteroid = sBody.node as? SKSpriteNode {
-                    playerHitAsteroid(player: sksPlayer, asteroid: sksAsteroid)
-                    changeLifePoints(with: -1)
+                    playerHitAsteroid(player: sksPlayer, asteroid: sksAsteroid, points: -1)
                 }
             }
         }
