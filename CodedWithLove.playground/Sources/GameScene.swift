@@ -190,9 +190,9 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
     }
     func loadBackground() {
         if let sksBackground: SKSpriteNode = childNode(withName: "sksBackground") as! SKSpriteNode?, let sksClouds: SKSpriteNode = childNode(withName: "sksClouds") as! SKSpriteNode?, let sksStars: SKSpriteNode = childNode(withName: "sksStars") as! SKSpriteNode?, let sksPlanets1: SKSpriteNode = childNode(withName: "sksPlanets1") as! SKSpriteNode?, let sksPlanets2: SKSpriteNode = childNode(withName: "sksPlanets2") as! SKSpriteNode? {
-            sksBackground.texture = SKTexture(imageNamed: "sprites/background/backgrounds" + String(arc4random_uniform(2)) + ".png")
-            sksClouds.texture = SKTexture(imageNamed: "sprites/background/clouds" + String(arc4random_uniform(3)) + String(arc4random_uniform(2)) + ".png")
-            sksStars.texture = SKTexture(imageNamed: "sprites/background/starsLayer" + String(arc4random_uniform(2)) + ".png")
+            sksBackground.texture = SKTexture(imageNamed: "sprites/background/backgrounds" + String(arc4random_uniform(3)) + ".png")
+            sksClouds.texture = SKTexture(imageNamed: "sprites/background/clouds" + String(arc4random_uniform(4)) + String(arc4random_uniform(3)) + ".png")
+            sksStars.texture = SKTexture(imageNamed: "sprites/background/starsLayer" + String(arc4random_uniform(3)) + ".png")
             sksPlanets1.texture = SKTexture(imageNamed: "sprites/art/planet" + String(arc4random_uniform(6)) + ".png")
             sksPlanets2.texture = SKTexture(imageNamed: "sprites/art/planet" + String(arc4random_uniform(6)) + ".png")
         }
