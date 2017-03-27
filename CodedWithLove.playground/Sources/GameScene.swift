@@ -1,11 +1,4 @@
 import SpriteKit
-struct PhysicsCategory {
-    static let None: UInt32 = 0
-    static let All: UInt32 = UInt32.max
-    static let Player: UInt32 = 0b1
-    static let Asteroid: UInt32 = 0b10
-    static let Projectile: UInt32 = 0b11
-}
 public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
     var thePlayer: SKSpriteNode = SKSpriteNode()
     var thePause: SKNode = SKNode()
@@ -16,6 +9,13 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
     var aKey: Bool = false
     var dKey: Bool = false
     var spaceKey: Bool = false
+    struct PhysicsCategory {
+        static let None: UInt32 = 0
+        static let All: UInt32 = UInt32.max
+        static let Player: UInt32 = 0b1
+        static let Asteroid: UInt32 = 0b10
+        static let Projectile: UInt32 = 0b11
+    }
     override public func sceneDidLoad() {
         super.sceneDidLoad()
         if let sksBackground: SKSpriteNode = childNode(withName: "sksBackground") as! SKSpriteNode?, let sksClouds: SKSpriteNode = childNode(withName: "sksClouds") as! SKSpriteNode?, let sksStars: SKSpriteNode = childNode(withName: "sksStars") as! SKSpriteNode?, let sksPlanets1: SKSpriteNode = childNode(withName: "sksPlanets1") as! SKSpriteNode?, let sksPlanets2: SKSpriteNode = childNode(withName: "sksPlanets2") as! SKSpriteNode? {
@@ -81,6 +81,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
                 sBody = contact.bodyA.categoryBitMask == PhysicsCategory.Asteroid ? contact.bodyA : contact.bodyB
                 if let sksPlayer = fBody.node as? SKSpriteNode, let sksAsteroid = sBody.node as? SKSpriteNode {
                     playerHitAsteroid(player: sksPlayer, asteroid: sksAsteroid)
+                    changeLifePoints(with: -1)
                 }
             }
         }
