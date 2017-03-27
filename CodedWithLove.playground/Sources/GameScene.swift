@@ -57,10 +57,12 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         }
         if contact.bodyA.categoryBitMask == PhysicsCategory.Player || contact.bodyB.categoryBitMask == PhysicsCategory.Player {
             if contact.bodyA.categoryBitMask == PhysicsCategory.Asteroid || contact.bodyB.categoryBitMask == PhysicsCategory.Asteroid {
-                fBody = contact.bodyA.categoryBitMask == PhysicsCategory.Player ? contact.bodyA : contact.bodyB
-                sBody = contact.bodyA.categoryBitMask == PhysicsCategory.Asteroid ? contact.bodyA : contact.bodyB
-                if let sksPlayer = fBody.node as? SKSpriteNode, let sksAsteroid = sBody.node as? SKSpriteNode {
-                    playerHitAsteroid(player: sksPlayer, asteroid: sksAsteroid, points: -1)
+                if !isHitPlayerAsteroid {
+                    fBody = contact.bodyA.categoryBitMask == PhysicsCategory.Player ? contact.bodyA : contact.bodyB
+                    sBody = contact.bodyA.categoryBitMask == PhysicsCategory.Asteroid ? contact.bodyA : contact.bodyB
+                    if let sksPlayer = fBody.node as? SKSpriteNode, let sksAsteroid = sBody.node as? SKSpriteNode {
+                        playerHitAsteroid(player: sksPlayer, asteroid: sksAsteroid, points: -1)
+                    }
                 }
             }
         }
@@ -268,6 +270,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
     func playerHitAsteroid(player: SKSpriteNode, asteroid: SKSpriteNode, points: Int) {
         player.run(SKAction.move(to: CGPoint(x: 0, y: 0), duration: 0))
         changeLifePoints(with: points)
+        isHitPlayerAsteroid = true
     }
     func radiansToDegrees(radians: CGFloat) -> CGFloat {
         return radians * 180 / CGFloat(M_PI)
