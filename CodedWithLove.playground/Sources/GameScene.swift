@@ -250,7 +250,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         projectile.run(SKAction.sequence([SKAction.moveBy(x: 1200 * cos(projectile.zRotation), y: 1200 * sin(projectile.zRotation), duration: 1.2), SKAction.removeFromParent()]))
         addChild(projectile)
     }
-    func addShield() {
+    func addShield() -> SKSpriteNode {
         let shield = SKSpriteNode(texture: SKTexture(imageNamed: "sprites/art/planet6.png"), size: CGSize(width: 360, height: 360))
         shield.alpha = 0.6
         shield.physicsBody = SKPhysicsBody(circleOfRadius: 135, center: CGPoint(x: 0, y: 0))
@@ -261,7 +261,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         let shieldFadeAction = SKAction.repeat(SKAction.sequence([SKAction.fadeAlpha(to: 0.35, duration: 0.6), SKAction.fadeAlpha(to: 0.6, duration: 0.35)]), count: 8)
         let shieldFadeSequenceAction = SKAction.sequence([shieldFadeAction, SKAction.fadeOut(withDuration: 1), SKAction.removeFromParent()])
         shield.run(shieldFadeSequenceAction)
-        thePlayer.addChild(shield)
+        return shield
     }
     func changeLifePoints(with: Int) {
         let lifePoints = Int(theLifePoints.text!)! + with
