@@ -184,8 +184,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         view?.presentScene(toGoScene, transition: SKTransition.fade(withDuration: 2.0))
     }
     func addProjectile() {
-        let projectile = SKSpriteNode(imageNamed: "sprites/art/projectile0.png")
-        projectile.size = CGSize(width: 70, height: 30)
+        let projectile = SKSpriteNode(texture: SKTexture(imageNamed: "sprites/art/projectile0.png"), size: CGSize(width: 70, height: 30))
         projectile.position = thePlayer.position
         projectile.zRotation = thePlayer.zRotation
         projectile.physicsBody?.isDynamic = true
