@@ -103,6 +103,13 @@ public class GameSceneFile: SKScene {
                     thePlayer.childNode(withName: "sksJet")?.run(SKAction.fadeIn(withDuration: 0.1), withKey: "sksJet")
                 }
             }
+        case 31:
+            let shot = SKSpriteNode(imageNamed: "sprites/SpaceShooterRedux/PNG/Lasers/laserBlue01.png")
+            shot.position = thePlayer.position
+            shot.zRotation = thePlayer.zRotation
+            addChild(shot)
+            let moveShot = SKAction.move(to: CGPoint(x: 1100 * cos(thePlayer.zRotation + degreesToRadians(degrees: 90)), y: 1100 * sin(thePlayer.zRotation + degreesToRadians(degrees: 90))), duration: 2.0)
+            shot.run(SKAction.sequence([moveShot, SKAction.removeFromParent()]))
         default: break
         }
     }
