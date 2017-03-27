@@ -37,14 +37,14 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
                 sksJetRight.texture = SKTexture(imageNamed: "sprites/art/jet.png")
             }
         }
+        if let sknPause: SKNode = childNode(withName: "sknPause") {
+            thePause = sknPause
+        }
         if let sksAsteroid: SKSpriteNode = childNode(withName: "sksAsteroid") as! SKSpriteNode? {
             sksAsteroid.texture = SKTexture(imageNamed: "sprites/SpaceShooterRedux/PNG/playerShip1_blue.png")
             sksAsteroid.physicsBody?.categoryBitMask = PhysicsCategory.Asteroid
             sksAsteroid.physicsBody?.contactTestBitMask = PhysicsCategory.Player
             sksAsteroid.physicsBody?.collisionBitMask = PhysicsCategory.None
-        }
-        if let sknPause: SKNode = childNode(withName: "sknPause") {
-            thePause = sknPause
         }
     }
     override public func didMove(to view: SKView) {
