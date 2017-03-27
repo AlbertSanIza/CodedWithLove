@@ -187,6 +187,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         let projectile = SKSpriteNode(texture: SKTexture(imageNamed: "sprites/art/projectile0.png"), size: CGSize(width: 70, height: 30))
         projectile.position = thePlayer.position
         projectile.zRotation = thePlayer.zRotation
+        projectile.physicsBody = SKPhysicsBody(circleOfRadius: 10, center: CGPoint(x: 20, y: 0))
         projectile.physicsBody?.isDynamic = true
         projectile.physicsBody?.isDynamic = true
         projectile.physicsBody?.categoryBitMask = PhysicsCategory.Projectile
