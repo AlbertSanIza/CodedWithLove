@@ -282,11 +282,11 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         changeScorePoints(with: 1)
     }
     func playerHitAsteroid(player: SKSpriteNode, asteroid: SKSpriteNode, points: Int) {
-        player.run(SKAction.move(to: CGPoint(x: 0, y: 0), duration: 0))
-        changeLifePoints(with: points)
         isHitPlayerAsteroid = true
-        addShield()
-        run(SKAction.wait(forDuration: 4.5)) {
+        changeLifePoints(with: points)
+        player.addChild(addShield())
+        player.removeAllActions()
+        player.run(SKAction.sequence([SKAction.group([SKAction.move(to: CGPoint(x: 0, y: 0), duration: 0), SKAction.rotate(toAngle: degreesToRadians(degrees: 90), duration: 0)]), SKAction.wait(forDuration: 4.5)])) {
             self.isHitPlayerAsteroid = false
         }
     }
