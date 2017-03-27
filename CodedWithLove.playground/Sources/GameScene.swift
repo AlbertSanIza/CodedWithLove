@@ -40,6 +40,10 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         if let sknPause: SKNode = childNode(withName: "sknPause") {
             thePause = sknPause
         }
+        if let txtLifePoints: SKLabelNode = childNode(withName: "txtLifePoints") as! SKLabelNode?, let txtScorePoints: SKLabelNode = childNode(withName: "txtScorePoints") as! SKLabelNode? {
+            theLifePoints = txtLifePoints
+            theScorePoints = txtScorePoints
+        }
         if let sksAsteroid: SKSpriteNode = childNode(withName: "sksAsteroid") as! SKSpriteNode? {
             sksAsteroid.texture = SKTexture(imageNamed: "sprites/SpaceShooterRedux/PNG/playerShip1_blue.png")
             sksAsteroid.physicsBody?.categoryBitMask = PhysicsCategory.Asteroid
