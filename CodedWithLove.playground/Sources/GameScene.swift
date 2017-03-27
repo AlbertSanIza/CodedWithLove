@@ -68,6 +68,19 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         //backgroundMusic.autoplayLooped = true
         //addChild(backgroundMusic)
     }
+    public func didBegin(_ contact: SKPhysicsContact) {
+        var fBody: SKPhysicsBody
+        var sBody: SKPhysicsBody
+        if contact.bodyA.categoryBitMask == PhysicsCategory.Projectile || contact.bodyB.categoryBitMask == PhysicsCategory.Projectile {
+            if contact.bodyA.categoryBitMask == PhysicsCategory.Asteroid || contact.bodyB.categoryBitMask == PhysicsCategory.Asteroid {
+                fBody = contact.bodyA.categoryBitMask == PhysicsCategory.Projectile ? contact.bodyA : contact.bodyB
+                sBody = contact.bodyA.categoryBitMask == PhysicsCategory.Asteroid ? contact.bodyA : contact.bodyB
+                if let sksProjectile = fBody.node as? SKSpriteNode, let sksAsteroid = sBody.node as? SKSpriteNode {
+                    projectileHitAsteroid(projectile: sksProjectile, asteroid: sksAsteroid)
+                }
+            }
+        }
+    }
     override public func update(_ currentTime: TimeInterval) {
         if wKey {
             thePlayer.run(SKAction.moveBy(x: (spaceKey ? 7 : 3) * cos(thePlayer.zRotation), y: (spaceKey ? 7 : 3) * sin(thePlayer.zRotation), duration: 0.5))
