@@ -48,6 +48,8 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         }
     }
     override public func didMove(to view: SKView) {
+        physicsWorld.gravity = CGVector.zero
+        physicsWorld.contactDelegate = self
         enumerateChildNodes(withName: "sksPlanets*") {
             (node, stop) in
             node.position = self.convertPoint(fromView: CGPoint(x: CGFloat(arc4random_uniform(600)), y: CGFloat(arc4random_uniform(450))))
