@@ -39,13 +39,9 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
             thePlayer.physicsBody?.categoryBitMask = PhysicsCategory.Player
             thePlayer.physicsBody?.contactTestBitMask = PhysicsCategory.Asteroid
             thePlayer.physicsBody?.collisionBitMask = PhysicsCategory.None
-            if let sksJet: SKSpriteNode = thePlayer.childNode(withName: "sksJet") as! SKSpriteNode? {
+            if let sksJet: SKSpriteNode = thePlayer.childNode(withName: "sksJet") as! SKSpriteNode?, let sksJetLeft: SKSpriteNode = thePlayer.childNode(withName: "sksJetLeft") as! SKSpriteNode?, let sksJetRight: SKSpriteNode = thePlayer.childNode(withName: "sksJetRight") as! SKSpriteNode? {
                 sksJet.texture = SKTexture(imageNamed: "sprites/art/jet.png")
-            }
-            if let sksJetLeft: SKSpriteNode = thePlayer.childNode(withName: "sksJetLeft") as! SKSpriteNode? {
                 sksJetLeft.texture = SKTexture(imageNamed: "sprites/art/jet.png")
-            }
-            if let sksJetRight: SKSpriteNode = thePlayer.childNode(withName: "sksJetRight") as! SKSpriteNode? {
                 sksJetRight.texture = SKTexture(imageNamed: "sprites/art/jet.png")
             }
         }
