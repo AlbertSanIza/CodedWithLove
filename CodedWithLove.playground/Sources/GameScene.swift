@@ -238,7 +238,8 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         changeLifePoints(with: points)
     }
     func changeLifePoints(with: Int) {
-        theLifePoints.text = String(Int(theLifePoints.text!)! + with)
+        let lifePoints = Int(theLifePoints.text!)! + with
+        theLifePoints.text = String(lifePoints)
     }
     func changeScorePoints(with: Int) {
         theScorePoints.text = String(Int(theScorePoints.text!)! + with)
