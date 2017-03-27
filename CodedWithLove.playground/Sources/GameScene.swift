@@ -208,6 +208,8 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         switch withName {
         case "txtMainMenu":
             toGoScene = MainMenuSceneFile(fileNamed: "scenes/MainMenuScene.sks")!
+        case "txtRestartGame":
+            toGoScene = GameSceneFile(fileNamed: "scenes/GameScene.sks")!
         default:
             toGoScene = MainMenuSceneFile(fileNamed: "scenes/MainMenuScene.sks")!
         }
