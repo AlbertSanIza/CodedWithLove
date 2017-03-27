@@ -250,6 +250,19 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         projectile.run(SKAction.sequence([SKAction.moveBy(x: 1200 * cos(projectile.zRotation), y: 1200 * sin(projectile.zRotation), duration: 1.2), SKAction.removeFromParent()]))
         addChild(projectile)
     }
+    func addShield() {
+        let shield = SKSpriteNode(texture: SKTexture(imageNamed: "sprites/art/planet6.png"), size: CGSize(width: 350, height: 350))
+        shield.alpha = 0.6
+        shield.physicsBody = SKPhysicsBody(circleOfRadius: 140, center: CGPoint(x: 0, y: 0))
+        shield.physicsBody?.pinned = true
+        shield.physicsBody?.categoryBitMask = PhysicsCategory.Shield
+        shield.physicsBody?.contactTestBitMask = PhysicsCategory.Asteroid
+        shield.physicsBody?.collisionBitMask = PhysicsCategory.Asteroid
+        let shieldFadeAction = SKAction.repeat(SKAction.sequence([SKAction.fadeAlpha(to: 0.35, duration: 0.6), SKAction.fadeAlpha(to: 0.6, duration: 0.35)]), count: 8)
+        let shieldFadeSequenceAction = SKAction.sequence([shieldFadeAction, SKAction.fadeOut(withDuration: 1), SKAction.removeFromParent()])
+        shield.run(shieldFadeSequenceAction)
+        thePlayer.addChild(shield)
+    }
     func changeLifePoints(with: Int) {
         let lifePoints = Int(theLifePoints.text!)! + with
         theLifePoints.text = String(lifePoints)
@@ -272,6 +285,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         player.run(SKAction.move(to: CGPoint(x: 0, y: 0), duration: 0))
         changeLifePoints(with: points)
         isHitPlayerAsteroid = true
+        addShield()
         run(SKAction.wait(forDuration: 2)) {
             self.isHitPlayerAsteroid = false
         }
