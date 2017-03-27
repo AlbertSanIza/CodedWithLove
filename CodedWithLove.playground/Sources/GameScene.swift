@@ -184,7 +184,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         view?.presentScene(toGoScene, transition: SKTransition.fade(withDuration: 2.0))
     }
     func addProjectile() {
-        let projectile = SKSpriteNode(imageNamed: "sprites/SpaceShooterRedux/PNG/Lasers/laserBlue01.png")
+        let projectile = SKSpriteNode(imageNamed: "sprites/art/projectile0.png")
         projectile.physicsBody?.isDynamic = true
         projectile.physicsBody?.categoryBitMask = PhysicsCategory.Projectile
         projectile.physicsBody?.contactTestBitMask = PhysicsCategory.Asteroid
