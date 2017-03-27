@@ -267,9 +267,9 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         let lifePoints = Int(theLifePoints.text!)! + with
         theLifePoints.text = String(lifePoints)
         if lifePoints < 1 {
-            thePlayer.run(SKAction.removeFromParent())
-            thePause.run(SKAction.removeFromParent())
             self.theGameOver.run(SKAction.fadeIn(withDuration: 0.1)) {
+                self.thePlayer.run(SKAction.removeFromParent())
+                self.thePause.run(SKAction.removeFromParent())
                 self.isGameOver = true
             }
         }
@@ -283,9 +283,9 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
     }
     func playerHitAsteroid(player: SKSpriteNode, asteroid: SKSpriteNode, points: Int) {
         isHitPlayerAsteroid = true
-        changeLifePoints(with: points)
         player.addChild(addShield())
         player.removeAllActions()
+        changeLifePoints(with: points)
         player.run(SKAction.sequence([SKAction.group([SKAction.move(to: CGPoint(x: 0, y: 0), duration: 0), SKAction.rotate(toAngle: degreesToRadians(degrees: 90), duration: 0)]), SKAction.wait(forDuration: 4.5)])) {
             self.isHitPlayerAsteroid = false
         }
