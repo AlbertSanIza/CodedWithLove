@@ -9,8 +9,8 @@ struct PhysicsCategory {
 public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
     var thePlayer: SKSpriteNode = SKSpriteNode()
     var thePause: SKNode = SKNode()
-    var theLives: SKLabelNode = SKLabelNode()
-    var thePoints: SKLabelNode = SKLabelNode()
+    var theLifePoints: SKLabelNode = SKLabelNode()
+    var theScorePoints: SKLabelNode = SKLabelNode()
     var wKey: Bool = false
     var sKey: Bool = false
     var aKey: Bool = false
