@@ -240,6 +240,15 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
     func changeLifePoints(with: Int) {
         let lifePoints = Int(theLifePoints.text!)! + with
         theLifePoints.text = String(lifePoints)
+        if lifePoints < 1 {
+            thePlayer.run(SKAction.removeFromParent()) {
+                self.thePause.run(SKAction.removeFromParent()) {
+                    self.theGameOver.run(SKAction.fadeIn(withDuration: 0.1)) {
+                        self.isPaused = true
+                    }
+                }
+            }
+        }
     }
     func changeScorePoints(with: Int) {
         theScorePoints.text = String(Int(theScorePoints.text!)! + with)
