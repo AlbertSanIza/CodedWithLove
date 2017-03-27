@@ -286,7 +286,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         changeLifePoints(with: points)
         isHitPlayerAsteroid = true
         addShield()
-        run(SKAction.wait(forDuration: 2)) {
+        run(SKAction.wait(forDuration: 4.5)) {
             self.isHitPlayerAsteroid = false
         }
     }
