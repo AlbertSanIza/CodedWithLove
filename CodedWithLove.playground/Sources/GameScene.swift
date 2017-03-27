@@ -14,11 +14,11 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
     var isHitPlayerAsteroid: Bool = false
     struct PhysicsCategory {
         static let None: UInt32 = 0
-        static let All: UInt32 = UInt32.max
         static let Player: UInt32 = 0b1
         static let Asteroid: UInt32 = 0b10
-        static let Projectile: UInt32 = 0b11
-        static let Shield: UInt32 = 0b100
+        static let Shield: UInt32 = 0b11
+        static let Projectile: UInt32 = 0b100
+        static let All: UInt32 = UInt32.max
     }
     override public func sceneDidLoad() {
         super.sceneDidLoad()
