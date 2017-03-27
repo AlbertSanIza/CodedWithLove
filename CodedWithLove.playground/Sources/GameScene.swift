@@ -185,51 +185,6 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
             }
         }
     }
-    func goToScene(withName: String) {
-        let toGoScene: SKScene
-        switch withName {
-        case "txtPlayAgain":
-            toGoScene = GameSceneFile(fileNamed: "scenes/GameScene.sks")!
-        case "txtMainMenu":
-            toGoScene = MainMenuSceneFile(fileNamed: "scenes/MainMenuScene.sks")!
-        default:
-            toGoScene = MainMenuSceneFile(fileNamed: "scenes/MainMenuScene.sks")!
-        }
-        toGoScene.scaleMode = .aspectFit
-        view?.presentScene(toGoScene, transition: SKTransition.fade(withDuration: 2.0))
-    }
-    func addProjectile() {
-        let projectile = SKSpriteNode(texture: SKTexture(imageNamed: "sprites/art/projectile0.png"), size: CGSize(width: 70, height: 30))
-        projectile.position = thePlayer.position
-        projectile.zRotation = thePlayer.zRotation
-        projectile.physicsBody = SKPhysicsBody(circleOfRadius: 10, center: CGPoint(x: 0, y: 0))
-        projectile.physicsBody?.isDynamic = true
-        projectile.physicsBody?.categoryBitMask = PhysicsCategory.Projectile
-        projectile.physicsBody?.contactTestBitMask = PhysicsCategory.Asteroid
-        projectile.physicsBody?.collisionBitMask = PhysicsCategory.None
-        projectile.physicsBody?.usesPreciseCollisionDetection = true
-        projectile.run(SKAction.sequence([SKAction.moveBy(x: 1200 * cos(projectile.zRotation), y: 1200 * sin(projectile.zRotation), duration: 1.2), SKAction.removeFromParent()]))
-        addChild(projectile)
-    }
-    func projectileHitAsteroid(projectile: SKSpriteNode, asteroid: SKSpriteNode, points: Int) {
-        projectile.removeFromParent()
-        changeScorePoints(with: 1)
-    }
-    func playerHitAsteroid(player: SKSpriteNode, asteroid: SKSpriteNode, points: Int) {
-        player.run(SKAction.move(to: CGPoint(x: 0, y: 0), duration: 0))
-        changeLifePoints(with: points)
-    }
-    func changeLifePoints(with: Int) {
-        let lifePoints = Int(theLifePoints.text!)! + with
-        theLifePoints.text = String(lifePoints)
-        if lifePoints < 1 {
-            thePlayer.run(SKAction.removeFromParent())
-            thePause.run(SKAction.removeFromParent())
-            self.theGameOver.run(SKAction.fadeIn(withDuration: 0.1)) {
-                self.isGameOver = true
-            }
-        }
-    }
     func loadBackground() {
         if let sksBackground: SKSpriteNode = childNode(withName: "sksBackground") as! SKSpriteNode?, let sksClouds: SKSpriteNode = childNode(withName: "sksClouds") as! SKSpriteNode?, let sksStars: SKSpriteNode = childNode(withName: "sksStars") as! SKSpriteNode?, let sksPlanets1: SKSpriteNode = childNode(withName: "sksPlanets1") as! SKSpriteNode?, let sksPlanets2: SKSpriteNode = childNode(withName: "sksPlanets2") as! SKSpriteNode? {
             sksBackground.texture = SKTexture(imageNamed: "sprites/background/backgrounds" + String(arc4random_uniform(2)) + ".png")
@@ -265,8 +220,53 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
             theGameOver = sknGameOver
         }
     }
+    func goToScene(withName: String) {
+        let toGoScene: SKScene
+        switch withName {
+        case "txtPlayAgain":
+            toGoScene = GameSceneFile(fileNamed: "scenes/GameScene.sks")!
+        case "txtMainMenu":
+            toGoScene = MainMenuSceneFile(fileNamed: "scenes/MainMenuScene.sks")!
+        default:
+            toGoScene = MainMenuSceneFile(fileNamed: "scenes/MainMenuScene.sks")!
+        }
+        toGoScene.scaleMode = .aspectFit
+        view?.presentScene(toGoScene, transition: SKTransition.fade(withDuration: 2.0))
+    }
+    func addProjectile() {
+        let projectile = SKSpriteNode(texture: SKTexture(imageNamed: "sprites/art/projectile0.png"), size: CGSize(width: 70, height: 30))
+        projectile.position = thePlayer.position
+        projectile.zRotation = thePlayer.zRotation
+        projectile.physicsBody = SKPhysicsBody(circleOfRadius: 10, center: CGPoint(x: 0, y: 0))
+        projectile.physicsBody?.isDynamic = true
+        projectile.physicsBody?.categoryBitMask = PhysicsCategory.Projectile
+        projectile.physicsBody?.contactTestBitMask = PhysicsCategory.Asteroid
+        projectile.physicsBody?.collisionBitMask = PhysicsCategory.None
+        projectile.physicsBody?.usesPreciseCollisionDetection = true
+        projectile.run(SKAction.sequence([SKAction.moveBy(x: 1200 * cos(projectile.zRotation), y: 1200 * sin(projectile.zRotation), duration: 1.2), SKAction.removeFromParent()]))
+        addChild(projectile)
+    }
+    func changeLifePoints(with: Int) {
+        let lifePoints = Int(theLifePoints.text!)! + with
+        theLifePoints.text = String(lifePoints)
+        if lifePoints < 1 {
+            thePlayer.run(SKAction.removeFromParent())
+            thePause.run(SKAction.removeFromParent())
+            self.theGameOver.run(SKAction.fadeIn(withDuration: 0.1)) {
+                self.isGameOver = true
+            }
+        }
+    }
     func changeScorePoints(with: Int) {
         theScorePoints.text = String(Int(theScorePoints.text!)! + with)
+    }
+    func projectileHitAsteroid(projectile: SKSpriteNode, asteroid: SKSpriteNode, points: Int) {
+        projectile.removeFromParent()
+        changeScorePoints(with: 1)
+    }
+    func playerHitAsteroid(player: SKSpriteNode, asteroid: SKSpriteNode, points: Int) {
+        player.run(SKAction.move(to: CGPoint(x: 0, y: 0), duration: 0))
+        changeLifePoints(with: points)
     }
     func radiansToDegrees(radians: CGFloat) -> CGFloat {
         return radians * 180 / CGFloat(M_PI)
