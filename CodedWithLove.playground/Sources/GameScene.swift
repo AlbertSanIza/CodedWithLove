@@ -231,11 +231,13 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         projectile.run(SKAction.sequence([SKAction.moveBy(x: 1200 * cos(projectile.zRotation), y: 1200 * sin(projectile.zRotation), duration: 1.2), SKAction.removeFromParent()]))
         addChild(projectile)
     }
-    func projectileHitAsteroid(projectile: SKSpriteNode, asteroid: SKSpriteNode) {
+    func projectileHitAsteroid(projectile: SKSpriteNode, asteroid: SKSpriteNode, points: Int) {
         projectile.removeFromParent()
+        changeScorePoints(with: 1)
     }
-    func playerHitAsteroid(player: SKSpriteNode, asteroid: SKSpriteNode) {
+    func playerHitAsteroid(player: SKSpriteNode, asteroid: SKSpriteNode, points: Int) {
         player.run(SKAction.move(to: CGPoint(x: 0, y: 0), duration: 0))
+        changeLifePoints(with: points)
     }
     func changeLifePoints(with: Int) {
         theLifePoints.text = String(Int(theLifePoints.text!)! + with)
