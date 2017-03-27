@@ -71,6 +71,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
                 sBody = contact.bodyA.categoryBitMask == PhysicsCategory.Asteroid ? contact.bodyA : contact.bodyB
                 if let sksProjectile = fBody.node as? SKSpriteNode, let sksAsteroid = sBody.node as? SKSpriteNode {
                     projectileHitAsteroid(projectile: sksProjectile, asteroid: sksAsteroid)
+                    changeScorePoints(with: 1)
                 }
             }
         }
