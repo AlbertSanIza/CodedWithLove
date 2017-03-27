@@ -80,6 +80,15 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
                 }
             }
         }
+        if contact.bodyA.categoryBitMask == PhysicsCategory.Player || contact.bodyB.categoryBitMask == PhysicsCategory.Player {
+            if contact.bodyA.categoryBitMask == PhysicsCategory.Asteroid || contact.bodyB.categoryBitMask == PhysicsCategory.Asteroid {
+                fBody = contact.bodyA.categoryBitMask == PhysicsCategory.Projectile ? contact.bodyA : contact.bodyB
+                sBody = contact.bodyA.categoryBitMask == PhysicsCategory.Asteroid ? contact.bodyA : contact.bodyB
+                if let sksPlayer = fBody.node as? SKSpriteNode, let sksAsteroid = sBody.node as? SKSpriteNode {
+                    print("playerHitAsteroid")
+                }
+            }
+        }
     }
     override public func update(_ currentTime: TimeInterval) {
         if wKey {
