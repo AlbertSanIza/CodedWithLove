@@ -225,6 +225,9 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
     func projectileHitAsteroid(projectile: SKSpriteNode, asteroid: SKSpriteNode) {
         projectile.removeFromParent()
     }
+    func playerHitAsteroid(player: SKSpriteNode, asteroid: SKSpriteNode) {
+        player.run(SKAction.move(to: CGPoint(x: 0, y: 0), duration: 0))
+    }
     func radiansToDegrees(radians: CGFloat) -> CGFloat {
         return radians * 180 / CGFloat(M_PI)
     }
