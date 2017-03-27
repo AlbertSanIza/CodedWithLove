@@ -5,7 +5,7 @@ struct PhysicsCategory {
     static let Asteroid: UInt32 = 0b1
     static let Projectile: UInt32 = 0b10
 }
-public class GameSceneFile: SKScene {
+public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
     var thePlayer: SKSpriteNode = SKSpriteNode()
     var thePause: SKNode = SKNode()
     var wKey: Bool = false
