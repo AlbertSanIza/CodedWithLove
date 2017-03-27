@@ -251,9 +251,9 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         addChild(projectile)
     }
     func addShield() {
-        let shield = SKSpriteNode(texture: SKTexture(imageNamed: "sprites/art/planet6.png"), size: CGSize(width: 350, height: 350))
+        let shield = SKSpriteNode(texture: SKTexture(imageNamed: "sprites/art/planet6.png"), size: CGSize(width: 360, height: 360))
         shield.alpha = 0.6
-        shield.physicsBody = SKPhysicsBody(circleOfRadius: 140, center: CGPoint(x: 0, y: 0))
+        shield.physicsBody = SKPhysicsBody(circleOfRadius: 135, center: CGPoint(x: 0, y: 0))
         shield.physicsBody?.pinned = true
         shield.physicsBody?.categoryBitMask = PhysicsCategory.Shield
         shield.physicsBody?.contactTestBitMask = PhysicsCategory.Asteroid
