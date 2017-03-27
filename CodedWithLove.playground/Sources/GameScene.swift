@@ -193,7 +193,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         shot.position = thePlayer.position
         shot.zRotation = thePlayer.zRotation
         addChild(shot)
-        shot.run(SKAction.sequence([SKAction.moveBy(x: 1050 * cos(shot.zRotation + degreesToRadians(degrees: 90)), y: 1050 * sin(shot.zRotation + degreesToRadians(degrees: 90)), duration: 1), SKAction.removeFromParent()]))
+        shot.run(SKAction.sequence([SKAction.moveBy(x: 1200 * cos(shot.zRotation + degreesToRadians(degrees: 90)), y: 1200 * sin(shot.zRotation + degreesToRadians(degrees: 90)), duration: 1.2), SKAction.removeFromParent()]))
     }
     func radiansToDegrees(radians: CGFloat) -> CGFloat {
         return radians * 180 / CGFloat(M_PI)
