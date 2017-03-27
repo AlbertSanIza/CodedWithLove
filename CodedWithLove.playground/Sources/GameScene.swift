@@ -200,7 +200,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         projectile.physicsBody?.contactTestBitMask = PhysicsCategory.Asteroid
         projectile.physicsBody?.collisionBitMask = PhysicsCategory.None
         projectile.physicsBody?.usesPreciseCollisionDetection = true
-        projectile.run(SKAction.sequence([SKAction.moveBy(x: 1200 * cos(projectile.zRotation), y: 1200 * sin(projectile.zRotation), duration: 5.2), SKAction.removeFromParent()]))
+        projectile.run(SKAction.sequence([SKAction.moveBy(x: 1200 * cos(projectile.zRotation), y: 1200 * sin(projectile.zRotation), duration: 1.2), SKAction.removeFromParent()]))
         addChild(projectile)
     }
     func radiansToDegrees(radians: CGFloat) -> CGFloat {
