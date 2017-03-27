@@ -58,6 +58,9 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
             (node, stop) in
             node.position = self.convertPoint(fromView: CGPoint(x: CGFloat(arc4random_uniform(600)), y: CGFloat(arc4random_uniform(450))))
         }
+        //let backgroundMusic = SKAudioNode(fileNamed: "sounds/spaceDimensions.mp3")
+        //backgroundMusic.autoplayLooped = true
+        //addChild(backgroundMusic)
     }
     override public func update(_ currentTime: TimeInterval) {
         if wKey {
