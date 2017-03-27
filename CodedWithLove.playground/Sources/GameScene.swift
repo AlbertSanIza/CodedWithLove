@@ -1,9 +1,10 @@
 import SpriteKit
 public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
     var thePlayer: SKSpriteNode = SKSpriteNode()
-    var thePause: SKNode = SKNode()
     var theLifePoints: SKLabelNode = SKLabelNode()
     var theScorePoints: SKLabelNode = SKLabelNode()
+    var thePause: SKNode = SKNode()
+    var theGameOver: SKNode = SKNode()
     var wKey: Bool = false
     var sKey: Bool = false
     var aKey: Bool = false
