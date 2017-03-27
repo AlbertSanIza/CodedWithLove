@@ -185,6 +185,8 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
     }
     func addProjectile() {
         let projectile = SKSpriteNode(imageNamed: "sprites/art/projectile0.png")
+        projectile.size.width = 130
+        projectile.physicsBody?.isDynamic = true
         projectile.physicsBody?.isDynamic = true
         projectile.physicsBody?.categoryBitMask = PhysicsCategory.Projectile
         projectile.physicsBody?.contactTestBitMask = PhysicsCategory.Asteroid
@@ -192,8 +194,8 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         projectile.physicsBody?.usesPreciseCollisionDetection = true
         projectile.position = thePlayer.position
         projectile.zRotation = thePlayer.zRotation
-        addChild(projectile)
         projectile.run(SKAction.sequence([SKAction.moveBy(x: 1200 * cos(projectile.zRotation), y: 1200 * sin(projectile.zRotation), duration: 5.2), SKAction.removeFromParent()]))
+        addChild(projectile)
     }
     func radiansToDegrees(radians: CGFloat) -> CGFloat {
         return radians * 180 / CGFloat(M_PI)
