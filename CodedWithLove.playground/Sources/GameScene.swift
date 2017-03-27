@@ -144,7 +144,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
                 }
             }
         case 31:
-            if !event.isARepeat && !isPaused {
+            if !event.isARepeat && !isPaused && !isGameOver {
                 addProjectile()
             }
         default: break
@@ -192,7 +192,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         }
     }
     override public func mouseDown(with event: NSEvent) {
-        if isPaused {
+        if isPaused || isGameOver {
             let mousePoint = convertPoint(fromView: CGPoint(x: event.locationInWindow.x, y: event.locationInWindow.y))
             if let touchedNode = nodes(at: mousePoint).first {
                 switch touchedNode.name {
