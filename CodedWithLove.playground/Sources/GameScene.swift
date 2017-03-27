@@ -111,11 +111,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
             }
         case 31:
             if !event.isARepeat {
-                let shot = SKSpriteNode(imageNamed: "sprites/SpaceShooterRedux/PNG/Lasers/laserBlue01.png")
-                shot.position = thePlayer.position
-                shot.zRotation = thePlayer.zRotation
-                addChild(shot)
-                shot.run(SKAction.sequence([SKAction.moveBy(x: 1050 * cos(shot.zRotation + degreesToRadians(degrees: 90)), y: 1050 * sin(shot.zRotation + degreesToRadians(degrees: 90)), duration: 1), SKAction.removeFromParent()]))
+                addProjectile()
             }
         default: break
         }
@@ -184,6 +180,13 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         }
         toGoScene.scaleMode = .aspectFit
         view?.presentScene(toGoScene, transition: SKTransition.fade(withDuration: 2.0))
+    }
+    func addProjectile() {
+        let shot = SKSpriteNode(imageNamed: "sprites/SpaceShooterRedux/PNG/Lasers/laserBlue01.png")
+        shot.position = thePlayer.position
+        shot.zRotation = thePlayer.zRotation
+        addChild(shot)
+        shot.run(SKAction.sequence([SKAction.moveBy(x: 1050 * cos(shot.zRotation + degreesToRadians(degrees: 90)), y: 1050 * sin(shot.zRotation + degreesToRadians(degrees: 90)), duration: 1), SKAction.removeFromParent()]))
     }
     func radiansToDegrees(radians: CGFloat) -> CGFloat {
         return radians * 180 / CGFloat(M_PI)
