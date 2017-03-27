@@ -199,6 +199,8 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
                 case "txtResume"?:
                     isPaused = false
                     thePause.run(SKAction.fadeOut(withDuration: 0.1))
+                case "txtPlayAgain"?:
+                    goToScene(withName: "txtPlayAgain")
                 case "txtMainMenu"?:
                     goToScene(withName: "txtMainMenu")
                 default: break
@@ -209,10 +211,10 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
     func goToScene(withName: String) {
         let toGoScene: SKScene
         switch withName {
+        case "txtPlayAgain":
+            toGoScene = GameSceneFile(fileNamed: "scenes/GameScene.sks")!
         case "txtMainMenu":
             toGoScene = MainMenuSceneFile(fileNamed: "scenes/MainMenuScene.sks")!
-        case "txtRestartGame":
-            toGoScene = GameSceneFile(fileNamed: "scenes/GameScene.sks")!
         default:
             toGoScene = MainMenuSceneFile(fileNamed: "scenes/MainMenuScene.sks")!
         }
