@@ -42,8 +42,9 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
             theLifePoints = txtLifePoints
             theScorePoints = txtScorePoints
         }
-        if let sknPause: SKNode = childNode(withName: "sknPause") {
+        if let sknPause: SKNode = childNode(withName: "sknPause"), let sknGameOver: SKNode = childNode(withName: "sknGameOver") {
             thePause = sknPause
+            theGameOver = sknGameOver
         }
         if let sksAsteroid: SKSpriteNode = childNode(withName: "sksAsteroid") as! SKSpriteNode? {
             sksAsteroid.texture = SKTexture(imageNamed: "sprites/SpaceShooterRedux/PNG/playerShip1_blue.png")
