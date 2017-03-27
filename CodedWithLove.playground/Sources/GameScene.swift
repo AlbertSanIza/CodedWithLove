@@ -21,18 +21,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
     override public func sceneDidLoad() {
         super.sceneDidLoad()
         loadBackground()
-        if let sksPlayer: SKSpriteNode = childNode(withName: "sksPlayer") as! SKSpriteNode? {
-            thePlayer = sksPlayer
-            thePlayer.texture = SKTexture(imageNamed: "sprites/art/player.png")
-            thePlayer.physicsBody?.categoryBitMask = PhysicsCategory.Player
-            thePlayer.physicsBody?.contactTestBitMask = PhysicsCategory.Asteroid
-            thePlayer.physicsBody?.collisionBitMask = PhysicsCategory.None
-            if let sksJet: SKSpriteNode = thePlayer.childNode(withName: "sksJet") as! SKSpriteNode?, let sksJetLeft: SKSpriteNode = thePlayer.childNode(withName: "sksJetLeft") as! SKSpriteNode?, let sksJetRight: SKSpriteNode = thePlayer.childNode(withName: "sksJetRight") as! SKSpriteNode? {
-                sksJet.texture = SKTexture(imageNamed: "sprites/art/jet.png")
-                sksJetLeft.texture = SKTexture(imageNamed: "sprites/art/jet.png")
-                sksJetRight.texture = SKTexture(imageNamed: "sprites/art/jet.png")
-            }
-        }
+        loadPlayer()
         if let txtLifePoints: SKLabelNode = childNode(withName: "txtLifePoints") as! SKLabelNode?, let txtScorePoints: SKLabelNode = childNode(withName: "txtScorePoints") as! SKLabelNode? {
             theLifePoints = txtLifePoints
             theScorePoints = txtScorePoints
@@ -254,6 +243,20 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
             sksStars.texture = SKTexture(imageNamed: "sprites/background/starsLayer" + String(arc4random_uniform(2)) + ".png")
             sksPlanets1.texture = SKTexture(imageNamed: "sprites/art/planet" + String(arc4random_uniform(6)) + ".png")
             sksPlanets2.texture = SKTexture(imageNamed: "sprites/art/planet" + String(arc4random_uniform(6)) + ".png")
+        }
+    }
+    func loadPlayer() {
+        if let sksPlayer: SKSpriteNode = childNode(withName: "sksPlayer") as! SKSpriteNode? {
+            thePlayer = sksPlayer
+            thePlayer.texture = SKTexture(imageNamed: "sprites/art/player.png")
+            thePlayer.physicsBody?.categoryBitMask = PhysicsCategory.Player
+            thePlayer.physicsBody?.contactTestBitMask = PhysicsCategory.Asteroid
+            thePlayer.physicsBody?.collisionBitMask = PhysicsCategory.None
+            if let sksJet: SKSpriteNode = thePlayer.childNode(withName: "sksJet") as! SKSpriteNode?, let sksJetLeft: SKSpriteNode = thePlayer.childNode(withName: "sksJetLeft") as! SKSpriteNode?, let sksJetRight: SKSpriteNode = thePlayer.childNode(withName: "sksJetRight") as! SKSpriteNode? {
+                sksJet.texture = SKTexture(imageNamed: "sprites/art/jet.png")
+                sksJetLeft.texture = SKTexture(imageNamed: "sprites/art/jet.png")
+                sksJetRight.texture = SKTexture(imageNamed: "sprites/art/jet.png")
+            }
         }
     }
     func changeScorePoints(with: Int) {
