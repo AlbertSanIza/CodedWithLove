@@ -246,12 +246,10 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         let lifePoints = Int(theLifePoints.text!)! + with
         theLifePoints.text = String(lifePoints)
         if lifePoints < 1 {
-            thePlayer.run(SKAction.removeFromParent()) {
-                self.thePause.run(SKAction.removeFromParent()) {
-                    self.theGameOver.run(SKAction.fadeIn(withDuration: 0.1)) {
-                        self.isGameOver = true
-                    }
-                }
+            thePlayer.run(SKAction.removeFromParent())
+            thePause.run(SKAction.removeFromParent())
+            self.theGameOver.run(SKAction.fadeIn(withDuration: 0.1)) {
+                self.isGameOver = true
             }
         }
     }
