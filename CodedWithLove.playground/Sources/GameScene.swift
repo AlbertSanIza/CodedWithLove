@@ -294,6 +294,11 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
     }
     func projectileHitAsteroid(projectile: SKSpriteNode, asteroid: SKSpriteNode, points: Int) {
         projectile.removeFromParent()
+        if asteroid.colorBlendFactor >= 1 {
+            asteroid.removeFromParent()
+        } else {
+            asteroid.run(SKAction.colorize(with: .magenta, colorBlendFactor: (asteroid.name == "asteroidBig" ? asteroid.colorBlendFactor + 0.1 : asteroid.colorBlendFactor + 0.2), duration: 0))
+        }
         changeScorePoints(with: 1)
     }
     func playerHitAsteroid(player: SKSpriteNode, asteroid: SKSpriteNode, points: Int) {
