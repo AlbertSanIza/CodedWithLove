@@ -298,7 +298,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
             asteroid.removeFromParent()
             changeScorePoints(with: (asteroid.name == "asteroidBig" ? 10 : 5))
         } else {
-            asteroid.run(SKAction.colorize(with: .green, colorBlendFactor: (asteroid.name == "asteroidBig" ? asteroid.colorBlendFactor + 0.075 : asteroid.colorBlendFactor + 0.2), duration: 0))
+            asteroid.run(SKAction.colorize(with: .magenta, colorBlendFactor: (asteroid.name == "asteroidBig" ? asteroid.colorBlendFactor + 0.07 : asteroid.colorBlendFactor + 0.14), duration: 0))
             changeScorePoints(with: (asteroid.name == "asteroidBig" ? 2 : 4))
         }
         
