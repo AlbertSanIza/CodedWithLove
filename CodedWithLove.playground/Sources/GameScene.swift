@@ -239,7 +239,6 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         var asteroid: SKSpriteNode = SKSpriteNode()
         switch withSize {
         case "Big":
-            print(withSize)
             asteroid = SKSpriteNode(texture: SKTexture(imageNamed: "sprites/art/projectile0.png"), size: CGSize(width: 100, height: 100))
         case "Small":
             asteroid = SKSpriteNode(texture: SKTexture(imageNamed: "sprites/art/projectile0.png"), size: CGSize(width: 50, height: 50))
