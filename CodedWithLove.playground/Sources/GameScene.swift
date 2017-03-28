@@ -26,12 +26,6 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         loadPlayer()
         loadStatsBoard()
         loadSubViews()
-        if let sksAsteroid: SKSpriteNode = childNode(withName: "sksAsteroid") as! SKSpriteNode? {
-            sksAsteroid.texture = SKTexture(imageNamed: "sprites/SpaceShooterRedux/PNG/playerShip1_blue.png")
-            sksAsteroid.physicsBody?.categoryBitMask = PhysicsCategory.Asteroid
-            sksAsteroid.physicsBody?.contactTestBitMask = PhysicsCategory.Player
-            sksAsteroid.physicsBody?.collisionBitMask = PhysicsCategory.Shield
-        }
     }
     override public func didMove(to view: SKView) {
         physicsWorld.gravity = CGVector.zero
