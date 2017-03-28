@@ -283,11 +283,13 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
     }
     func playerHitAsteroid(player: SKSpriteNode, asteroid: SKSpriteNode, points: Int) {
         isHitPlayerAsteroid = true
-        player.addChild(addShield())
         player.removeAllActions()
         changeLifePoints(with: points)
-        player.run(SKAction.sequence([SKAction.group([SKAction.move(to: CGPoint(x: 0, y: 0), duration: 0), SKAction.rotate(toAngle: degreesToRadians(degrees: 90), duration: 0)]), SKAction.wait(forDuration: 4.5)])) {
-            self.isHitPlayerAsteroid = false
+        player.run(SKAction.fadeOut(withDuration: 0)) {
+            player.addChild(self.addShield())
+            player.run(SKAction.sequence([SKAction.group([SKAction.move(to: CGPoint(x: 0, y: 0), duration: 0), SKAction.rotate(toAngle: self.degreesToRadians(degrees: 90), duration: 0)]), SKAction.fadeIn(withDuration: 0.5), SKAction.wait(forDuration: 4)])) {
+                self.isHitPlayerAsteroid = false
+            }
         }
     }
     func radiansToDegrees(radians: CGFloat) -> CGFloat {
