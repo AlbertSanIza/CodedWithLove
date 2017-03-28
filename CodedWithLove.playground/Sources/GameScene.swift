@@ -236,18 +236,11 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         view?.presentScene(toGoScene, transition: SKTransition.fade(withDuration: 2.0))
     }
     func addAsteroid(withSize: String, inPosition: CGPoint) {
-        var asteroid: SKSpriteNode = SKSpriteNode()
-        switch withSize {
-        case "Big":
-            let randomSize = Int(arc4random_uniform(70) + 90)
-            asteroid = SKSpriteNode(texture: SKTexture(imageNamed: "sprites/art/asteroidBig.png"), size: CGSize(width: randomSize, height: randomSize))
-        case "Small":
-            asteroid = SKSpriteNode(texture: SKTexture(imageNamed: "sprites/art/projectile0.png"), size: CGSize(width: 50, height: 50))
-        default:
-            asteroid = SKSpriteNode(texture: SKTexture(imageNamed: "sprites/art/projectile0.png"), size: CGSize(width: 50, height: 50))
-        }
+        let randomSize: Int = (withSize == "Big" ? Int(arc4random_uniform(30) + 110) : Int(arc4random_uniform(30) + 70))
+        let asteroid: SKSpriteNode = SKSpriteNode(texture: SKTexture(imageNamed: "sprites/art/asteroid" + withSize + (withSize == "Big" ? "" : String(arc4random_uniform(2)) + String(arc4random_uniform(5))) + ".png"), size: CGSize(width: randomSize, height: randomSize))
         asteroid.name = "asteroid" + withSize
         asteroid.position = inPosition
+        asteroid.zRotation = degreesToRadians(degrees: CGFloat(arc4random_uniform(359)))
         asteroid.physicsBody = SKPhysicsBody(circleOfRadius: 20, center: CGPoint(x: 0, y: 0))
         asteroid.physicsBody?.isDynamic = true
         asteroid.physicsBody?.categoryBitMask = PhysicsCategory.Asteroid
