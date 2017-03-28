@@ -234,7 +234,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         toGoScene.scaleMode = .aspectFit
         view?.presentScene(toGoScene, transition: SKTransition.fade(withDuration: 2.0))
     }
-    func addAsteroid(withSize: String) {
+    func addAsteroid(withSize: String, inPosition: CGPoint) {
         var asteroid: SKSpriteNode = SKSpriteNode()
         switch withSize {
         case "Big":
@@ -246,6 +246,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
             asteroid = SKSpriteNode(texture: SKTexture(imageNamed: "sprites/art/projectile0.png"), size: CGSize(width: 50, height: 50))
         }
         asteroid.name = "asteroid" + withSize
+        asteroid.position = inPosition
         asteroid.physicsBody = SKPhysicsBody(circleOfRadius: 20, center: CGPoint(x: 0, y: 0))
         asteroid.physicsBody?.categoryBitMask = PhysicsCategory.Asteroid
         asteroid.physicsBody?.contactTestBitMask = PhysicsCategory.Projectile
