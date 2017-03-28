@@ -231,6 +231,9 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         toGoScene.scaleMode = .aspectFit
         view?.presentScene(toGoScene, transition: SKTransition.fade(withDuration: 2.0))
     }
+    func addAsteroid(withSize: String) {
+        print(withSize)
+    }
     func addProjectile() {
         let projectile = SKSpriteNode(texture: SKTexture(imageNamed: "sprites/art/projectile0.png"), size: CGSize(width: 70, height: 30))
         projectile.position = thePlayer.position
