@@ -295,6 +295,13 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
     func projectileHitAsteroid(projectile: SKSpriteNode, asteroid: SKSpriteNode, points: Int) {
         projectile.removeFromParent()
         if asteroid.colorBlendFactor >= 1 {
+            if asteroid.name == "asteroidBig" {
+                let oldPosition = asteroid.position
+                asteroid.removeFromParent()
+                addAsteroid(withSize: "Small", inPosition: oldPosition)
+            } else {
+                asteroid.removeFromParent()
+            }
             asteroid.removeFromParent()
             changeScorePoints(with: (asteroid.name == "asteroidBig" ? 10 : 5))
         } else {
