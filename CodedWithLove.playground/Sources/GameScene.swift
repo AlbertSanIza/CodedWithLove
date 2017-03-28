@@ -296,10 +296,10 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         projectile.removeFromParent()
         if asteroid.colorBlendFactor >= 1 {
             asteroid.removeFromParent()
-            changeScorePoints(with: (asteroid.name == "asteroidBig" ? 5 : 2))
+            changeScorePoints(with: (asteroid.name == "asteroidBig" ? 10 : 5))
         } else {
             asteroid.run(SKAction.colorize(with: .green, colorBlendFactor: (asteroid.name == "asteroidBig" ? asteroid.colorBlendFactor + 0.075 : asteroid.colorBlendFactor + 0.2), duration: 0))
-            changeScorePoints(with: 1)
+            changeScorePoints(with: (asteroid.name == "asteroidBig" ? 2 : 4))
         }
         
     }
