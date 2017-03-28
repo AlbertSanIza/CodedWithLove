@@ -182,6 +182,8 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
                 default: break
                 }
             }
+        } else {
+            addAsteroid(withSize: "Big")
         }
     }
     func loadBackground() {
