@@ -245,6 +245,12 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         default:
             asteroid = SKSpriteNode(texture: SKTexture(imageNamed: "sprites/art/projectile0.png"), size: CGSize(width: 50, height: 50))
         }
+        asteroid.name = "asteroid" + withSize
+        asteroid.physicsBody = SKPhysicsBody(circleOfRadius: 20, center: CGPoint(x: 0, y: 0))
+        asteroid.physicsBody?.categoryBitMask = PhysicsCategory.Asteroid
+        asteroid.physicsBody?.contactTestBitMask = PhysicsCategory.Projectile
+        asteroid.physicsBody?.collisionBitMask = PhysicsCategory.Asteroid
+        addChild(asteroid)
     }
     func addProjectile() {
         let projectile = SKSpriteNode(texture: SKTexture(imageNamed: "sprites/art/projectile0.png"), size: CGSize(width: 70, height: 30))
