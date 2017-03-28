@@ -258,20 +258,20 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         shield.physicsBody?.categoryBitMask = PhysicsCategory.Shield
         shield.physicsBody?.contactTestBitMask = PhysicsCategory.Asteroid
         shield.physicsBody?.collisionBitMask = PhysicsCategory.Asteroid
-        let shieldFadeAction = SKAction.repeat(SKAction.sequence([SKAction.fadeAlpha(to: 0.35, duration: 0.5), SKAction.fadeAlpha(to: 0.6, duration: 0.5)]), count: 8)
-        let shieldFadeSequenceAction = SKAction.sequence([shieldFadeAction, SKAction.fadeOut(withDuration: 1), SKAction.removeFromParent()])
-        shield.run(shieldFadeSequenceAction)
+        let shieldFadeAction = SKAction.repeat(SKAction.sequence([SKAction.fadeAlpha(to: 0.35, duration: 0.5), SKAction.fadeAlpha(to: 0.6, duration: 0.5)]), count: 4)
+        let shieldFadeSequenceAction = SKAction.sequence([shieldFadeAction, SKAction.fadeOut(withDuration: 1)])
+        shield.run(shieldFadeSequenceAction) {
+            self.isHitPlayerAsteroid = false
+            shield.run(SKAction.removeFromParent())
+        }
         return shield
     }
     func changeLifePoints(with: Int) {
         let lifePoints = Int(theLifePoints.text!)! + with
         theLifePoints.text = String(lifePoints)
         if lifePoints < 1 {
-            self.theGameOver.run(SKAction.fadeIn(withDuration: 0.1)) {
-                self.thePlayer.run(SKAction.removeFromParent())
-                self.thePause.run(SKAction.removeFromParent())
-                self.isGameOver = true
-            }
+            self.isGameOver = true
+            self.theGameOver.run(SKAction.fadeIn(withDuration: 0.5))
         }
     }
     func changeScorePoints(with: Int) {
@@ -285,10 +285,12 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         isHitPlayerAsteroid = true
         player.removeAllActions()
         changeLifePoints(with: points)
-        player.run(SKAction.fadeOut(withDuration: 0)) {
-            player.addChild(self.addShield())
-            player.run(SKAction.sequence([SKAction.group([SKAction.move(to: CGPoint(x: 0, y: 0), duration: 0), SKAction.rotate(toAngle: self.degreesToRadians(degrees: 90), duration: 0)]), SKAction.fadeIn(withDuration: 0.5), SKAction.wait(forDuration: 4)])) {
-                self.isHitPlayerAsteroid = false
+        player.run(SKAction.fadeOut(withDuration: 0.5)) {
+            if !self.isGameOver {
+                player.addChild(self.addShield())
+                player.run(SKAction.sequence([SKAction.group([SKAction.move(to: CGPoint(x: 0, y: 0), duration: 0), SKAction.rotate(toAngle: self.degreesToRadians(degrees: 90), duration: 0)]), SKAction.fadeIn(withDuration: 1)]))
+            } else {
+                player.removeFromParent()
             }
         }
     }
