@@ -297,8 +297,14 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         if asteroid.colorBlendFactor >= 1 {
             if asteroid.name == "asteroidBig" {
                 let oldPosition = asteroid.position
+                let oldAngle = asteroid.zRotation
                 asteroid.removeFromParent()
-                addAsteroid(withSize: "Small", inPosition: oldPosition)
+                addAsteroid(withSize: "Small", inPosition: CGPoint(x: oldPosition.x + (60 * cos(oldAngle)), y: oldPosition.y + (60 * sin(oldAngle))))
+                addAsteroid(withSize: "Small", inPosition: CGPoint(x: oldPosition.x + (60 * cos(oldAngle + degreesToRadians(degrees: 60))), y: oldPosition.y + (60 * sin(oldAngle + degreesToRadians(degrees: 60)))))
+                addAsteroid(withSize: "Small", inPosition: CGPoint(x: oldPosition.x + (60 * cos(oldAngle + degreesToRadians(degrees: 120))), y: oldPosition.y + (60 * sin(oldAngle + degreesToRadians(degrees: 120)))))
+                addAsteroid(withSize: "Small", inPosition: CGPoint(x: oldPosition.x + (60 * cos(oldAngle + degreesToRadians(degrees: 180))), y: oldPosition.y + (60 * sin(oldAngle + degreesToRadians(degrees: 180)))))
+                addAsteroid(withSize: "Small", inPosition: CGPoint(x: oldPosition.x + (60 * cos(oldAngle + degreesToRadians(degrees: 240))), y: oldPosition.y + (60 * sin(oldAngle + degreesToRadians(degrees: 260)))))
+                addAsteroid(withSize: "Small", inPosition: CGPoint(x: oldPosition.x + (60 * cos(oldAngle + degreesToRadians(degrees: 300))), y: oldPosition.y + (60 * sin(oldAngle + degreesToRadians(degrees: 300)))))
             } else {
                 asteroid.removeFromParent()
             }
