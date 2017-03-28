@@ -242,7 +242,8 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         asteroid.name = "asteroid" + withSize
         asteroid.position = inPosition
         asteroid.zRotation = degreesToRadians(degrees: CGFloat(arc4random_uniform(359)))
-        asteroid.physicsBody = SKPhysicsBody(texture: asteroidTexture, size: CGSize(width: randomSize - (withSize == "Small" ? 30 : 20), height: randomSize - (withSize == "Small" ? 30 : 20)))
+        asteroid.physicsBody = SKPhysicsBody(texture: asteroidTexture, size: CGSize(width: randomSize - (withSize == "Small" ? 30 : 15), height: randomSize - (withSize == "Small" ? 30 : 15)))
+        asteroid.physicsBody?.mass = 0.1
         asteroid.physicsBody?.isDynamic = true
         asteroid.physicsBody?.categoryBitMask = PhysicsCategory.Asteroid
         asteroid.physicsBody?.contactTestBitMask = PhysicsCategory.Projectile
