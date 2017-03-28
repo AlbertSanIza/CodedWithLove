@@ -10,6 +10,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
     var aKey: Bool = false
     var dKey: Bool = false
     var spaceKey: Bool = false
+    var isPlaying: Bool = true
     var isGameOver: Bool = false
     var isHitPlayerAsteroid: Bool = false
     struct PhysicsCategory {
