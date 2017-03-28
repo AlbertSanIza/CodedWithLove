@@ -183,7 +183,8 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
                 }
             }
         } else {
-            addAsteroid(withSize: "Big")
+            let mousePoint = convertPoint(fromView: CGPoint(x: event.locationInWindow.x, y: event.locationInWindow.y))
+            addAsteroid(withSize: "Big", inPosition: mousePoint)
         }
     }
     func loadBackground() {
