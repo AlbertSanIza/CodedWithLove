@@ -236,8 +236,9 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         view?.presentScene(toGoScene, transition: SKTransition.fade(withDuration: 2.0))
     }
     func addAsteroid(withSize: String, inPosition: CGPoint) {
-        let randomSize: Int = (withSize == "Big" ? Int(arc4random_uniform(30) + 110) : Int(arc4random_uniform(30) + 70))
-        let asteroid: SKSpriteNode = SKSpriteNode(texture: SKTexture(imageNamed: "sprites/art/asteroid" + withSize + (withSize == "Big" ? "" : String(arc4random_uniform(2)) + String(arc4random_uniform(5))) + ".png"), size: CGSize(width: randomSize, height: randomSize))
+        let randomSize: Int = (withSize == "Big" ? Int(arc4random_uniform(30) + 120) : Int(arc4random_uniform(20) + 90))
+        let asteroidTexture = SKTexture(imageNamed: "sprites/art/asteroid" + withSize + (withSize == "Big" ? "" : String(arc4random_uniform(2)) + String(arc4random_uniform(5))) + ".png")
+        let asteroid: SKSpriteNode = SKSpriteNode(texture: asteroidTexture, size: CGSize(width: randomSize, height: randomSize))
         asteroid.name = "asteroid" + withSize
         asteroid.position = inPosition
         asteroid.zRotation = degreesToRadians(degrees: CGFloat(arc4random_uniform(359)))
