@@ -249,6 +249,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         asteroid.name = "asteroid" + withSize
         asteroid.position = inPosition
         asteroid.physicsBody = SKPhysicsBody(circleOfRadius: 20, center: CGPoint(x: 0, y: 0))
+        asteroid.physicsBody?.isDynamic = true
         asteroid.physicsBody?.categoryBitMask = PhysicsCategory.Asteroid
         asteroid.physicsBody?.contactTestBitMask = PhysicsCategory.Projectile
         asteroid.physicsBody?.collisionBitMask = PhysicsCategory.Asteroid
