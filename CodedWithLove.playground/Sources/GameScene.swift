@@ -258,7 +258,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         shield.physicsBody?.categoryBitMask = PhysicsCategory.Shield
         shield.physicsBody?.contactTestBitMask = PhysicsCategory.Asteroid
         shield.physicsBody?.collisionBitMask = PhysicsCategory.Asteroid
-        let shieldFadeAction = SKAction.repeat(SKAction.sequence([SKAction.fadeAlpha(to: 0.35, duration: 0.6), SKAction.fadeAlpha(to: 0.6, duration: 0.35)]), count: 8)
+        let shieldFadeAction = SKAction.repeat(SKAction.sequence([SKAction.fadeAlpha(to: 0.35, duration: 0.5), SKAction.fadeAlpha(to: 0.6, duration: 0.5)]), count: 8)
         let shieldFadeSequenceAction = SKAction.sequence([shieldFadeAction, SKAction.fadeOut(withDuration: 1), SKAction.removeFromParent()])
         shield.run(shieldFadeSequenceAction)
         return shield
