@@ -304,8 +304,8 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
             explotionEmitter.position = asteroid.position
             explotionEmitter.particleSize = asteroid.size
             addChild(explotionEmitter)
+            asteroid.run(SKAction.sequence([SKAction.fadeOut(withDuration: 0.3), SKAction.removeFromParent()]))
             explotionEmitter.run(SKAction.fadeIn(withDuration: 0.3)) {
-                asteroid.run(SKAction.sequence([SKAction.fadeOut(withDuration: 0.3), SKAction.removeFromParent()]))
                 if asteroid.name == "asteroidBig" {
                     let theAngles = [0, 60, 120, 180, 240, 300, 360]
                     for angle in theAngles {
