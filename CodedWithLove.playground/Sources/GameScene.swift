@@ -371,6 +371,10 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         } else if powerUp.name == "powerUpShield" {
             player.addChild(addShield())
         } else if powerUp.name == "powerUpShoot" {
+            isShootProjectile = true
+            run(SKAction.wait(forDuration: 7)) {
+                self.isShootProjectile = false
+            }
         }
     }
     func radiansToDegrees(radians: CGFloat) -> CGFloat {
