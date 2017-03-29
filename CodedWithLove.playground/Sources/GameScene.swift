@@ -259,6 +259,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         asteroid.physicsBody?.categoryBitMask = PhysicsCategory.Asteroid
         asteroid.physicsBody?.contactTestBitMask = PhysicsCategory.Projectile
         asteroid.physicsBody?.collisionBitMask = PhysicsCategory.Asteroid
+        asteroid.physicsBody?.velocity = CGVector(dx: Int(arc4random_uniform(20) + 30), dy: Int(arc4random_uniform(20) + 30))
         addChild(asteroid)
     }
     func addProjectile(inPosition: CGPoint) {
