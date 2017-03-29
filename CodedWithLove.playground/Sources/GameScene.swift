@@ -58,6 +58,13 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
                 }
             }
         }
+        if contact.bodyA.categoryBitMask == PhysicsCategory.PowerUp || contact.bodyB.categoryBitMask == PhysicsCategory.PowerUp {
+            if contact.bodyA.categoryBitMask == PhysicsCategory.Player || contact.bodyB.categoryBitMask == PhysicsCategory.Player {
+                fBody = contact.bodyA.categoryBitMask == PhysicsCategory.PowerUp ? contact.bodyA : contact.bodyB
+                sBody = contact.bodyA.categoryBitMask == PhysicsCategory.Player ? contact.bodyA : contact.bodyB
+                print("powerup!!!!")
+            }
+        }
     }
     override public func update(_ currentTime: TimeInterval) {
         if wKey {
