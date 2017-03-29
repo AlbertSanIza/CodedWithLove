@@ -359,10 +359,17 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         isHitPlayerAsteroid = true
         player.removeAllActions()
         changeLifePoints(with: points)
+        thePlayer.physicsBody?.categoryBitMask = PhysicsCategory.None
+        thePlayer.physicsBody?.contactTestBitMask = PhysicsCategory.None
+        thePlayer.physicsBody?.collisionBitMask = PhysicsCategory.None
         player.run(SKAction.fadeOut(withDuration: 0.5)) {
             if !self.isGameOver {
                 player.addChild(self.addShield())
-                player.run(SKAction.sequence([SKAction.group([SKAction.move(to: CGPoint(x: 0, y: 0), duration: 0), SKAction.rotate(toAngle: self.degreesToRadians(degrees: 90), duration: 0)]), SKAction.fadeIn(withDuration: 1)]))
+                player.run(SKAction.sequence([SKAction.group([SKAction.move(to: CGPoint(x: 0, y: 0), duration: 0), SKAction.rotate(toAngle: self.degreesToRadians(degrees: 90), duration: 0)]), SKAction.fadeIn(withDuration: 1)])) {
+                    self.thePlayer.physicsBody?.categoryBitMask = PhysicsCategory.Player
+                    self.thePlayer.physicsBody?.contactTestBitMask = PhysicsCategory.Asteroid
+                    self.thePlayer.physicsBody?.collisionBitMask = PhysicsCategory.None
+                }
             } else {
                 player.removeFromParent()
             }
