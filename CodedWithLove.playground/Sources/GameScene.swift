@@ -295,6 +295,9 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
     func projectileHitAsteroid(projectile: SKSpriteNode, asteroid: SKSpriteNode, points: Int) {
         projectile.removeFromParent()
         if asteroid.colorBlendFactor >= 1 {
+            asteroid.physicsBody?.categoryBitMask = PhysicsCategory.None
+            asteroid.physicsBody?.contactTestBitMask = PhysicsCategory.None
+            asteroid.physicsBody?.collisionBitMask = PhysicsCategory.None
             if asteroid.name == "asteroidBig" {
                 let oldPosition = asteroid.position
                 let oldAngle = asteroid.zRotation
