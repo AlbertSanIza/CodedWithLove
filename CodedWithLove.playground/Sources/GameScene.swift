@@ -62,7 +62,9 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
             if contact.bodyA.categoryBitMask == PhysicsCategory.PowerUp || contact.bodyB.categoryBitMask == PhysicsCategory.PowerUp {
                 fBody = contact.bodyA.categoryBitMask == PhysicsCategory.Player ? contact.bodyA : contact.bodyB
                 sBody = contact.bodyA.categoryBitMask == PhysicsCategory.PowerUp ? contact.bodyA : contact.bodyB
-                print("powerup!!!!")
+                if let sksPlayer = fBody.node as? SKSpriteNode, let sksPowerUp = sBody.node as? SKSpriteNode {
+                    platerHitPowerUp(player: sksPlayer, powerUp: sksPowerUp)
+                }
             }
         }
     }
