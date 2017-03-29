@@ -281,6 +281,9 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         }
         return shield
     }
+    func addPowerUp() {
+        let powerUp: SKSpriteNode = SKSpriteNode(imageNamed: "")
+    }
     func changeLifePoints(with: Int) {
         let lifePoints = Int(theLifePoints.text!)! + with
         theLifePoints.text = String(lifePoints)
