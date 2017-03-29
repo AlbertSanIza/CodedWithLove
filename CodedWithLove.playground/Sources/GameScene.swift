@@ -321,7 +321,6 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
             asteroid.run(SKAction.colorize(with: .magenta, colorBlendFactor: (asteroid.name == "asteroidBig" ? asteroid.colorBlendFactor + 0.07 : asteroid.colorBlendFactor + 0.14), duration: 0))
             changeScorePoints(with: (asteroid.name == "asteroidBig" ? 2 : 4))
         }
-        
     }
     func playerHitAsteroid(player: SKSpriteNode, asteroid: SKSpriteNode, points: Int) {
         isHitPlayerAsteroid = true
