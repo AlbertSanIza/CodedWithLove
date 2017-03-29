@@ -43,25 +43,18 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
     public func didBegin(_ contact: SKPhysicsContact) {
         var fBody: SKPhysicsBody
         var sBody: SKPhysicsBody
-        if contact.bodyA.categoryBitMask == PhysicsCategory.Projectile || contact.bodyB.categoryBitMask == PhysicsCategory.Projectile {
-            if contact.bodyA.categoryBitMask == PhysicsCategory.Asteroid || contact.bodyB.categoryBitMask == PhysicsCategory.Asteroid {
-                fBody = contact.bodyA.categoryBitMask == PhysicsCategory.Projectile ? contact.bodyA : contact.bodyB
-                sBody = contact.bodyA.categoryBitMask == PhysicsCategory.Asteroid ? contact.bodyA : contact.bodyB
-                if let sksProjectile = fBody.node as? SKSpriteNode, let sksAsteroid = sBody.node as? SKSpriteNode {
+        if contact.bodyA.categoryBitMask == PhysicsCategory.Asteroid || contact.bodyB.categoryBitMask == PhysicsCategory.Asteroid {
+            if contact.bodyA.categoryBitMask == PhysicsCategory.Projectile || contact.bodyB.categoryBitMask == PhysicsCategory.Projectile {
+                fBody = contact.bodyA.categoryBitMask == PhysicsCategory.Asteroid ? contact.bodyA : contact.bodyB
+                sBody = contact.bodyA.categoryBitMask == PhysicsCategory.Projectile ? contact.bodyA : contact.bodyB
+                if let sksAsteroid = fBody.node as? SKSpriteNode, let sksProjectile = sBody.node as? SKSpriteNode {
                     projectileHitAsteroid(projectile: sksProjectile, asteroid: sksAsteroid, points: 1)
-                    return
                 }
-            }
-        }
-        if contact.bodyA.categoryBitMask == PhysicsCategory.Player || contact.bodyB.categoryBitMask == PhysicsCategory.Player {
-            if contact.bodyA.categoryBitMask == PhysicsCategory.Asteroid || contact.bodyB.categoryBitMask == PhysicsCategory.Asteroid {
-                if !isHitPlayerAsteroid {
-                    fBody = contact.bodyA.categoryBitMask == PhysicsCategory.Player ? contact.bodyA : contact.bodyB
-                    sBody = contact.bodyA.categoryBitMask == PhysicsCategory.Asteroid ? contact.bodyA : contact.bodyB
-                    if let sksPlayer = fBody.node as? SKSpriteNode, let sksAsteroid = sBody.node as? SKSpriteNode {
-                        playerHitAsteroid(player: sksPlayer, asteroid: sksAsteroid, points: -1)
-                        return
-                    }
+            } else if contact.bodyA.categoryBitMask == PhysicsCategory.Player || contact.bodyB.categoryBitMask == PhysicsCategory.Player {
+                fBody = contact.bodyA.categoryBitMask == PhysicsCategory.Asteroid ? contact.bodyA : contact.bodyB
+                sBody = contact.bodyA.categoryBitMask == PhysicsCategory.Player ? contact.bodyA : contact.bodyB
+                if let sksAsteroid = fBody.node as? SKSpriteNode, let sksPlayer = sBody.node as? SKSpriteNode {
+                    playerHitAsteroid(player: sksPlayer, asteroid: sksAsteroid, points: -1)
                 }
             }
         }
