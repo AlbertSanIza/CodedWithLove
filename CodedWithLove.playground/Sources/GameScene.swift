@@ -349,6 +349,10 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
             }
         }
     }
+    func platerHitPowerUp(player: SKSpriteNode, powerUp: SKSpriteNode) {
+        powerUp.removeFromParent()
+        player.addChild(addShield())
+    }
     func radiansToDegrees(radians: CGFloat) -> CGFloat {
         return radians * 180 / CGFloat(M_PI)
     }
