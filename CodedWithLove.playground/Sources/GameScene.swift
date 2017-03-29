@@ -365,7 +365,12 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
     }
     func platerHitPowerUp(player: SKSpriteNode, powerUp: SKSpriteNode) {
         powerUp.removeFromParent()
-        player.addChild(addShield())
+        if powerUp.name == "powerUpLife" {
+            changeLifePoints(with: 1)
+        } else if powerUp.name == "powerUpShield" {
+            player.addChild(addShield())
+        } else if powerUp.name == "powerUpShoot" {
+        }
     }
     func radiansToDegrees(radians: CGFloat) -> CGFloat {
         return radians * 180 / CGFloat(M_PI)
