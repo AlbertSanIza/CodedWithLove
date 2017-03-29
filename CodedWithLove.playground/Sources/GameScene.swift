@@ -356,7 +356,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
             explotionEmitter.run(SKAction.fadeIn(withDuration: 0.3)) {
                 if asteroid.name == "asteroidBig" {
                     self.addPowerUp(inPosition: asteroid.position)
-                    let theAngles = [0, 60, 120, 180, 240, 300, 360]
+                    let theAngles = [0, 72, 144, 216, 288]
                     for angle in theAngles {
                         self.addAsteroid(withSize: "Small", inPosition: CGPoint(x: asteroid.position.x + (60 * cos(asteroid.zRotation + self.degreesToRadians(degrees: CGFloat(angle)))), y: asteroid.position.y + (60 * sin(asteroid.zRotation + self.degreesToRadians(degrees: CGFloat(angle))))))
                     }
