@@ -299,22 +299,15 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
             asteroid.physicsBody?.contactTestBitMask = PhysicsCategory.None
             asteroid.physicsBody?.collisionBitMask = PhysicsCategory.None
             if asteroid.name == "asteroidBig" {
-                let oldPosition = asteroid.position
-                let oldAngle = asteroid.zRotation
                 let explotionEmitter: SKEmitterNode = SKEmitterNode(fileNamed: "emitter/explotion.sks")!
-                asteroid.removeFromParent()
                 explotionEmitter.particleTexture = SKTexture(imageNamed: "emitter/spark.png")
                 explotionEmitter.position = oldPosition
                 explotionEmitter.run(SKAction.sequence([SKAction.fadeIn(withDuration: 0.2), SKAction.fadeOut(withDuration: 0.5), SKAction.removeFromParent()]))
                 addChild(explotionEmitter)
-                addAsteroid(withSize: "Small", inPosition: CGPoint(x: oldPosition.x + (60 * cos(oldAngle)), y: oldPosition.y + (60 * sin(oldAngle))))
-                addAsteroid(withSize: "Small", inPosition: CGPoint(x: oldPosition.x + (60 * cos(oldAngle + degreesToRadians(degrees: 60))), y: oldPosition.y + (60 * sin(oldAngle + degreesToRadians(degrees: 60)))))
-                addAsteroid(withSize: "Small", inPosition: CGPoint(x: oldPosition.x + (60 * cos(oldAngle + degreesToRadians(degrees: 120))), y: oldPosition.y + (60 * sin(oldAngle + degreesToRadians(degrees: 120)))))
-                addAsteroid(withSize: "Small", inPosition: CGPoint(x: oldPosition.x + (60 * cos(oldAngle + degreesToRadians(degrees: 180))), y: oldPosition.y + (60 * sin(oldAngle + degreesToRadians(degrees: 180)))))
-                addAsteroid(withSize: "Small", inPosition: CGPoint(x: oldPosition.x + (60 * cos(oldAngle + degreesToRadians(degrees: 240))), y: oldPosition.y + (60 * sin(oldAngle + degreesToRadians(degrees: 260)))))
-                addAsteroid(withSize: "Small", inPosition: CGPoint(x: oldPosition.x + (60 * cos(oldAngle + degreesToRadians(degrees: 300))), y: oldPosition.y + (60 * sin(oldAngle + degreesToRadians(degrees: 300)))))
-            } else {
-                asteroid.removeFromParent()
+                let theAngles = [0, 60, 120, 180, 240, 300, 360]
+                for angle in theAngles {
+                    addAsteroid(withSize: "Small", inPosition: CGPoint(x: asteroid.position.x + (60 * cos(asteroid.zRotation + degreesToRadians(degrees: CGFloat(angle)))), y: asteroid.position.y + (60 * sin(asteroid.zRotation + degreesToRadians(degrees: CGFloat(angle))))))
+                }
             }
             changeScorePoints(with: (asteroid.name == "asteroidBig" ? 10 : 5))
         } else {
