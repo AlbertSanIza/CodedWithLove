@@ -298,7 +298,12 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
             if asteroid.name == "asteroidBig" {
                 let oldPosition = asteroid.position
                 let oldAngle = asteroid.zRotation
+                let explotionEmitter: SKEmitterNode = SKEmitterNode(fileNamed: "emitter/explotion.sks")!
                 asteroid.removeFromParent()
+                explotionEmitter.particleTexture = SKTexture(imageNamed: "emitter/spark.png")
+                explotionEmitter.position = oldPosition
+                explotionEmitter.run(SKAction.sequence([SKAction.fadeIn(withDuration: 0.2), SKAction.fadeOut(withDuration: 0.5), SKAction.removeFromParent()]))
+                addChild(explotionEmitter)
                 addAsteroid(withSize: "Small", inPosition: CGPoint(x: oldPosition.x + (60 * cos(oldAngle)), y: oldPosition.y + (60 * sin(oldAngle))))
                 addAsteroid(withSize: "Small", inPosition: CGPoint(x: oldPosition.x + (60 * cos(oldAngle + degreesToRadians(degrees: 60))), y: oldPosition.y + (60 * sin(oldAngle + degreesToRadians(degrees: 60)))))
                 addAsteroid(withSize: "Small", inPosition: CGPoint(x: oldPosition.x + (60 * cos(oldAngle + degreesToRadians(degrees: 120))), y: oldPosition.y + (60 * sin(oldAngle + degreesToRadians(degrees: 120)))))
