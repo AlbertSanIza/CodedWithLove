@@ -287,7 +287,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
     func addPowerUp(inPosition: CGPoint) {
         let powerUp = SKSpriteNode(texture: SKTexture(imageNamed: "sprites/artRedux/powerUpShield.png"), size: CGSize(width: 50, height: 50))
         powerUp.position = inPosition
-        powerUp.physicsBody = SKPhysicsBody(circleOfRadius: 135, center: CGPoint(x: 0, y: 0))
+        powerUp.physicsBody = SKPhysicsBody(circleOfRadius: 30, center: CGPoint(x: 0, y: 0))
         powerUp.physicsBody?.categoryBitMask = PhysicsCategory.PowerUp
         powerUp.physicsBody?.contactTestBitMask = PhysicsCategory.Player
         powerUp.physicsBody?.collisionBitMask = PhysicsCategory.None
