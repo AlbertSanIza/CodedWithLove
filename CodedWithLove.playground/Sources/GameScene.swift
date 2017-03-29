@@ -289,13 +289,13 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
     func addPowerUp(inPosition: CGPoint) {
         let powerUp: SKSpriteNode
         switch arc4random_uniform(16) {
-        case 0, 7, 15:
+        case 0, 5, 10:
             powerUp = SKSpriteNode(texture: SKTexture(imageNamed: "sprites/artRedux/powerUpLife.png"), size: CGSize(width: 50, height: 50))
             powerUp.name = "powerUpLife"
-        case 1, 3, 5, 8, 10, 12:
+        case 1, 3, 6, 8:
             powerUp = SKSpriteNode(texture: SKTexture(imageNamed: "sprites/artRedux/powerUpShield.png"), size: CGSize(width: 50, height: 50))
             powerUp.name = "powerUpShield"
-        case 2, 4, 6, 9, 11, 14:
+        case 2, 4, 7, 9:
             powerUp = SKSpriteNode(texture: SKTexture(imageNamed: "sprites/artRedux/powerUpShoot.png"), size: CGSize(width: 50, height: 50))
             powerUp.name = "powerUpShoot"
         default:
