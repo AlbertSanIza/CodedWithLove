@@ -49,6 +49,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
                 sBody = contact.bodyA.categoryBitMask == PhysicsCategory.Asteroid ? contact.bodyA : contact.bodyB
                 if let sksProjectile = fBody.node as? SKSpriteNode, let sksAsteroid = sBody.node as? SKSpriteNode {
                     projectileHitAsteroid(projectile: sksProjectile, asteroid: sksAsteroid, points: 1)
+                    return
                 }
             }
         }
@@ -59,6 +60,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
                     sBody = contact.bodyA.categoryBitMask == PhysicsCategory.Asteroid ? contact.bodyA : contact.bodyB
                     if let sksPlayer = fBody.node as? SKSpriteNode, let sksAsteroid = sBody.node as? SKSpriteNode {
                         playerHitAsteroid(player: sksPlayer, asteroid: sksAsteroid, points: -1)
+                        return
                     }
                 }
             }
