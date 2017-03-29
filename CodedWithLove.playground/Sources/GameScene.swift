@@ -397,7 +397,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
             player.addChild(addShield())
         } else if powerUp.name == "powerUpShoot" {
             isShootProjectile = true
-            run(SKAction.wait(forDuration: 7)) {
+            run(SKAction.wait(forDuration: 10)) {
                 self.isShootProjectile = false
             }
         }
