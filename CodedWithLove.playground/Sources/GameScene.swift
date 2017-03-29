@@ -257,9 +257,9 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         asteroid.physicsBody?.collisionBitMask = PhysicsCategory.Asteroid
         addChild(asteroid)
     }
-    func addProjectile() {
+    func addProjectile(inPosition: CGPoint) {
         let projectile = SKSpriteNode(texture: SKTexture(imageNamed: "sprites/art/projectile0.png"), size: CGSize(width: 70, height: 30))
-        projectile.position = thePlayer.position
+        projectile.position = inPosition
         projectile.zRotation = thePlayer.zRotation
         projectile.physicsBody = SKPhysicsBody(circleOfRadius: 10, center: CGPoint(x: 0, y: 0))
         projectile.physicsBody?.isDynamic = true
