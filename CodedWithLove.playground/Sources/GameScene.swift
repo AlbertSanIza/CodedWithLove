@@ -127,7 +127,11 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
             }
         case 31:
             if !event.isARepeat && !isPaused && !isGameOver {
-                addProjectile()
+                addProjectile(inPosition: thePlayer.position)
+                if isShootProjectile {
+                    addProjectile(inPosition: CGPoint(x: thePlayer.position.x + (50 * cos(thePlayer.zRotation + degreesToRadians(degrees: 130))), y: thePlayer.position.y + (50 * sin(thePlayer.zRotation + degreesToRadians(degrees: 130)))))
+                    addProjectile(inPosition: CGPoint(x: thePlayer.position.x + (50 * cos(thePlayer.zRotation + degreesToRadians(degrees: 220))), y: thePlayer.position.y + (50 * sin(thePlayer.zRotation + degreesToRadians(degrees: 220)))))
+                }
             }
         default: break
         }
