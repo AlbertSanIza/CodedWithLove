@@ -302,6 +302,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
             explotionEmitter.particleTexture = SKTexture(imageNamed: "emitter/spark.png")
             explotionEmitter.alpha = 0.0
             explotionEmitter.position = asteroid.position
+            explotionEmitter.particleSize = asteroid.size
             addChild(explotionEmitter)
             explotionEmitter.run(SKAction.fadeIn(withDuration: 0.3)) {
                 asteroid.run(SKAction.sequence([SKAction.fadeOut(withDuration: 0.3), SKAction.removeFromParent()]))
