@@ -13,6 +13,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
     var isPlaying: Bool = true
     var isGameOver: Bool = false
     var isHitPlayerAsteroid: Bool = false
+    var isShootProjectile: Bool = false
     struct PhysicsCategory {
         static let None: UInt32 = 0
         static let Player: UInt32 = 0b1
