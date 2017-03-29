@@ -19,6 +19,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         static let Asteroid: UInt32 = 0b10
         static let Shield: UInt32 = 0b11
         static let Projectile: UInt32 = 0b100
+        static let PowerUp: UInt32 = 0b101
         static let All: UInt32 = UInt32.max
     }
     override public func sceneDidLoad() {
