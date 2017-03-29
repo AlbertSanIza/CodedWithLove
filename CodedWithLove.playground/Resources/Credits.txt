@@ -40,3 +40,10 @@ email: tatermand@gmail.com
 Page: http://opengameart.org/forumtopic/tatermands-art
 Files renamed:
 SpaceArtPublish.psd --> all files in sprites/art/ folder
+
+https://opengameart.org/content/space-shooter-redux
+Title: Space Shooter Redux
+Artist: Kenney
+Page: http://kenney.nl/
+Files renamed:
+SpaceShooterRedux.zip --> all files in sprites/artRedux folder
