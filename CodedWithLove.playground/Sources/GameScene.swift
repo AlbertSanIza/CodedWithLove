@@ -92,6 +92,19 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         } else if thePlayer.position.x < -528 {
             thePlayer.position.x = 526
         }
+        enumerateChildNodes(withName: "asteroid*") {
+            (node, stop) in
+            if node.position.y > 390 {
+                node.position.y = -390
+            } else if node.position.y < -390 {
+                node.position.y = 390
+            }
+            if node.position.x > 518 {
+                node.position.x = -518
+            } else if node.position.x < -518 {
+                node.position.x = 518
+            }
+        }
     }
     override public func keyDown(with event: NSEvent) {
         switch event.keyCode {
