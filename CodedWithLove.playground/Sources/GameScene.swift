@@ -299,11 +299,19 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
             asteroid.physicsBody?.contactTestBitMask = PhysicsCategory.None
             asteroid.physicsBody?.collisionBitMask = PhysicsCategory.None
             let explotionEmitter: SKEmitterNode = SKEmitterNode(fileNamed: (asteroid.name == "asteroidBig" ? "emitter/explotionBig.sks" : "emitter/explotionSmall.sks"))!
-            if asteroid.name == "asteroidBig" {
-                let theAngles = [0, 60, 120, 180, 240, 300, 360]
-                for angle in theAngles {
-                    addAsteroid(withSize: "Small", inPosition: CGPoint(x: asteroid.position.x + (60 * cos(asteroid.zRotation + degreesToRadians(degrees: CGFloat(angle)))), y: asteroid.position.y + (60 * sin(asteroid.zRotation + degreesToRadians(degrees: CGFloat(angle))))))
+            explotionEmitter.particleTexture = SKTexture(imageNamed: "emitter/spark.png")
+            explotionEmitter.alpha = 0.0
+            explotionEmitter.position = asteroid.position
+            addChild(explotionEmitter)
+            explotionEmitter.run(SKAction.fadeIn(withDuration: 0.3)) {
+                asteroid.run(SKAction.sequence([SKAction.fadeOut(withDuration: 0.3), SKAction.removeFromParent()]))
+                if asteroid.name == "asteroidBig" {
+                    let theAngles = [0, 60, 120, 180, 240, 300, 360]
+                    for angle in theAngles {
+                        self.addAsteroid(withSize: "Small", inPosition: CGPoint(x: asteroid.position.x + (60 * cos(asteroid.zRotation + self.degreesToRadians(degrees: CGFloat(angle)))), y: asteroid.position.y + (60 * sin(asteroid.zRotation + self.degreesToRadians(degrees: CGFloat(angle))))))
+                    }
                 }
+                explotionEmitter.run(SKAction.fadeOut(withDuration: 0.5))
             }
             changeScorePoints(with: (asteroid.name == "asteroidBig" ? 10 : 5))
         } else {
