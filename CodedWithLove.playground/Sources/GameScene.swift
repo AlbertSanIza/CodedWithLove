@@ -282,8 +282,15 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         }
         return shield
     }
-    func addPowerUp() {
-        let powerUp: SKSpriteNode = SKSpriteNode(imageNamed: "")
+    func addPowerUp(inPosition: CGPoint) {
+        let powerUp: SKSpriteNode = SKSpriteNode(imageNamed: "sprites/artRedux/powerUpShield.png")
+        powerUp.position = inPosition
+        powerUp.physicsBody = SKPhysicsBody(circleOfRadius: 135, center: CGPoint(x: 0, y: 0))
+        powerUp.physicsBody?.categoryBitMask = PhysicsCategory.PowerUp
+        powerUp.physicsBody?.contactTestBitMask = PhysicsCategory.Player
+        powerUp.physicsBody?.collisionBitMask = PhysicsCategory.None
+        powerUp.run(SKAction.fadeIn(withDuration: 0.5))
+        addChild(powerUp)
     }
     func changeLifePoints(with: Int) {
         let lifePoints = Int(theLifePoints.text!)! + with
@@ -311,6 +318,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
             asteroid.run(SKAction.sequence([SKAction.fadeOut(withDuration: 0.3), SKAction.removeFromParent()]))
             explotionEmitter.run(SKAction.fadeIn(withDuration: 0.3)) {
                 if asteroid.name == "asteroidBig" {
+                    self.addPowerUp(inPosition: asteroid.position)
                     let theAngles = [0, 60, 120, 180, 240, 300, 360]
                     for angle in theAngles {
                         self.addAsteroid(withSize: "Small", inPosition: CGPoint(x: asteroid.position.x + (60 * cos(asteroid.zRotation + self.degreesToRadians(degrees: CGFloat(angle)))), y: asteroid.position.y + (60 * sin(asteroid.zRotation + self.degreesToRadians(degrees: CGFloat(angle))))))
