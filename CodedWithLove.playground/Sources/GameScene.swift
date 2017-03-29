@@ -289,7 +289,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         powerUp.physicsBody?.categoryBitMask = PhysicsCategory.PowerUp
         powerUp.physicsBody?.contactTestBitMask = PhysicsCategory.Player
         powerUp.physicsBody?.collisionBitMask = PhysicsCategory.None
-        powerUp.run(SKAction.fadeIn(withDuration: 0.5))
+        powerUp.run(SKAction.sequence([SKAction.fadeIn(withDuration: 0.5), SKAction.repeat(SKAction.sequence([SKAction.scale(by: 1.1, duration: 0.5), SKAction.scale(by: 0.9, duration: 0.5)]), count: 8), SKAction.fadeOut(withDuration: 0.5), SKAction.removeFromParent()]))
         addChild(powerUp)
     }
     func changeLifePoints(with: Int) {
