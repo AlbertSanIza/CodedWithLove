@@ -298,6 +298,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
             asteroid.physicsBody?.categoryBitMask = PhysicsCategory.None
             asteroid.physicsBody?.contactTestBitMask = PhysicsCategory.None
             asteroid.physicsBody?.collisionBitMask = PhysicsCategory.None
+            let explotionEmitter: SKEmitterNode = SKEmitterNode(fileNamed: (asteroid.name == "asteroidBig" ? "emitter/explotionBig.sks" : "emitter/explotionSmall.sks"))!
             if asteroid.name == "asteroidBig" {
                 let theAngles = [0, 60, 120, 180, 240, 300, 360]
                 for angle in theAngles {
