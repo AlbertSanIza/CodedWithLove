@@ -387,6 +387,9 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         thePlayer.physicsBody?.collisionBitMask = PhysicsCategory.None
         player.run(SKAction.fadeOut(withDuration: 0.5)) {
             if !self.isGameOver {
+                if let oldShield: SKSpriteNode = player.childNode(withName: "shield") as? SKSpriteNode {
+                    oldShield.removeFromParent()
+                }
                 player.addChild(self.addShield())
                 player.run(SKAction.sequence([SKAction.group([SKAction.move(to: CGPoint(x: 0, y: 0), duration: 0), SKAction.rotate(toAngle: self.degreesToRadians(degrees: 90), duration: 0)]), SKAction.fadeIn(withDuration: 1)])) {
                     self.thePlayer.physicsBody?.categoryBitMask = PhysicsCategory.Player
