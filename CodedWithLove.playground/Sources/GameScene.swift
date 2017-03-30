@@ -17,6 +17,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
     var isHitPlayerAsteroid: Bool = false
     var isShootProjectile: Bool = false
     var gameLevel: Int = 0
+    var asteroidsNumber: Int = 0
     var asteroidsAreIn: Bool = false
     struct PhysicsCategory {
         static let None: UInt32 = 0
