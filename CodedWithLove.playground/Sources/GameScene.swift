@@ -311,14 +311,18 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         asteroid.name = "asteroid" + withSize
         asteroid.position = inPosition
         asteroid.zRotation = degreesToRadians(degrees: CGFloat(arc4random_uniform(359)))
+        asteroid.alpha = 0
         asteroid.physicsBody = SKPhysicsBody(texture: asteroidTexture, size: CGSize(width: randomSize - (withSize == "Small" ? 30 : 15), height: randomSize - (withSize == "Small" ? 30 : 15)))
         asteroid.physicsBody?.mass = 0.1
         asteroid.physicsBody?.isDynamic = true
         asteroid.physicsBody?.categoryBitMask = PhysicsCategory.Asteroid
         asteroid.physicsBody?.contactTestBitMask = PhysicsCategory.Projectile
-        asteroid.physicsBody?.collisionBitMask = PhysicsCategory.Asteroid
+        asteroid.physicsBody?.collisionBitMask = PhysicsCategory.None
         let asteroidDirection = Double(arc4random_uniform(360))
         asteroid.physicsBody?.velocity = CGVector(dx: 100 * cos(asteroidDirection), dy: 100 * sin(asteroidDirection))
+        asteroid.run(SKAction.fadeIn(withDuration: 0.5)) {
+            asteroid.physicsBody?.collisionBitMask = PhysicsCategory.Asteroid
+        }
         addChild(asteroid)
     }
     func addProjectile(inPosition: CGPoint) {
