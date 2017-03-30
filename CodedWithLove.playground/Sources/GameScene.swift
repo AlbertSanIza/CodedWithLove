@@ -395,7 +395,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         if powerUp.name == "powerUpLife" {
             changeLifePoints(with: 1)
         } else if powerUp.name == "powerUpShield" {
-            if let oldShield = player.childNode(withName: "shield") {
+            if let oldShield: SKSpriteNode = player.childNode(withName: "shield") as! SKSpriteNode {
                 oldShield.removeFromParent()
             }
             player.addChild(addShield())
