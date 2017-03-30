@@ -132,7 +132,10 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
             (node, stop) in
             self.asteroidsNumber += 1
             let nodeAngle = atan2((node.physicsBody?.velocity.dy)!, (node.physicsBody?.velocity.dx)!)
-            node.physicsBody?.velocity = CGVector(dx: (node.name == "asteroidBig" ? 50 : 100) * cos(nodeAngle), dy: (node.name == "asteroidBig" ? 50 : 100)  * sin(nodeAngle))
+            let baseSpeed: CGFloat = node.name == "asteroidBig" ? 60 : 110
+            let xSpeed: CGFloat = (baseSpeed + (CGFloat(self.gameLevel) * 2))
+            let ySpeed: CGFloat = (baseSpeed + (CGFloat(self.gameLevel) * 2))
+            node.physicsBody?.velocity = CGVector(dx: xSpeed * cos(nodeAngle), dy: ySpeed * sin(nodeAngle))
             if node.position.y > 390 {
                 node.position.y = -390
             } else if node.position.y < -390 {
