@@ -322,7 +322,12 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         asteroid.physicsBody?.categoryBitMask = PhysicsCategory.Asteroid
         asteroid.physicsBody?.contactTestBitMask = PhysicsCategory.Projectile
         asteroid.physicsBody?.collisionBitMask = PhysicsCategory.None
-        let asteroidDirection = Double(arc4random_uniform(360))
+        let asteroidDirection: Double
+        if asteroid.name == "asteroidBig" {
+            asteroidDirection = Double(atan2(asteroid.position.y, asteroid.position.x))
+        } else {
+            asteroidDirection = Double(arc4random_uniform(360))
+        }
         asteroid.physicsBody?.velocity = CGVector(dx: 100 * cos(asteroidDirection), dy: 100 * sin(asteroidDirection))
         asteroid.run(SKAction.fadeIn(withDuration: 0.5)) {
             asteroid.physicsBody?.collisionBitMask = PhysicsCategory.Asteroid
