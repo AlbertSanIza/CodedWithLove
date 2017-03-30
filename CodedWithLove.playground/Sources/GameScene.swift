@@ -92,6 +92,11 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
                     self.theLevelMessage.run(SKAction.sequence([SKAction.fadeIn(withDuration: 0.75), SKAction.fadeOut(withDuration: 0.75)])) {
                         aMessage.text = "Start!"
                         self.theLevelMessage.run(SKAction.sequence([SKAction.fadeIn(withDuration: 0.75), SKAction.fadeOut(withDuration: 0.75), SKAction.wait(forDuration: 2)])) {
+                            for _ in 0...self.gameLevel - 1 {
+                                let anAngle = CGFloat(arc4random_uniform(360))
+                                let aDistance = CGFloat(arc4random_uniform(360) + 1024)
+                                self.addAsteroid(withSize: "Big", inPosition: CGPoint(x: aDistance * cos(self.degreesToRadians(degrees: anAngle)), y: aDistance * sin(self.degreesToRadians(degrees: anAngle))))
+                            }
                             self.asteroidsAreIn = true
                         }
                     }
