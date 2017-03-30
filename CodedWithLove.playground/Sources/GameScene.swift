@@ -6,6 +6,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
     var theLevel: SKLabelNode = SKLabelNode()
     var thePause: SKNode = SKNode()
     var theGameOver: SKNode = SKNode()
+    var theLevelMessage: SKNode = SKNode()
     var wKey: Bool = false
     var sKey: Bool = false
     var aKey: Bool = false
@@ -247,9 +248,10 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         }
     }
     func loadSubViews() {
-        if let sknPause: SKNode = childNode(withName: "sknPause"), let sknGameOver: SKNode = childNode(withName: "sknGameOver") {
+        if let sknPause: SKNode = childNode(withName: "sknPause"), let sknGameOver: SKNode = childNode(withName: "sknGameOver"), let sknLevelMessage: SKNode = childNode(withName: "sknLevelMessage") {
             thePause = sknPause
             theGameOver = sknGameOver
+            theLevelMessage = sknLevelMessage
         }
     }
     func goToScene(withName: String) {
