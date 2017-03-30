@@ -79,6 +79,10 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
             isPlaying = true
             gameLevel += 1
             changeLevel(with: gameLevel)
+            enumerateChildNodes(withName: "powerUp*") {
+                (node, stop) in
+                node.run(SKAction.sequence([SKAction.fadeIn(withDuration: 0), SKAction.removeFromParent()]))
+            }
             let aMessage: SKLabelNode = (theLevelMessage.childNode(withName: "txtLevelMessage") as? SKLabelNode)!
             aMessage.text = "3"
             theLevelMessage.run(SKAction.sequence([SKAction.wait(forDuration: 1), SKAction.fadeIn(withDuration: 0.75), SKAction.fadeOut(withDuration: 0.75)])) {
