@@ -12,7 +12,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
     var aKey: Bool = false
     var dKey: Bool = false
     var spaceKey: Bool = false
-    var isPlaying: Bool = true
+    var isPlaying: Bool = false
     var isGameOver: Bool = false
     var isHitPlayerAsteroid: Bool = false
     var isShootProjectile: Bool = false
