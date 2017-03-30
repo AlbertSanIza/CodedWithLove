@@ -290,6 +290,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
     }
     func addShield() -> SKSpriteNode {
         let shield = SKSpriteNode(texture: SKTexture(imageNamed: "sprites/art/planet6.png"), size: CGSize(width: 360, height: 360))
+        shield.name = "shield"
         shield.alpha = 0.6
         shield.physicsBody = SKPhysicsBody(circleOfRadius: 135, center: CGPoint(x: 0, y: 0))
         shield.physicsBody?.pinned = true
