@@ -75,7 +75,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         }
     }
     override public func update(_ currentTime: TimeInterval) {
-        if !isPlaying {
+        if !isPlaying && asteroidsNumber == 0 {
             isPlaying = true
             gameLevel += 1
             changeLevel(with: gameLevel)
@@ -88,7 +88,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
                     self.theLevelMessage.run(SKAction.sequence([SKAction.fadeIn(withDuration: 0.75), SKAction.fadeOut(withDuration: 0.75)])) {
                         aMessage.text = "Start!"
                         self.theLevelMessage.run(SKAction.sequence([SKAction.fadeIn(withDuration: 0.75), SKAction.fadeOut(withDuration: 0.75)])) {
-                            
+                            self.asteroidsAreIn = true
                         }
                     }
                 }
@@ -118,8 +118,10 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
                 thePlayer.position.x = 526
             }
         }
+        asteroidsNumber = 0
         enumerateChildNodes(withName: "asteroid*") {
             (node, stop) in
+            self.asteroidsNumber += 1
             let nodeAngle = atan2((node.physicsBody?.velocity.dy)!, (node.physicsBody?.velocity.dx)!)
             node.physicsBody?.velocity = CGVector(dx: (node.name == "asteroidBig" ? 50 : 100) * cos(nodeAngle), dy: (node.name == "asteroidBig" ? 50 : 100)  * sin(nodeAngle))
             if node.position.y > 390 {
@@ -132,6 +134,10 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
             } else if node.position.x < -518 {
                 node.position.x = 518
             }
+        }
+        if asteroidsAreIn == true && asteroidsNumber == 0 {
+            isPlaying = false
+            asteroidsAreIn = false
         }
     }
     override public func keyDown(with event: NSEvent) {
