@@ -91,7 +91,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
                     aMessage.text = "1"
                     self.theLevelMessage.run(SKAction.sequence([SKAction.fadeIn(withDuration: 0.75), SKAction.fadeOut(withDuration: 0.75)])) {
                         aMessage.text = "Start!"
-                        self.theLevelMessage.run(SKAction.sequence([SKAction.fadeIn(withDuration: 0.75), SKAction.fadeOut(withDuration: 0.75)])) {
+                        self.theLevelMessage.run(SKAction.sequence([SKAction.fadeIn(withDuration: 0.75), SKAction.fadeOut(withDuration: 0.75), SKAction.wait(forDuration: 2)])) {
                             self.asteroidsAreIn = true
                         }
                     }
