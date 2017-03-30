@@ -96,7 +96,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
                             for angle in theAngles {
                                 let anAngle = angle
                                 let aDistance = CGFloat(arc4random_uniform(360) + 1024)
-                                self.addAsteroid(withSize: "Big", inPosition: CGPoint(x: aDistance * cos(self.degreesToRadians(degrees: CGFloat(anAngle))), y: aDistance * sin(self.degreesToRadians(degrees: CGFloat(anAngle)))))
+                                self.addAsteroid(withSize: "Big", inPosition: CGPoint(x: aDistance * cos(self.degreesToRadians(degrees: CGFloat(anAngle + Int(arc4random_uniform(30))))), y: aDistance * sin(self.degreesToRadians(degrees: CGFloat(anAngle + Int(arc4random_uniform(30)))))))
                             }
                             self.asteroidsAreIn = true
                         }
