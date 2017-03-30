@@ -94,6 +94,8 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         }
         enumerateChildNodes(withName: "asteroid*") {
             (node, stop) in
+            let nodeAngle = atan2((node.physicsBody?.velocity.dy)!, (node.physicsBody?.velocity.dx)!)
+            node.physicsBody?.velocity = CGVector(dx: 100 * cos(nodeAngle), dy: 100 * sin(nodeAngle))
             if node.position.y > 390 {
                 node.position.y = -390
             } else if node.position.y < -390 {
@@ -299,6 +301,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         shield.physicsBody?.contactTestBitMask = PhysicsCategory.Asteroid
         shield.physicsBody?.collisionBitMask = PhysicsCategory.Asteroid
         shield.physicsBody?.usesPreciseCollisionDetection = true
+        shield.physicsBody?.linearDamping = 0.0;
         let shieldFadeAction = SKAction.repeat(SKAction.sequence([SKAction.fadeAlpha(to: 0.35, duration: 0.5), SKAction.fadeAlpha(to: 0.6, duration: 0.5)]), count: 4)
         let shieldFadeSequenceAction = SKAction.sequence([shieldFadeAction, SKAction.fadeOut(withDuration: 1)])
         shield.run(shieldFadeSequenceAction) {
