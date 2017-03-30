@@ -19,6 +19,12 @@ Files renamed:
 MENU_Pick.wav        --> pick.wav
 MESSAGE-B_Accept.wav --> splash.wav
 
+http://opengameart.org/content/63-digital-sound-effects-lasers-phasers-space-etc
+Title: 63 Digital sound effects (lasers, phasers, space etc.)
+Artist: Kenney
+Page: http://kenney.nl/
+Files renamed:
+Digital_SFX_Set.zip --> all files in sounds/sfx folder
 
 
 Sprites taken from:
