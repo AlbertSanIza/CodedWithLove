@@ -347,22 +347,26 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
             asteroid.physicsBody?.categoryBitMask = PhysicsCategory.None
             asteroid.physicsBody?.contactTestBitMask = PhysicsCategory.None
             asteroid.physicsBody?.collisionBitMask = PhysicsCategory.None
-            let explotionEmitter: SKEmitterNode = SKEmitterNode(fileNamed: (asteroid.name == "asteroidBig" ? "emitter/explotionBig.sks" : "emitter/explotionSmall.sks"))!
+            let oldAsteroidName = asteroid.name
+            let oldAsteroidPosition = asteroid.position
+            let oldAsteroidSize = asteroid.size
+            let oldAsteroidRotation = asteroid.zRotation
+            asteroid.run(SKAction.sequence([SKAction.fadeOut(withDuration: 0.1), SKAction.removeFromParent()]))
+            let explotionEmitter: SKEmitterNode = SKEmitterNode(fileNamed: (oldAsteroidName == "asteroidBig" ? "emitter/explotionBig.sks" : "emitter/explotionSmall.sks"))!
             explotionEmitter.particleTexture = SKTexture(imageNamed: "emitter/spark.png")
             explotionEmitter.alpha = 0.0
-            explotionEmitter.position = asteroid.position
-            explotionEmitter.particleSize = asteroid.size
+            explotionEmitter.position = oldAsteroidPosition
+            explotionEmitter.particleSize = oldAsteroidSize
             addChild(explotionEmitter)
-            asteroid.run(SKAction.sequence([SKAction.fadeOut(withDuration: 0.3), SKAction.removeFromParent()]))
             explotionEmitter.run(SKAction.fadeIn(withDuration: 0.3)) {
-                if asteroid.name == "asteroidBig" {
-                    self.addPowerUp(inPosition: asteroid.position)
+                if oldAsteroidName == "asteroidBig" {
+                    self.addPowerUp(inPosition: oldAsteroidPosition)
                     let theAngles = [0, 72, 144, 216, 288]
                     for angle in theAngles {
-                        self.addAsteroid(withSize: "Small", inPosition: CGPoint(x: asteroid.position.x + (60 * cos(asteroid.zRotation + self.degreesToRadians(degrees: CGFloat(angle)))), y: asteroid.position.y + (60 * sin(asteroid.zRotation + self.degreesToRadians(degrees: CGFloat(angle))))))
+                        self.addAsteroid(withSize: "Small", inPosition: CGPoint(x: oldAsteroidPosition.x + (60 * cos(oldAsteroidRotation + self.degreesToRadians(degrees: CGFloat(angle)))), y: oldAsteroidPosition.y + (60 * sin(oldAsteroidRotation + self.degreesToRadians(degrees: CGFloat(angle))))))
                     }
                 }
-                explotionEmitter.run(SKAction.fadeOut(withDuration: 0.5))
+                explotionEmitter.run(SKAction.sequence([SKAction.fadeOut(withDuration: 0.5), SKAction.removeFromParent()]))
             }
             changeScorePoints(with: (asteroid.name == "asteroidBig" ? 10 : 5))
         } else {
