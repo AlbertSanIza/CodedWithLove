@@ -82,15 +82,17 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         if dKey {
             thePlayer.run(SKAction.rotate(byAngle: degreesToRadians(degrees: -3), duration: 0.3))
         }
-        if thePlayer.position.y > 400 {
-            thePlayer.position.y = -398
-        } else if thePlayer.position.y < -400 {
-            thePlayer.position.y = 398
-        }
-        if thePlayer.position.x > 528 {
-            thePlayer.position.x = -526
-        } else if thePlayer.position.x < -528 {
-            thePlayer.position.x = 526
+        if thePlayer.physicsBody?.categoryBitMask != PhysicsCategory.None {
+            if thePlayer.position.y > 400 {
+                thePlayer.position.y = -398
+            } else if thePlayer.position.y < -400 {
+                thePlayer.position.y = 398
+            }
+            if thePlayer.position.x > 528 {
+                thePlayer.position.x = -526
+            } else if thePlayer.position.x < -528 {
+                thePlayer.position.x = 526
+            }
         }
         enumerateChildNodes(withName: "asteroid*") {
             (node, stop) in
@@ -391,7 +393,10 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
                     oldShield.removeFromParent()
                 }
                 player.addChild(self.addShield())
-                player.run(SKAction.sequence([SKAction.group([SKAction.move(to: CGPoint(x: 0, y: 0), duration: 0), SKAction.rotate(toAngle: self.degreesToRadians(degrees: 90), duration: 0)]), SKAction.fadeIn(withDuration: 1)])) {
+                player.run(SKAction.sequence([
+                    SKAction.group([SKAction.move(to: CGPoint(x: 0, y: -560), duration: 0), SKAction.rotate(toAngle: self.degreesToRadians(degrees: 90), duration: 0), SKAction.fadeIn(withDuration: 0)]),
+                    SKAction.move(to: CGPoint(x: 0, y: 0), duration: 2)
+                    ])) {
                     self.thePlayer.physicsBody?.categoryBitMask = PhysicsCategory.Player
                     self.thePlayer.physicsBody?.contactTestBitMask = PhysicsCategory.Asteroid
                     self.thePlayer.physicsBody?.collisionBitMask = PhysicsCategory.None
