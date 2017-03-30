@@ -16,7 +16,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
     var isGameOver: Bool = false
     var isHitPlayerAsteroid: Bool = false
     var isShootProjectile: Bool = false
-    var gameLevel: Int = 1
+    var gameLevel: Int = 0
     struct PhysicsCategory {
         static let None: UInt32 = 0
         static let Player: UInt32 = 0b1
@@ -75,6 +75,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
     override public func update(_ currentTime: TimeInterval) {
         if !isPlaying {
             isPlaying = true
+            changeLevel(with: gameLevel)
             let aMessage: SKLabelNode = (theLevelMessage.childNode(withName: "txtLevelMessage") as? SKLabelNode)!
             aMessage.text = "3"
             theLevelMessage.run(SKAction.sequence([SKAction.wait(forDuration: 1), SKAction.fadeIn(withDuration: 0.75), SKAction.fadeOut(withDuration: 0.75)])) {
