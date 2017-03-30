@@ -416,7 +416,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
             changeScorePoints(with: (asteroid.name == "asteroidBig" ? 10 : 5))
             asteroid.run(SKAction.sequence([SKAction.wait(forDuration: 0.5), SKAction.removeFromParent()]))
         } else {
-            asteroid.run(SKAction.colorize(with: .magenta, colorBlendFactor: (asteroid.name == "asteroidBig" ? asteroid.colorBlendFactor + 0.1 : asteroid.colorBlendFactor + 0.2), duration: 0))
+            asteroid.run(SKAction.colorize(with: .magenta, colorBlendFactor: (asteroid.name == "asteroidBig" ? asteroid.colorBlendFactor + 0.2 : asteroid.colorBlendFactor + 0.33), duration: 0))
             changeScorePoints(with: (asteroid.name == "asteroidBig" ? 2 : 4))
         }
     }
