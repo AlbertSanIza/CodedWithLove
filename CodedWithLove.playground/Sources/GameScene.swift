@@ -75,6 +75,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
     override public func update(_ currentTime: TimeInterval) {
         if !isPlaying {
             isPlaying = true
+            gameLevel += 1
             changeLevel(with: gameLevel)
             let aMessage: SKLabelNode = (theLevelMessage.childNode(withName: "txtLevelMessage") as? SKLabelNode)!
             aMessage.text = "3"
