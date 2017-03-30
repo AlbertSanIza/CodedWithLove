@@ -392,7 +392,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
             let oldAsteroidPosition = asteroid.position
             let oldAsteroidSize = asteroid.size
             let oldAsteroidRotation = asteroid.zRotation
-            asteroid.run(SKAction.sequence([SKAction.fadeOut(withDuration: 0.1), SKAction.removeFromParent()]))
+            asteroid.run(SKAction.fadeOut(withDuration: 0.1))
             let explotionEmitter: SKEmitterNode = SKEmitterNode(fileNamed: (oldAsteroidName == "asteroidBig" ? "emitter/explotionBig.sks" : "emitter/explotionSmall.sks"))!
             explotionEmitter.particleTexture = SKTexture(imageNamed: "emitter/spark.png")
             explotionEmitter.alpha = 0.0
@@ -410,6 +410,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
                 explotionEmitter.run(SKAction.sequence([SKAction.fadeOut(withDuration: 0.5), SKAction.removeFromParent()]))
             }
             changeScorePoints(with: (asteroid.name == "asteroidBig" ? 10 : 5))
+            asteroid.run(SKAction.sequence([SKAction.wait(forDuration: 0.5), SKAction.removeFromParent()]))
         } else {
             asteroid.run(SKAction.colorize(with: .magenta, colorBlendFactor: (asteroid.name == "asteroidBig" ? asteroid.colorBlendFactor + 0.1 : asteroid.colorBlendFactor + 0.2), duration: 0))
             changeScorePoints(with: (asteroid.name == "asteroidBig" ? 2 : 4))
