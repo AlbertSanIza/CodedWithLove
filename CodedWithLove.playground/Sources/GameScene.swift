@@ -73,6 +73,23 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         }
     }
     override public func update(_ currentTime: TimeInterval) {
+        if !isPlaying {
+            isPlaying = true
+            let aMessage: SKLabelNode = (theLevelMessage.childNode(withName: "txtLevelMessage") as? SKLabelNode)!
+            aMessage.text = "3"
+            theLevelMessage.run(SKAction.sequence([SKAction.wait(forDuration: 1), SKAction.fadeIn(withDuration: 0.75), SKAction.fadeOut(withDuration: 0.75)])) {
+                aMessage.text = "2"
+                self.theLevelMessage.run(SKAction.sequence([SKAction.fadeIn(withDuration: 0.75), SKAction.fadeOut(withDuration: 0.75)])) {
+                    aMessage.text = "1"
+                    self.theLevelMessage.run(SKAction.sequence([SKAction.fadeIn(withDuration: 0.75), SKAction.fadeOut(withDuration: 0.75)])) {
+                        aMessage.text = "Start!"
+                        self.theLevelMessage.run(SKAction.sequence([SKAction.fadeIn(withDuration: 0.75), SKAction.fadeOut(withDuration: 0.75)])) {
+                            
+                        }
+                    }
+                }
+            }
+        }
         if wKey {
             thePlayer.run(SKAction.moveBy(x: (spaceKey ? 7 : 3) * cos(thePlayer.zRotation), y: (spaceKey ? 7 : 3) * sin(thePlayer.zRotation), duration: 0.5))
         }
