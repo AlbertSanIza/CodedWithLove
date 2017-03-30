@@ -260,9 +260,10 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         }
     }
     func loadStatsBoard() {
-        if let txtLifePoints: SKLabelNode = childNode(withName: "txtLifePoints") as! SKLabelNode?, let txtScorePoints: SKLabelNode = childNode(withName: "txtScorePoints") as! SKLabelNode? {
+        if let txtLifePoints: SKLabelNode = childNode(withName: "txtLifePoints") as! SKLabelNode?, let txtScorePoints: SKLabelNode = childNode(withName: "txtScorePoints") as! SKLabelNode?, let txtLevel: SKLabelNode = childNode(withName: "txtLevel") as! SKLabelNode? {
             theLifePoints = txtLifePoints
             theScorePoints = txtScorePoints
+            theLevel = txtLevel
         }
     }
     func loadSubViews() {
