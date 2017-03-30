@@ -395,6 +395,9 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         if powerUp.name == "powerUpLife" {
             changeLifePoints(with: 1)
         } else if powerUp.name == "powerUpShield" {
+            if let oldShield = player.childNode(withName: "shield") {
+                oldShield.removeFromParent()
+            }
             player.addChild(addShield())
         } else if powerUp.name == "powerUpShoot" {
             isShootProjectile = true
