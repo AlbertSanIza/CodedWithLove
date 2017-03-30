@@ -244,8 +244,8 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
                 }
             }
         } else {
-            let mousePoint = convertPoint(fromView: CGPoint(x: event.locationInWindow.x, y: event.locationInWindow.y))
-            addAsteroid(withSize: String(arc4random_uniform(2) == 0 ? "Big" : "Small" ), inPosition: mousePoint)
+            //let mousePoint = convertPoint(fromView: CGPoint(x: event.locationInWindow.x, y: event.locationInWindow.y))
+            //addAsteroid(withSize: String(arc4random_uniform(2) == 0 ? "Big" : "Small" ), inPosition: mousePoint)
         }
     }
     func loadBackground() {
