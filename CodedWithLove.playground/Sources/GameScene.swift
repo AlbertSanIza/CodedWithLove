@@ -3,6 +3,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
     var thePlayer: SKSpriteNode = SKSpriteNode()
     var theLifePoints: SKLabelNode = SKLabelNode()
     var theScorePoints: SKLabelNode = SKLabelNode()
+    var theLevel: SKLabelNode = SKLabelNode()
     var thePause: SKNode = SKNode()
     var theGameOver: SKNode = SKNode()
     var wKey: Bool = false
@@ -347,6 +348,9 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
     }
     func changeScorePoints(with: Int) {
         theScorePoints.text = String(Int(theScorePoints.text!)! + with)
+    }
+    func changeLevel(with: Int) {
+        theLevel.text = "Level " + String(with)
     }
     func projectileHitAsteroid(projectile: SKSpriteNode, asteroid: SKSpriteNode, points: Int) {
         projectile.removeFromParent()
