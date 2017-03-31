@@ -59,3 +59,6 @@ Artist: Kenney
 Page: http://kenney.nl/
 Files renamed:
 SpaceShooterRedux.zip --> all files in sprites/artRedux folder
+
+http://www.clipartpal.com/clipart_pd/computer/computer/keyboardkeys5.html
+Keboard Images
