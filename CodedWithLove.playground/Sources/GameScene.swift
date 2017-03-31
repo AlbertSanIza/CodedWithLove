@@ -443,6 +443,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         }
     }
     func playerHitAsteroid(player: SKSpriteNode, asteroid: SKSpriteNode, points: Int) {
+        run(SKAction.playSoundFileNamed("sounds/sfx/spaceTrash1.mp3" , waitForCompletion: false))
         isHitPlayerAsteroid = true
         player.removeAllActions()
         changeLifePoints(with: points)
