@@ -467,13 +467,16 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
     func platerHitPowerUp(player: SKSpriteNode, powerUp: SKSpriteNode) {
         powerUp.removeFromParent()
         if powerUp.name == "powerUpLife" {
+            run(SKAction.playSoundFileNamed("sounds/sfx/powerUp2.mp3" , waitForCompletion: false))
             changeLifePoints(with: 1)
         } else if powerUp.name == "powerUpShield" {
+            run(SKAction.playSoundFileNamed("sounds/sfx/powerUp4.mp3" , waitForCompletion: false))
             if let oldShield: SKSpriteNode = player.childNode(withName: "shield") as? SKSpriteNode {
                 oldShield.removeFromParent()
             }
             player.addChild(addShield())
         } else if powerUp.name == "powerUpShoot" {
+            run(SKAction.playSoundFileNamed("sounds/sfx/powerUp5.mp3" , waitForCompletion: false))
             isShootProjectile = true
             run(SKAction.wait(forDuration: 10)) {
                 self.isShootProjectile = false
