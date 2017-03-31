@@ -1,3 +1,5 @@
+import Foundation
+import AVFoundation
 import SpriteKit
 public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
     var thePlayer: SKSpriteNode = SKSpriteNode()
@@ -19,6 +21,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
     var gameLevel: Int = 0
     var asteroidsNumber: Int = 0
     var asteroidsAreIn: Bool = false
+    var songPlayer: AVAudioPlayer?
     struct PhysicsCategory {
         static let None: UInt32 = 0
         static let Player: UInt32 = 0b1
@@ -41,6 +44,13 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         enumerateChildNodes(withName: "sksPlanets*") {
             (node, stop) in
             node.position = self.convertPoint(fromView: CGPoint(x: CGFloat(arc4random_uniform(UInt32((self.view?.frame.width)!))), y: CGFloat(arc4random_uniform(UInt32((self.view?.frame.height)!)))))
+        }
+        if let path = Bundle.main.path(forResource: "sounds/spaceDimensions", ofType: "mp3") {
+            let filePath = NSURL(fileURLWithPath:path)
+            songPlayer = try! AVAudioPlayer.init(contentsOf: filePath as URL)
+            songPlayer?.prepareToPlay()
+            songPlayer?.volume = 0.1
+            songPlayer?.play()
         }
         //let backgroundMusic = SKAudioNode(fileNamed: "sounds/spaceDimensions.mp3")
         //backgroundMusic.autoplayLooped = true
@@ -412,6 +422,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
     func projectileHitAsteroid(projectile: SKSpriteNode, asteroid: SKSpriteNode, points: Int) {
         projectile.removeFromParent()
         if asteroid.colorBlendFactor >= 1 {
+            run(SKAction.playSoundFileNamed("sounds/sfx/pug.m4a" , waitForCompletion: false))
             asteroid.physicsBody?.categoryBitMask = PhysicsCategory.None
             asteroid.physicsBody?.contactTestBitMask = PhysicsCategory.None
             asteroid.physicsBody?.collisionBitMask = PhysicsCategory.None
