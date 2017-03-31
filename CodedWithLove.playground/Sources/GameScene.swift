@@ -93,6 +93,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
                     self.run(SKAction.playSoundFileNamed("sounds/sfx/phaserUp6.mp3" , waitForCompletion: false))
                     aMessage.text = "1"
                     self.theLevelMessage.run(SKAction.sequence([SKAction.fadeIn(withDuration: 0.75), SKAction.fadeOut(withDuration: 0.75)])) {
+                        self.run(SKAction.playSoundFileNamed("sounds/sfx/phaserUp6.mp3" , waitForCompletion: false))
                         aMessage.text = "Start!"
                         self.theLevelMessage.run(SKAction.sequence([SKAction.fadeIn(withDuration: 0.75), SKAction.fadeOut(withDuration: 0.75), SKAction.wait(forDuration: 2)])) {
                             let theAngles = [0, 90, 180, 270]
