@@ -309,6 +309,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         }
     }
     func goToScene(withName: String) {
+        songPlayer?.stop()
         let toGoScene: SKScene
         switch withName {
         case "txtPlayAgain":
