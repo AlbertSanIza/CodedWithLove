@@ -10,7 +10,7 @@ mainView.showsFPS = true
 mainView.showsNodeCount = true
 mainView.showsPhysics = false
 
-let splashScene: SKScene = GameSceneFile(fileNamed: "scenes/GameScene.sks")!
+let splashScene: SKScene = SplashSceneFile(fileNamed: "scenes/SplashScene.sks")!
 splashScene.scaleMode = .aspectFit
 mainView.presentScene(splashScene)
 
