@@ -192,6 +192,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
                     addProjectile(inPosition: CGPoint(x: thePlayer.position.x + (50 * cos(thePlayer.zRotation + degreesToRadians(degrees: 130))), y: thePlayer.position.y + (50 * sin(thePlayer.zRotation + degreesToRadians(degrees: 130)))))
                     addProjectile(inPosition: CGPoint(x: thePlayer.position.x + (50 * cos(thePlayer.zRotation + degreesToRadians(degrees: 220))), y: thePlayer.position.y + (50 * sin(thePlayer.zRotation + degreesToRadians(degrees: 220)))))
                 }
+                run(SKAction.playSoundFileNamed("sounds/sfx/laser2.mp3" , waitForCompletion: false))
             }
         default: break
         }
