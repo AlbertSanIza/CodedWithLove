@@ -4,7 +4,7 @@ import PlaygroundSupport
 /* 
  Hello Hudge,
  
- This playground was intendent to look properly on a 1024x768 size, but if its too big (like in my case) you just have to cahnge the widht and height values, or you can uncomment some other suggested sizes
+ This playground was intendent to look properly on a 1024x768 size, but if its too big (like in my case) you just have to change the widht and height values, or you can uncomment some other suggested sizes provided below
  
  sorry for the inconvinience ❤️
  
