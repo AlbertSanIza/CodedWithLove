@@ -48,6 +48,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         if let path = Bundle.main.path(forResource: "sounds/spaceDimensions", ofType: "mp3") {
             let filePath = NSURL(fileURLWithPath:path)
             songPlayer = try! AVAudioPlayer.init(contentsOf: filePath as URL)
+            songPlayer?.numberOfLoops = -1
             songPlayer?.prepareToPlay()
             songPlayer?.volume = 0.1
             songPlayer?.play()
