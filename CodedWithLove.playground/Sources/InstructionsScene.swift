@@ -5,13 +5,25 @@ public class InstructionsSceneFile: SKScene {
         if let sksStars: SKSpriteNode = childNode(withName: "sksStars") as! SKSpriteNode? {
             sksStars.texture = SKTexture(imageNamed: "sprites/background/starsLayer2.png")
         }
-        if let sksW: SKSpriteNode = childNode(withName: "sksW") as! SKSpriteNode?, let sksA: SKSpriteNode = childNode(withName: "sksA") as! SKSpriteNode?, let sksS: SKSpriteNode = childNode(withName: "sksS") as! SKSpriteNode?, let sksD: SKSpriteNode = childNode(withName: "sksD") as! SKSpriteNode?, let sksO: SKSpriteNode = childNode(withName: "sksO") as! SKSpriteNode?, let sksSpace: SKSpriteNode = childNode(withName: "sksSpace") as! SKSpriteNode? {
-            sksW.texture = SKTexture(imageNamed: "sprites/keyboard/computerKeyW.png")
-            sksA.texture = SKTexture(imageNamed: "sprites/keyboard/computerKeyA.png")
-            sksS.texture = SKTexture(imageNamed: "sprites/keyboard/computerKeyS.png")
-            sksD.texture = SKTexture(imageNamed: "sprites/keyboard/computerKeyD.png")
-            sksO.texture = SKTexture(imageNamed: "sprites/keyboard/computerKeyO.png")
-            sksSpace.texture = SKTexture(imageNamed: "sprites/keyboard/computerKeySpaceBarpng")
+        if let nodeMenu: SKNode = childNode(withName: "nodeMenu") {
+            if let sksW: SKSpriteNode = nodeMenu.childNode(withName: "sksW") as! SKSpriteNode? {
+                sksW.texture = SKTexture(imageNamed: "sprites/keyboard/computerKeyW.png")
+            }
+            if let sksA: SKSpriteNode = nodeMenu.childNode(withName: "sksA") as! SKSpriteNode? {
+                sksA.texture = SKTexture(imageNamed: "sprites/keyboard/computerKeyA.png")
+            }
+            if let sksS: SKSpriteNode = nodeMenu.childNode(withName: "sksS") as! SKSpriteNode? {
+                sksS.texture = SKTexture(imageNamed: "sprites/keyboard/computerKeyS.png")
+            }
+            if let sksD: SKSpriteNode = nodeMenu.childNode(withName: "sksD") as! SKSpriteNode? {
+                sksD.texture = SKTexture(imageNamed: "sprites/keyboard/computerKeyD.png")
+            }
+            if let sksO: SKSpriteNode = nodeMenu.childNode(withName: "sksO") as! SKSpriteNode? {
+                sksO.texture = SKTexture(imageNamed: "sprites/keyboard/computerKeyO.png")
+            }
+            if let sksSpace: SKSpriteNode = nodeMenu.childNode(withName: "sksSpace") as! SKSpriteNode? {
+                sksSpace.texture = SKTexture(imageNamed: "sprites/keyboard/computerKeySpaceBar.png")
+            }
         }
     }
     override public func keyUp(with event: NSEvent) {
