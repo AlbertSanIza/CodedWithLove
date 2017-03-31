@@ -52,9 +52,6 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
             songPlayer?.volume = 0.1
             songPlayer?.play()
         }
-        //let backgroundMusic = SKAudioNode(fileNamed: "sounds/spaceDimensions.mp3")
-        //backgroundMusic.autoplayLooped = true
-        //addChild(backgroundMusic)
     }
     public func didBegin(_ contact: SKPhysicsContact) {
         var fBody: SKPhysicsBody
