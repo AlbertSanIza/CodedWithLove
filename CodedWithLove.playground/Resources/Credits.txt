@@ -26,6 +26,12 @@ Page: http://kenney.nl/
 Files renamed:
 Digital_SFX_Set.zip --> all files in sounds/sfx folder
 
+https://opengameart.org/content/sound-effects-sfx010
+Title: Sound Effects SFX010
+Artist: jalastram
+Files renamed:
+Sound Effects FX 010.zip --> sounds/sfx/explotion.wav
+
 
 Sprites taken from:
 
