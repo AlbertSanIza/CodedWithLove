@@ -84,7 +84,7 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
                 node.run(SKAction.sequence([SKAction.fadeIn(withDuration: 0), SKAction.removeFromParent()]))
             }
             let aMessage: SKLabelNode = (theLevelMessage.childNode(withName: "txtLevelMessage") as? SKLabelNode)!
-            run(SKAction.playSoundFileNamed("sounds/sfx/laser2.mp3" , waitForCompletion: false))
+            run(SKAction.playSoundFileNamed("sounds/sfx/phaserUp6.mp3" , waitForCompletion: false))
             aMessage.text = "3"
             theLevelMessage.run(SKAction.sequence([SKAction.wait(forDuration: 1), SKAction.fadeIn(withDuration: 0.75), SKAction.fadeOut(withDuration: 0.75)])) {
                 self.run(SKAction.playSoundFileNamed("sounds/sfx/phaserUp6.mp3" , waitForCompletion: false))
