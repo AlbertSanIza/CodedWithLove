@@ -500,9 +500,9 @@ public class GameSceneFile: SKScene, SKPhysicsContactDelegate {
         }
     }
     func radiansToDegrees(radians: CGFloat) -> CGFloat {
-        return radians * 180 / CGFloat(M_PI)
+        return radians * 180 / .pi
     }
     func degreesToRadians(degrees: CGFloat) -> CGFloat {
-        return degrees * CGFloat(M_PI) / 180
+        return degrees * .pi / 180
     }
 }
