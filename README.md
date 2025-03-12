@@ -1,4 +1,4 @@
-# CodedWithLove
+# Coded With Love
 
 WWDC 2017 Scholarship Entry
 
